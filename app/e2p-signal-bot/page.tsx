@@ -344,7 +344,7 @@ export default function E2PSignalBotPage() {
               <div className="p-4">
                 <div className="relative bg-gray-50 rounded-xl p-3">
                   <img 
-                    src="/Welcome.jpg" 
+                    src="/E2PDAO/Welcome.jpg" 
                     alt="E2P Signal Bot Welcome Message" 
                     className="w-full h-auto rounded-lg shadow-md max-h-80 object-contain"
                   />
@@ -369,7 +369,7 @@ export default function E2PSignalBotPage() {
               <div className="p-4">
                 <div className="relative bg-gray-50 rounded-xl p-3">
                     <img 
-                      src="/Signal1.jpg" 
+                      src="/E2PDAO/Signal1.jpg" 
                       alt="E2P Signal Bot Trading Signals Part 1" 
                       className="w-full h-auto rounded-lg shadow-md max-h-80 object-contain"
                     />
@@ -394,7 +394,7 @@ export default function E2PSignalBotPage() {
               <div className="p-4">
                 <div className="relative bg-gray-50 rounded-xl p-3">
                     <img 
-                      src="/Signal2.jpg" 
+                      src="/E2PDAO/Signal2.jpg" 
                       alt="E2P Signal Bot Trading Signals Part 2" 
                       className="w-full h-auto rounded-lg shadow-md max-h-80 object-contain"
                     />

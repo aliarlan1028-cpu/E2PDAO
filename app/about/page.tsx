@@ -12,7 +12,7 @@ export default function AboutPage() {
   const teamExperience = [
     {
       company: 'Bitget',
-      logo: '/Bitget Logo.png',
+      logo: '/E2PDAO/Bitget Logo.png',
       period: '2018/2 - 2020/6',
       position: 'Futures Operations',
       description: 'Led futures trading operations and market analysis, gaining deep insights into cryptocurrency derivatives and risk management.',
@@ -20,7 +20,7 @@ export default function AboutPage() {
     },
     {
       company: 'Tron',
-      logo: '/Tron.png',
+      logo: '/E2PDAO/Tron.png',
       period: '2020/6 - 2021/6',
       position: 'DeFi Operations',
       description: 'Managed DeFi protocol operations and community growth, contributing to the expansion of decentralized finance ecosystem.',
@@ -28,7 +28,7 @@ export default function AboutPage() {
     },
     {
       company: 'Gate.io',
-      logo: '/Gate.io.png',
+      logo: '/E2PDAO/Gate.io.png',
       period: '2021/6 - 2022/6',
       position: 'KOL Operations',
       description: 'Built and managed global KOL network and partnerships, establishing connections with key influencers in the crypto space.',
@@ -36,7 +36,7 @@ export default function AboutPage() {
     },
     {
       company: 'E2P DAO',
-      logo: '/logo-e2p-dao.svg',
+      logo: '/E2PDAO/logo-e2p-dao.svg',
       period: '2022/6 - Now',
       position: 'Founder',
       description: 'Leading comprehensive blockchain project incubation services, combining all previous experience to create a one-stop solution for blockchain projects.',

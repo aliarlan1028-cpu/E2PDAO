@@ -86,16 +86,16 @@ export default function E2PLabsPage() {
   ]
 
   const exchanges = [
-    { name: 'OKX', logo: '/OKX.png' },
-    { name: 'Crypto.com', logo: '/crypto.com.png' },
-    { name: 'Bybit', logo: '/Bybit.png' },
-    { name: 'Kucoin', logo: '/Kucoin.png' },
-    { name: 'HTX', logo: '/HTX.png' },
-    { name: 'Bitget', logo: '/Bitget Logo.png' },
-    { name: 'Gate.io', logo: '/Gate.io.png' },
-    { name: 'MEXC', logo: '/MEXC.png' },
-    { name: 'Bingx', logo: '/Bingx.png' },
-    { name: 'Coinstore', logo: '/CoinStore.png' }
+    { name: 'OKX', logo: '/E2PDAO/OKX.png' },
+    { name: 'Crypto.com', logo: '/E2PDAO/crypto.com.png' },
+    { name: 'Bybit', logo: '/E2PDAO/Bybit.png' },
+    { name: 'Kucoin', logo: '/E2PDAO/Kucoin.png' },
+    { name: 'HTX', logo: '/E2PDAO/HTX.png' },
+    { name: 'Bitget', logo: '/E2PDAO/Bitget Logo.png' },
+    { name: 'Gate.io', logo: '/E2PDAO/Gate.io.png' },
+    { name: 'MEXC', logo: '/E2PDAO/MEXC.png' },
+    { name: 'Bingx', logo: '/E2PDAO/Bingx.png' },
+    { name: 'Coinstore', logo: '/E2PDAO/CoinStore.png' }
   ]
 
   const successCases = [

@@ -108,7 +108,7 @@ const HeroSection = () => {
             <div className="relative bg-white rounded-2xl shadow-2xl p-8 border border-gray-100">
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center space-x-3">
-                  <img src="/logo-e2p-dao.svg" alt="E2P DAO" className="w-12 h-12" />
+                  <img src="/E2PDAO/logo-e2p-dao.svg" alt="E2P DAO" className="w-12 h-12" />
                   <div>
                     <h3 className="font-semibold text-gray-900">E2P DAO</h3>
                     <p className="text-sm text-gray-500">Blockchain Accelerator</p>
