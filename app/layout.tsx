@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   keywords: 'blockchain, crypto, project incubation, KOL marketing, exchange listing, investment, E2P DAO, E2P Labs, E2P Club',
   authors: [{ name: 'E2P DAO Team' }],
   icons: {
-    icon: '/E2PDAO/logo-e2p-dao-favicon.svg',
-    shortcut: '/E2PDAO/logo-e2p-dao-favicon.svg',
-    apple: '/E2PDAO/logo-e2p-dao-favicon.svg',
+    icon: '/logo-e2p-dao-favicon.svg',
+    shortcut: '/logo-e2p-dao-favicon.svg',
+    apple: '/logo-e2p-dao-favicon.svg',
   },
   openGraph: {
     title: 'E2P DAO - Blockchain Project Incubation & Investment Community',

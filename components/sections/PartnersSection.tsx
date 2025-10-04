@@ -10,32 +10,32 @@ const PartnersSection = () => {
   const isInView = useInView(ref, { once: true })
 
   const exchanges = [
-    { name: 'OKX', logo: '/E2PDAO/OKX.png' },
-    { name: 'Crypto.com', logo: '/E2PDAO/crypto.com.png' },
-    { name: 'Gate.io', logo: '/E2PDAO/Gate.io.png' },
-    { name: 'Bitget', logo: '/E2PDAO/Bitget Logo.png' },
-    { name: 'MEXC', logo: '/E2PDAO/MEXC.png' },
-    { name: 'Bingx', logo: '/E2PDAO/Bingx.png' },
-    { name: 'HTX', logo: '/E2PDAO/HTX.png' },
-    { name: 'Bybit', logo: '/E2PDAO/Bybit.png' },
-    { name: 'Kucoin', logo: '/E2PDAO/Kucoin.png' },
-    { name: 'Coinstore', logo: '/E2PDAO/CoinStore.png' }
+    { name: 'OKX', logo: '/OKX.png' },
+    { name: 'Crypto.com', logo: '/crypto.com.png' },
+    { name: 'Gate.io', logo: '/Gate.io.png' },
+    { name: 'Bitget', logo: '/Bitget Logo.png' },
+    { name: 'MEXC', logo: '/MEXC.png' },
+    { name: 'Bingx', logo: '/Bingx.png' },
+    { name: 'HTX', logo: '/HTX.png' },
+    { name: 'Bybit', logo: '/Bybit.png' },
+    { name: 'Kucoin', logo: '/Kucoin.png' },
+    { name: 'Coinstore', logo: '/CoinStore.png' }
   ]
 
   const idoPlatforms = [
-    { name: 'DAO Maker', logo: '/E2PDAO/DAO Maker.png', description: 'Leading IDO platform' },
-    { name: 'Seedify', logo: '/E2PDAO/seedify.svg', description: 'Gaming-focused IDO' },
-    { name: 'Poolz Finance', logo: '/E2PDAO/Poolz Finance.png', description: 'DeFi IDO platform' },
-    { name: 'BullPerks', logo: '/E2PDAO/BullPerks.png', description: 'Multi-chain IDO' },
-    { name: 'Kommunitas', logo: '/E2PDAO/kommunitas.png', description: 'Community-driven IDO' }
+    { name: 'DAO Maker', logo: '/DAO Maker.png', description: 'Leading IDO platform' },
+    { name: 'Seedify', logo: '/seedify.svg', description: 'Gaming-focused IDO' },
+    { name: 'Poolz Finance', logo: '/Poolz Finance.png', description: 'DeFi IDO platform' },
+    { name: 'BullPerks', logo: '/BullPerks.png', description: 'Multi-chain IDO' },
+    { name: 'Kommunitas', logo: '/kommunitas.png', description: 'Community-driven IDO' }
   ]
 
   const vcs = [
-    { name: 'Coresky', logo: '/E2PDAO/Coresky.jpeg', description: 'Blockchain investment' },
-    { name: 'Unicorne-Verse', logo: '/E2PDAO/Unicorne-Verse.jpg', description: 'Web3 accelerator' },
-    { name: 'MT Capital', logo: '/E2PDAO/MT Capital.avif', description: 'Crypto VC fund' },
-    { name: 'Mirana Ventures', logo: '/E2PDAO/Mirana Ventures.png', description: 'Strategic investments' },
-    { name: 'Snova Capital', logo: '/E2PDAO/Snova Capital.png', description: 'Early-stage VC' }
+    { name: 'Coresky', logo: '/Coresky.jpeg', description: 'Blockchain investment' },
+    { name: 'Unicorne-Verse', logo: '/Unicorne-Verse.jpg', description: 'Web3 accelerator' },
+    { name: 'MT Capital', logo: '/MT Capital.avif', description: 'Crypto VC fund' },
+    { name: 'Mirana Ventures', logo: '/Mirana Ventures.png', description: 'Strategic investments' },
+    { name: 'Snova Capital', logo: '/Snova Capital.png', description: 'Early-stage VC' }
   ]
 
   return (

@@ -1,0 +1,10 @@
+{
+  "/_not-found": "app/_not-found.js",
+  "/about/page": "app/about/page.js",
+  "/e2p-labs/page": "app/e2p-labs/page.js",
+  "/page": "app/page.js",
+  "/success-cases/page": "app/success-cases/page.js",
+  "/e2p-signal-bot/page": "app/e2p-signal-bot/page.js",
+  "/e2p-club/page": "app/e2p-club/page.js",
+  "/contact/page": "app/contact/page.js"
+}

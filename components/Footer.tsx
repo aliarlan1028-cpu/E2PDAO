@@ -58,7 +58,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center space-x-3 mb-4">
-              <img src="/E2PDAO/logo-e2p-dao.svg" alt="E2P DAO" className="w-8 h-8 flex-shrink-0" />
+              <img src="/logo-e2p-dao.svg" alt="E2P DAO" className="w-8 h-8 flex-shrink-0" />
               <span className="text-xl font-bold">E2P DAO</span>
             </Link>
             <p className="text-gray-300 mb-6 max-w-md">

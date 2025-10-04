@@ -441,7 +441,7 @@ export default function E2PClubPage() {
                 className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow text-center"
               >
                 <div className="w-12 h-12 mb-3 mx-auto">
-                  <img src="/E2PDAO/Telegram.png" alt="Telegram" className="w-full h-full object-contain" />
+                  <img src="/Telegram.png" alt="Telegram" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">Telegram</h3>
                 <p className="text-sm text-gray-600">Official Group</p>
@@ -454,7 +454,7 @@ export default function E2PClubPage() {
                 className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow text-center"
               >
                 <div className="w-12 h-12 mb-3 mx-auto">
-                  <img src="/E2PDAO/x.svg" alt="X" className="w-full h-full object-contain" />
+                  <img src="/x.svg" alt="X" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">X</h3>
                 <p className="text-sm text-gray-600">Latest Updates</p>
@@ -467,7 +467,7 @@ export default function E2PClubPage() {
                 className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow text-center"
               >
                 <div className="w-12 h-12 mb-3 mx-auto">
-                  <img src="/E2PDAO/Taskon.svg" alt="TaskOn" className="w-full h-full object-contain" />
+                  <img src="/Taskon.svg" alt="TaskOn" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">TaskOn</h3>
                 <p className="text-sm text-gray-600">Community Tasks</p>
@@ -480,7 +480,7 @@ export default function E2PClubPage() {
                 className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow text-center"
               >
                 <div className="w-12 h-12 mb-3 mx-auto">
-                  <img src="/E2PDAO/CMC.png" alt="CMC" className="w-full h-full object-contain" />
+                  <img src="/CMC.png" alt="CMC" className="w-full h-full object-contain" />
                 </div>
                 <h3 className="font-semibold text-gray-900 mb-2">CMC</h3>
                 <p className="text-sm text-gray-600">Token Price</p>

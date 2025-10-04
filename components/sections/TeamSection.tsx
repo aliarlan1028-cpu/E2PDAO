@@ -12,28 +12,28 @@ const TeamSection = () => {
   const teamExperience = [
     {
       company: 'Bitget',
-      logo: '/E2PDAO/Bitget Logo.png',
+      logo: '/Bitget Logo.png',
       period: '2018/2 - 2020/6',
       position: 'Futures Operations',
       description: 'Led futures trading operations and market analysis'
     },
     {
       company: 'Tron',
-      logo: '/E2PDAO/Tron.png',
+      logo: '/Tron.png',
       period: '2020/6 - 2021/6',
       position: 'DeFi Operations',
       description: 'Managed DeFi protocol operations and community growth'
     },
     {
       company: 'Gate.io',
-      logo: '/E2PDAO/Gate.io.png',
+      logo: '/Gate.io.png',
       period: '2021/6 - 2022/6',
       position: 'KOL Operations',
       description: 'Built and managed global KOL network and partnerships'
     },
     {
       company: 'E2P DAO',
-      logo: '/E2PDAO/logo-e2p-dao.svg',
+      logo: '/logo-e2p-dao.svg',
       period: '2022/6 - Now',
       position: 'Founder',
       description: 'Leading comprehensive blockchain project incubation services'

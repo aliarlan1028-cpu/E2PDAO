@@ -41,7 +41,7 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <img src="/E2PDAO/logo-e2p-dao.svg" alt="E2P DAO" className="w-8 h-8" />
+            <img src="/logo-e2p-dao.svg" alt="E2P DAO" className="w-8 h-8" />
             <span className="text-xl font-bold text-gray-900">E2P DAO</span>
           </Link>
 
