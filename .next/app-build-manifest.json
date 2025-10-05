@@ -23,16 +23,7 @@
       "static/chunks/938-138086dff3cf238b.js",
       "static/chunks/main-app-121b0cf2fd1dbef6.js",
       "static/chunks/581-eaaef2a6ccd191b0.js",
-      "static/chunks/app/e2p-club/page-c0ab9986fe06f472.js"
-    ],
-    "/page": [
-      "static/chunks/webpack-ae9fe507eeb0392c.js",
-      "static/chunks/fd9d1056-d402c3289b63a580.js",
-      "static/chunks/938-138086dff3cf238b.js",
-      "static/chunks/main-app-121b0cf2fd1dbef6.js",
-      "static/chunks/581-eaaef2a6ccd191b0.js",
-      "static/chunks/396-41a383cc8e42e600.js",
-      "static/chunks/app/page-1b6ac981fefdfae8.js"
+      "static/chunks/app/e2p-club/page-b651866985244bb4.js"
     ],
     "/e2p-signal-bot/page": [
       "static/chunks/webpack-ae9fe507eeb0392c.js",
@@ -42,6 +33,15 @@
       "static/chunks/581-eaaef2a6ccd191b0.js",
       "static/chunks/396-41a383cc8e42e600.js",
       "static/chunks/app/e2p-signal-bot/page-7cf95ffe9866c283.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-ae9fe507eeb0392c.js",
+      "static/chunks/fd9d1056-d402c3289b63a580.js",
+      "static/chunks/938-138086dff3cf238b.js",
+      "static/chunks/main-app-121b0cf2fd1dbef6.js",
+      "static/chunks/581-eaaef2a6ccd191b0.js",
+      "static/chunks/396-41a383cc8e42e600.js",
+      "static/chunks/app/page-1b6ac981fefdfae8.js"
     ],
     "/e2p-labs/page": [
       "static/chunks/webpack-ae9fe507eeb0392c.js",

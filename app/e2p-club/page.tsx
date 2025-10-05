@@ -76,6 +76,14 @@ export default function E2PClubPage() {
 
   const earningTasks = [
     {
+      task: 'Join E2P DAO VIP Group',
+      reward: '100,000 $E2P'
+    },
+    {
+      task: 'Invite Users to E2P DAO VIP Group',
+      reward: '100,000 $E2P Per User'
+    },
+    {
       task: 'Register OKX by Ref Link and Trade',
       reward: '25,000 $E2P for every $5,000 volume'
     },
@@ -86,10 +94,6 @@ export default function E2PClubPage() {
     {
       task: 'Increase Engagement of Social Media',
       reward: '500 $E2P Per Time'
-    },
-    {
-      task: 'Invite Users to E2P DAO VIP Group',
-      reward: '100,000 $E2P Per User'
     }
   ]
 
