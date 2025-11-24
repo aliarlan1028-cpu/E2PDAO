@@ -16,7 +16,8 @@ import {
   Zap,
   CheckCircle,
   ArrowRight,
-  ExternalLink
+  ExternalLink,
+  Bell
 } from 'lucide-react'
 
 export default function E2PSignalBotPage() {
@@ -86,29 +87,6 @@ export default function E2PSignalBotPage() {
     }
   ]
 
-  const benefits = [
-    {
-      icon: TrendingUp,
-      title: 'Enhanced Decision Making',
-      description: 'Get professional-grade market insights to make informed trading decisions with confidence'
-    },
-    {
-      icon: Target,
-      title: 'Risk Reduction',
-      description: 'Advanced risk detection algorithms help identify potential market traps and manipulation'
-    },
-    {
-      icon: Zap,
-      title: 'Real-Time Alerts',
-      description: 'Instant notifications for trading opportunities and risk warnings, never miss critical market moves'
-    },
-    {
-      icon: CheckCircle,
-      title: 'Proven Performance',
-      description: 'Backed by professional trading experience from Bitget and Tron, with continuous algorithm optimization'
-    }
-  ]
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-white">
       {/* Hero Section */}
@@ -136,7 +114,7 @@ export default function E2PSignalBotPage() {
             </h1>
             
             <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-4xl mx-auto">
-              Professional-grade trading signal bot powered by advanced AI algorithms and multi-dimensional market analysis
+              Intelligent trading signal analysis powered by machine learning and multi-dimensional technical analysis for OKX perpetual contracts
             </p>
             
           </motion.div>
@@ -231,7 +209,7 @@ export default function E2PSignalBotPage() {
         </div>
       </section>
 
-      {/* Benefits Section */}
+      {/* Benefits Section - AI Model Ratings */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -244,71 +222,108 @@ export default function E2PSignalBotPage() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Why Choose E2P Signal Bot?
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Professional trading tools designed to enhance your market performance and reduce risks
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+              Recognized by leading AI models for its professional-grade architecture and comprehensive trading logic
             </p>
+            
+            {/* AI Model Ratings */}
+            <div className="flex flex-wrap justify-center gap-6 mb-12">
+              <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 py-3 rounded-full">
+                <span className="font-semibold">Gemini: </span>
+                <span className="text-2xl font-bold">9.5/10</span>
+              </div>
+              <div className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 py-3 rounded-full">
+                <span className="font-semibold">Grok: </span>
+                <span className="text-2xl font-bold">9.8/10</span>
+              </div>
+              <div className="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-6 py-3 rounded-full">
+                <span className="font-semibold">GPT-5: </span>
+                <span className="text-2xl font-bold">9.0/10</span>
+              </div>
+            </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {benefits.map((benefit, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: 'Complete Trading System',
+                description: 'Full signal generation → confirmation → entry → risk control closed-loop system with no obvious logical flaws',
+                icon: CheckCircle,
+                color: 'from-green-500 to-green-600',
+                bgColor: 'bg-green-50',
+                source: 'Grok 9.8'
+              },
+              {
+                title: 'Multi-Factor Scoring System',
+                description: 'Institutional-grade confluence model integrating trend, momentum, structure, pattern, divergence, OI, order book, sentiment, funding, and HTF confirmation',
+                icon: BarChart3,
+                color: 'from-blue-500 to-blue-600',
+                bgColor: 'bg-blue-50',
+                source: 'GPT-5 9.0'
+              },
+              {
+                title: 'Advanced Signal Quality',
+                description: 'Multi-factor weighting and multi-layer filtering (HTF confirmation, ML Filter) to improve confidence and signal reliability',
+                icon: Target,
+                color: 'from-primary-500 to-primary-600',
+                bgColor: 'bg-primary-50',
+                source: 'Gemini 9.5'
+              },
+              {
+                title: 'Crypto Market Expertise',
+                description: 'Specifically addresses crypto market pain points: fake breakouts, extreme funding rates, manipulation detection with dedicated filters and penalties',
+                icon: Shield,
+                color: 'from-orange-500 to-orange-600',
+                bgColor: 'bg-orange-50',
+                source: 'Grok 9.8'
+              },
+              {
+                title: 'Dynamic Mechanism Design',
+                description: 'Dynamic weights, dynamic thresholds, dynamic stop-loss/take-profit. Hysteresis state machine prevents signal jitter. Market cycle recognition adapts to volatility',
+                icon: Zap,
+                color: 'from-purple-500 to-purple-600',
+                bgColor: 'bg-purple-50',
+                source: 'All Models'
+              },
+              {
+                title: 'Smart Entry Logic',
+                description: 'Intelligent entry rules: wait for pullback if price ≤ 2 ATR from EMA20, otherwise market entry. Perfectly balances "no FOMO" and "don\'t miss strong trends"',
+                icon: TrendingUp,
+                color: 'from-cyan-500 to-cyan-600',
+                bgColor: 'bg-cyan-50',
+                source: 'Grok 9.8'
+              }
+            ].map((benefit, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="flex items-start space-x-6 p-6 bg-gray-50 rounded-2xl"
+                className={`${benefit.bgColor} p-6 rounded-2xl border border-gray-100 hover:shadow-xl transition-all`}
               >
-                <div className="flex-shrink-0">
-                  <div className="p-3 bg-primary-100 rounded-xl">
-                    <benefit.icon className="w-8 h-8 text-primary-600" />
+                <div className="flex items-start justify-between mb-4">
+                  <div className={`p-3 rounded-xl bg-gradient-to-r ${benefit.color}`}>
+                    <benefit.icon className="w-6 h-6 text-white" />
                   </div>
+                  <span className="text-xs font-semibold text-gray-500 bg-white px-2 py-1 rounded">
+                    {benefit.source}
+                  </span>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                    {benefit.title}
-                  </h3>
-                  <p className="text-gray-600">
-                    {benefit.description}
-                  </p>
-                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  {benefit.description}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Professional Background Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-600 to-primary-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <h2 className="text-4xl font-bold mb-6">
-              Built by Trading Professionals
-            </h2>
-            <p className="text-xl text-white/90 mb-12 max-w-4xl mx-auto">
-              Our team brings extensive experience from leading cryptocurrency exchanges and blockchain projects
-            </p>
-            
-            <div className="max-w-2xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl">
-                <h3 className="text-2xl font-semibold mb-4">OKX Experience</h3>
-                <p className="text-white/90">
-                  Professional trading and operations expertise from one of the world's leading cryptocurrency exchanges
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Screenshots Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      {/* Signal Accuracy Section */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -318,91 +333,74 @@ export default function E2PSignalBotPage() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              See Our Signal Bot in Action
+              Signal Accuracy Rates
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Experience the power of our professional trading signals and real-time market analysis
+              Our bot provides three types of signal labels, each with different accuracy rates, all backed by advanced AI analysis
             </p>
           </motion.div>
 
-          {/* Three Screenshots Side by Side */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Welcome Message */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
-            >
-              <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4">
-                <h3 className="text-lg font-bold text-white mb-1">Welcome Message</h3>
-                <p className="text-blue-100 text-sm">
-                  Bot greeting and feature overview
-                </p>
-              </div>
-              <div className="p-4">
-                <div className="relative bg-gray-50 rounded-xl p-3">
-                  <img 
-                    src="/Welcome.jpg" 
-                    alt="E2P Signal Bot Welcome Message" 
-                    className="w-full h-auto rounded-lg shadow-md max-h-80 object-contain"
-                  />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                tier: 'Basic',
+                accuracy: '45%-55%',
+                color: 'from-gray-500 to-gray-600',
+                bgColor: 'bg-gray-50',
+                borderColor: 'border-gray-200',
+                icon: Target,
+                description: 'Basic signal label with standard market analysis'
+              },
+              {
+                tier: 'Standard',
+                accuracy: '55%-65%',
+                color: 'from-blue-500 to-blue-600',
+                bgColor: 'bg-blue-50',
+                borderColor: 'border-blue-200',
+                icon: TrendingUp,
+                description: 'Standard signal label with enhanced technical indicators'
+              },
+              {
+                tier: 'Premium',
+                accuracy: '65%-80%',
+                color: 'from-primary-500 to-primary-600',
+                bgColor: 'bg-primary-50',
+                borderColor: 'border-primary-200',
+                icon: Zap,
+                description: 'Premium signal label with comprehensive multi-dimensional analysis'
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className={`${item.bgColor} p-8 rounded-2xl border-2 ${item.borderColor} hover:shadow-xl transition-all transform hover:-translate-y-1`}
+              >
+                <div className="flex items-center justify-center mb-6">
+                  <div className={`p-4 rounded-2xl bg-gradient-to-r ${item.color}`}>
+                    <item.icon className="w-8 h-8 text-white" />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Signal Part 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
-            >
-              <div className="bg-gradient-to-r from-green-500 to-green-600 p-4">
-                <h3 className="text-lg font-bold text-white mb-1">Signal Part 1</h3>
-                <p className="text-green-100 text-sm">
-                  Trading signal analysis
-                </p>
-              </div>
-              <div className="p-4">
-                <div className="relative bg-gray-50 rounded-xl p-3">
-                    <img 
-                      src="/Signal1.jpg" 
-                      alt="E2P Signal Bot Trading Signals Part 1" 
-                      className="w-full h-auto rounded-lg shadow-md max-h-80 object-contain"
-                    />
+                
+                <h3 className="text-2xl font-bold text-gray-900 mb-2 text-center">
+                  {item.tier}
+                </h3>
+                
+                <div className="text-center mb-4">
+                  <div className={`text-4xl font-bold bg-gradient-to-r ${item.color} bg-clip-text text-transparent mb-2`}>
+                    {item.accuracy}
+                  </div>
+                  <p className="text-sm text-gray-500 font-medium">Accuracy Rate</p>
                 </div>
-              </div>
-            </motion.div>
-
-            {/* Signal Part 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100"
-            >
-              <div className="bg-gradient-to-r from-green-500 to-green-600 p-4">
-                <h3 className="text-lg font-bold text-white mb-1">Signal Part 2</h3>
-                <p className="text-green-100 text-sm">
-                  Trading signal analysis
+                
+                <p className="text-gray-600 text-center text-sm">
+                  {item.description}
                 </p>
-              </div>
-              <div className="p-4">
-                <div className="relative bg-gray-50 rounded-xl p-3">
-                    <img 
-                      src="/Signal2.jpg" 
-                      alt="E2P Signal Bot Trading Signals Part 2" 
-                      className="w-full h-auto rounded-lg shadow-md max-h-80 object-contain"
-                    />
-                </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            ))}
           </div>
-
         </div>
       </section>
 
