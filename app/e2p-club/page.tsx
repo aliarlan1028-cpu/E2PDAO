@@ -378,7 +378,7 @@ export default function E2PClubPage() {
                     Join E2P Club VIP
                   </h4>
                   <div className="flex items-center justify-center space-x-2 mb-4">
-                    <span className="text-3xl font-bold text-white">150 USDT</span>
+                    <span className="text-3xl font-bold text-white">200 USDT</span>
                     <span className="text-white/80 text-lg">One-time Payment</span>
                   </div>
                   <p className="text-white/90 text-sm mb-4">
@@ -398,7 +398,7 @@ export default function E2PClubPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-8 py-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors btn-hover"
                   >
-                    Join E2P Club VIP - 150 USDT
+                    Join E2P Club VIP - 200 USDT
                     <ArrowRight className="ml-2 w-5 h-5" />
                   </a>
                   
