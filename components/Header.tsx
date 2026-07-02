@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu, X, ChevronDown, ArrowUpRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -24,13 +25,24 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  const pathname = usePathname()
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 24)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 24)
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight
+      setScrollProgress(maxScroll > 0 ? Math.min(100, (window.scrollY / maxScroll) * 100) : 0)
+    }
     handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const isActive = (href: string, dropdown?: typeof navigation[number]['dropdown']) => {
+    if (href === '/') return pathname === '/'
+    return pathname.startsWith(href) || Boolean(dropdown?.some((item) => pathname.startsWith(item.href)))
+  }
 
   return (
     <header
@@ -40,11 +52,18 @@ const Header = () => {
           : 'border-slate-200 bg-white/90 shadow-sm backdrop-blur-md'
       }`}
     >
+      <div className="absolute inset-x-0 bottom-0 h-px bg-slate-200" />
+      <div
+        className="absolute bottom-0 left-0 h-px bg-gradient-to-r from-teal-400 via-primary-500 to-amber-400 transition-[width] duration-150"
+        style={{ width: `${scrollProgress}%` }}
+      />
       <nav className="section-shell">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex min-w-0 items-center gap-3">
-            <img src="/logo-e2p-dao.svg" alt="E2P DAO" className="h-7 w-auto flex-shrink-0" />
-            <span className="truncate text-lg font-bold text-slate-950">E2P DAO</span>
+            <span className="logo-mark flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg bg-slate-950 shadow-sm ring-1 ring-slate-200">
+              <img src="/e2p-icon.svg" alt="E2P DAO" className="h-9 w-9" />
+            </span>
+            <span className="truncate text-xl font-bold text-slate-950">E2P DAO</span>
           </Link>
 
           <div className="hidden items-center gap-7 md:flex">
@@ -52,19 +71,31 @@ const Header = () => {
               <div key={item.name} className="relative">
                 {item.dropdown ? (
                   <div
-                    className="flex cursor-pointer items-center gap-1 text-sm font-medium text-slate-700 transition-colors hover:text-primary-600"
+                    className={`flex cursor-pointer items-center gap-1 text-sm font-medium transition-colors hover:text-primary-600 ${
+                      isActive(item.href, item.dropdown) ? 'text-slate-950' : 'text-slate-700'
+                    }`}
                     onMouseEnter={() => setActiveDropdown(item.name)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <Link href={item.href}>{item.name}</Link>
+                    <Link href={item.href} className="relative">
+                      {item.name}
+                      {isActive(item.href, item.dropdown) && (
+                        <span className="absolute -bottom-2 left-0 h-0.5 w-full rounded-full bg-teal-400" />
+                      )}
+                    </Link>
                     <ChevronDown className="h-4 w-4" />
                   </div>
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-sm font-medium text-slate-700 transition-colors hover:text-primary-600"
+                    className={`relative text-sm font-medium transition-colors hover:text-primary-600 ${
+                      isActive(item.href) ? 'text-slate-950' : 'text-slate-700'
+                    }`}
                   >
                     {item.name}
+                    {isActive(item.href) && (
+                      <span className="absolute -bottom-2 left-0 h-0.5 w-full rounded-full bg-teal-400" />
+                    )}
                   </Link>
                 )}
 

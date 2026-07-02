@@ -61,11 +61,13 @@ export default function E2PClubPage() {
 
   return (
     <div className="bg-white pt-16">
-      <section className="bg-slate-950 py-20 text-white">
-        <div className="section-shell">
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-white">
+        <div className="animated-grid absolute inset-0 grid-bg opacity-20" />
+        <div className="scanline absolute inset-x-0 top-0" />
+        <div className="section-shell relative">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }}>
-              <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/8 px-3 py-2 text-sm font-semibold text-slate-200">
+              <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/10 px-3 py-2 text-sm font-semibold text-slate-200">
                 <Users className="h-4 w-4 text-teal-300" />
                 E2P Club
               </div>
@@ -101,7 +103,7 @@ export default function E2PClubPage() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1 }}
-              className="rounded-lg border border-white/10 bg-white/6 p-5"
+              className="energy-card rounded-lg border border-white/10 bg-white/5 p-5"
             >
               <div className="rounded-lg bg-white p-5 text-slate-950">
                 <div className="flex items-center gap-3">
@@ -221,7 +223,7 @@ export default function E2PClubPage() {
                 $E2P rewards referrals, engagement and project recommendations.
               </p>
             </div>
-            <div className="rounded-lg border border-white/10 bg-white/6 p-5">
+            <div className="energy-card rounded-lg border border-white/10 bg-white/5 p-5">
               <div className="space-y-3">
                 {rewardRows.map((row) => (
                   <div key={row.task} className="grid gap-2 rounded-lg bg-white p-4 text-slate-950 md:grid-cols-[1fr_auto] md:items-center">

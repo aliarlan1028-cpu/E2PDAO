@@ -65,6 +65,99 @@ html {
   }
 }
 
+@keyframes gridShift {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 32px 32px, 32px 32px;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.7;
+  }
+  55% {
+    opacity: 0.32;
+  }
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+
+@keyframes borderSweep {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes pulseNode {
+  0%, 100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes railFlow {
+  0% {
+    stroke-dashoffset: 90;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes tickerFlow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes logoGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 rgba(20, 184, 166, 0), 0 0 0 rgba(245, 158, 11, 0);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(20, 184, 166, 0.24), 0 0 44px rgba(245, 158, 11, 0.12);
+  }
+}
+
+@keyframes signalRise {
+  0%, 100% {
+    transform: scaleY(0.72);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes meterGlow {
+  0%, 100% {
+    filter: saturate(1);
+  }
+  50% {
+    filter: saturate(1.45);
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -101,6 +194,74 @@ html {
   background-size: 32px 32px;
 }
 
+.animated-grid {
+  animation: gridShift 18s linear infinite;
+}
+
+.scanline {
+  background: linear-gradient(180deg, transparent, rgba(20, 184, 166, 0.24), transparent);
+  height: 36%;
+  animation: scanline 5.5s ease-in-out infinite;
+}
+
+.energy-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.energy-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, transparent 12%, rgba(20, 184, 166, 0.18), rgba(245, 158, 11, 0.12), transparent 88%);
+  transform: translateX(-120%);
+  animation: borderSweep 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.energy-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.pulse-node {
+  animation: pulseNode 2.6s ease-in-out infinite;
+}
+
+.rail-flow {
+  stroke-dasharray: 8 10;
+  animation: railFlow 2.8s linear infinite;
+}
+
+.logo-mark {
+  animation: logoGlow 4s ease-in-out infinite;
+}
+
+.ticker-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.ticker-track {
+  width: max-content;
+  animation: tickerFlow 28s linear infinite;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+.signal-bar {
+  display: block;
+  transform-origin: bottom;
+  animation: signalRise 2.4s ease-in-out infinite;
+}
+
+.meter-flow {
+  animation: meterGlow 3.2s ease-in-out infinite;
+}
+
 .section-shell {
   max-width: 80rem;
   margin-left: auto;
@@ -127,6 +288,13 @@ html {
   border: 1px solid rgba(226, 232, 240, 0.95);
   background: rgba(255, 255, 255, 0.92);
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.soft-card:hover {
+  border-color: rgba(20, 184, 166, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 24px 55px rgba(15, 23, 42, 0.12);
 }
 
 .dark-card {
@@ -135,8 +303,25 @@ html {
   box-shadow: 0 18px 45px rgba(2, 6, 23, 0.22);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animated-grid,
+  .scanline,
+  .energy-card::before,
+  .pulse-node,
+  .rail-flow,
+  .logo-mark,
+  .ticker-track,
+  .signal-bar,
+  .meter-flow,
+  .animate-float {
+    animation: none;
+  }
 
-
+  .soft-card,
+  .btn-hover {
+    transition: none;
+  }
+}
 
 
 

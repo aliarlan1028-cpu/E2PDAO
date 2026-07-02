@@ -39,7 +39,7 @@ const LogoGrid = ({ title, items }: { title: string; items: { name: string; logo
     <h3 className="font-semibold text-slate-950">{title}</h3>
     <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
       {items.map((item) => (
-        <div key={item.name} className="flex h-20 min-w-0 items-center justify-center overflow-hidden rounded-lg bg-slate-50 p-4 ring-1 ring-slate-100">
+        <div key={item.name} className="flex h-20 min-w-0 items-center justify-center overflow-hidden rounded-lg bg-slate-50 p-4 ring-1 ring-slate-100 transition-transform duration-300 hover:-translate-y-1 hover:bg-white hover:shadow-md">
           <img src={item.logo} alt={item.name} className="h-10 w-28 object-contain" />
         </div>
       ))}

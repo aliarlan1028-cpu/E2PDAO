@@ -27,13 +27,15 @@ const CTASection = () => {
   const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section ref={ref} className="bg-slate-950 py-20 text-white">
+    <section ref={ref} className="relative overflow-hidden bg-slate-950 py-20 text-white">
+      <div className="animated-grid absolute inset-0 grid-bg opacity-20" />
+      <div className="scanline absolute inset-x-0 top-0" />
       <div className="section-shell">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
           transition={{ duration: 0.6 }}
-          className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center"
+          className="relative grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center"
         >
           <div>
             <p className="text-sm font-semibold uppercase text-teal-300">Choose the right path</p>
@@ -57,7 +59,7 @@ const CTASection = () => {
               <Link
                 key={path.title}
                 href={path.href}
-                className="rounded-lg border border-white/10 bg-white/6 p-6 transition-colors hover:bg-white/10"
+                className="energy-card rounded-lg border border-white/10 bg-white/5 p-6 transition-colors hover:bg-white/10"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white text-slate-950">
                   <path.icon className="h-6 w-6" />

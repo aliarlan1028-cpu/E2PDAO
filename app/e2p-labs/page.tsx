@@ -109,11 +109,13 @@ export default function E2PLabsPage() {
 
   return (
     <div className="bg-white pt-16">
-      <section className="bg-slate-950 py-20 text-white">
-        <div className="section-shell">
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-white">
+        <div className="animated-grid absolute inset-0 grid-bg opacity-20" />
+        <div className="scanline absolute inset-x-0 top-0" />
+        <div className="section-shell relative">
           <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }}>
-              <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/8 px-3 py-2 text-sm font-semibold text-slate-200">
+              <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/10 px-3 py-2 text-sm font-semibold text-slate-200">
                 <BadgeCheck className="h-4 w-4 text-teal-300" />
                 E2P Labs for project teams
               </div>
@@ -145,7 +147,7 @@ export default function E2PLabsPage() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.1 }}
-              className="rounded-lg border border-white/10 bg-white/6 p-5"
+              className="energy-card rounded-lg border border-white/10 bg-white/5 p-5"
             >
               <div className="grid grid-cols-2 gap-3">
                 {labsMetrics.map((metric) => (
@@ -234,7 +236,7 @@ export default function E2PLabsPage() {
                 Story, users, visibility and market structure move together.
               </p>
             </div>
-            <div className="rounded-lg border border-white/10 bg-white/6 p-5">
+            <div className="energy-card rounded-lg border border-white/10 bg-white/5 p-5">
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {exchanges.map((exchange) => (
                   <div key={exchange.name} className="flex h-20 min-w-0 items-center justify-center overflow-hidden rounded-lg bg-white p-3">

@@ -70,8 +70,10 @@ export default function ContactPage() {
 
   return (
     <div className="bg-white pt-16">
-      <section className="bg-slate-950 py-20 text-white">
-        <div className="section-shell">
+      <section className="relative overflow-hidden bg-slate-950 py-20 text-white">
+        <div className="animated-grid absolute inset-0 grid-bg opacity-20" />
+        <div className="scanline absolute inset-x-0 top-0" />
+        <div className="section-shell relative">
           <div className="max-w-3xl">
             <p className="text-sm font-semibold uppercase text-teal-300">Contact E2P DAO</p>
             <h1 className="mt-4 text-4xl font-bold leading-tight md:text-5xl">
