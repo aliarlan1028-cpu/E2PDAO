@@ -21,15 +21,19 @@ const Header = () => {
   const navigation = [
     { name: 'Home', href: '/' },
     {
-      name: 'Services',
-      href: '#',
+      name: 'Solutions',
+      href: '/solutions',
       dropdown: [
-        { name: 'E2P Labs', href: '/e2p-labs', description: 'Project Incubation Services' },
-        { name: 'E2P Club', href: '/e2p-club', description: 'Investment Community' },
-        { name: 'E2P Signal Bot', href: '/e2p-signal-bot', description: 'AI Trading Signals' },
+        { name: 'Launch & TGE Campaigns', href: '/solutions', description: 'Pre-launch awareness and community heat' },
+        { name: 'Regional Market Entry', href: '/solutions', description: 'Localized KOL, PR, and community activation' },
+        { name: 'KOL & PR Campaigns', href: '/solutions', description: 'Managed exposure with delivery reporting' },
+        { name: 'Listing Readiness', href: '/solutions', description: 'Preparation support, not listing promises' },
       ]
     },
-    { name: 'About', href: '/about' },
+    { name: 'Case Studies', href: '/cases' },
+    { name: 'E2P Club', href: '/e2p-club' },
+    { name: 'Partner Program', href: '/partner-program' },
+    { name: 'Resources', href: '/resources' },
     { name: 'Contact', href: '/contact' },
   ]
 
@@ -41,8 +45,8 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <img src="/logo-e2p-dao.svg" alt="E2P DAO" className="h-6 w-auto" />
-            <span className="text-xl font-bold text-gray-900">E2P DAO</span>
+            <img src="/logo-e2p-dao.svg" alt="E2P Labs" className="h-6 w-auto" />
+            <span className="text-xl font-bold text-gray-900">E2P Labs</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -98,12 +102,10 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <Link
-              href="https://t.me/BitEsq"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/contact"
               className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors btn-hover"
             >
-              Contact Us
+              Get a GTM Plan
             </Link>
           </div>
 
@@ -154,13 +156,11 @@ const Header = () => {
                   </div>
                 ))}
                 <Link
-                  href="https://t.me/BitEsq"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/contact"
                   className="block w-full bg-primary-600 text-white px-6 py-3 rounded-lg text-center hover:bg-primary-700 transition-colors"
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Contact Us
+                  Get a GTM Plan
                 </Link>
               </div>
             </motion.div>

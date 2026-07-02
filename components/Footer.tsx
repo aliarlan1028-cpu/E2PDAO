@@ -34,9 +34,11 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: 'E2P Labs', href: '/e2p-labs' },
+      { name: 'Solutions', href: '/solutions' },
+      { name: 'Case Studies', href: '/cases' },
       { name: 'E2P Club', href: '/e2p-club' },
-      { name: 'E2P Signal Bot', href: '/e2p-signal-bot' },
+      { name: 'Signal Bot', href: '/e2p-club/signal-bot' },
+      { name: 'Partner Program', href: '/partner-program' },
     ],
     community: [
       { name: 'Telegram', href: 'https://t.me/+RcB2FVha7bo4N2Nk', external: true },
@@ -45,7 +47,8 @@ const Footer = () => {
       { name: 'CoinMarketCap', href: 'https://coinmarketcap.com/currencies/e2p-token/', external: true },
     ],
     resources: [
-      { name: 'Business Inquiry', href: 'https://t.me/BitEsq', external: true },
+      { name: 'Project Intake', href: '/contact', external: false },
+      { name: 'GTM Resources', href: '/resources', external: false },
       { name: 'Project Recommendation', href: 'https://tekmrajjzl3.larksuite.com/share/base/form/shrusvRnucx6PXYKzsXtRC72nTI', external: true },
       { name: 'KOL Application', href: 'https://tekmrajjzl3.larksuite.com/share/base/form/shrus2nxIgRpMN9luP12gZUMN1b', external: true },
     ]
@@ -58,13 +61,11 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-1">
             <Link href="/" className="flex items-center space-x-3 mb-4">
-              <img src="/logo-e2p-dao.svg" alt="E2P DAO" className="w-8 h-8 flex-shrink-0" />
-              <span className="text-xl font-bold">E2P DAO</span>
+              <img src="/logo-e2p-dao.svg" alt="E2P Labs" className="w-8 h-8 flex-shrink-0" />
+              <span className="text-xl font-bold">E2P Labs</span>
             </Link>
             <p className="text-gray-300 mb-6 max-w-md">
-              E2P DAO leverages its extensive network of resources to provide comprehensive, 
-              one-stop support for blockchain project teams. From incubation to listing, 
-              we accelerate your success in the crypto ecosystem.
+              E2P Labs helps Web3 projects plan and execute launch, KOL, PR, community, regional market entry, and listing-readiness campaigns with transparent delivery reporting.
             </p>
             <div className="flex space-x-4">
               <a
@@ -133,15 +134,24 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
-                    className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2"
-                  >
-                    <ExternalLink className="w-4 h-4" />
-                    <span>{link.name}</span>
-                  </a>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      <span>{link.name}</span>
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2"
+                    >
+                      <span>{link.name}</span>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -152,7 +162,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} E2P DAO. All rights reserved.
+              © {currentYear} E2P Labs. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
