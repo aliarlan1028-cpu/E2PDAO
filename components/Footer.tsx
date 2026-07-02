@@ -55,8 +55,8 @@ const Footer = () => {
   }
 
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer className="bg-[#0b100f] text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-1">
@@ -64,7 +64,7 @@ const Footer = () => {
               <img src="/logo-e2p-dao.svg" alt="E2P Labs" className="w-8 h-8 flex-shrink-0" />
               <span className="text-xl font-bold">E2P Labs</span>
             </Link>
-            <p className="text-gray-300 mb-6 max-w-md">
+            <p className="text-gray-400 mb-6 max-w-md leading-7">
               E2P Labs helps Web3 projects plan and execute launch, KOL, PR, community, regional market entry, and listing-readiness campaigns with transparent delivery reporting.
             </p>
             <div className="flex space-x-4">
@@ -72,7 +72,7 @@ const Footer = () => {
                 href="https://x.com/e2p_dao"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-gray-800 rounded-lg hover:bg-primary-600 transition-colors"
+                className="p-2 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
               >
                 <XIcon className="w-5 h-5" />
               </a>
@@ -80,13 +80,13 @@ const Footer = () => {
                 href="https://t.me/+RcB2FVha7bo4N2Nk"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-gray-800 rounded-lg hover:bg-primary-600 transition-colors"
+                className="p-2 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
               >
                 <TGIcon className="w-5 h-5" />
               </a>
               <a
                 href="mailto:aliarlan1028@gmail.com"
-                className="p-2 bg-gray-800 rounded-lg hover:bg-primary-600 transition-colors"
+                className="p-2 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
               >
                 <Mail className="w-5 h-5" />
               </a>
@@ -95,13 +95,13 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Services</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300 mb-4">Services</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -112,7 +112,7 @@ const Footer = () => {
 
           {/* Community and Resources */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Community</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300 mb-4">Community</h3>
             <ul className="space-y-2 mb-6">
               {footerLinks.community.map((link) => (
                 <li key={link.name}>
@@ -120,7 +120,7 @@ const Footer = () => {
                     href={link.href}
                     target={link.external ? "_blank" : undefined}
                     rel={link.external ? "noopener noreferrer" : undefined}
-                    className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2"
                   >
                     {link.name === 'X' && <XIcon className="w-4 h-4" />}
                     {link.name === 'Telegram' && <TGIcon className="w-4 h-4" />}
@@ -130,7 +130,7 @@ const Footer = () => {
               ))}
             </ul>
             
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300 mb-4">Resources</h3>
             <ul className="space-y-2">
               {footerLinks.resources.map((link) => (
                 <li key={link.name}>
@@ -139,7 +139,7 @@ const Footer = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2"
+                      className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2"
                     >
                       <ExternalLink className="w-4 h-4" />
                       <span>{link.name}</span>
@@ -147,7 +147,7 @@ const Footer = () => {
                   ) : (
                     <Link
                       href={link.href}
-                      className="text-gray-300 hover:text-white transition-colors flex items-center space-x-2"
+                      className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2"
                     >
                       <span>{link.name}</span>
                     </Link>
@@ -159,16 +159,16 @@ const Footer = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="border-t border-gray-800 mt-8 pt-8">
+        <div className="border-t border-white/10 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-sm">
+            <p className="text-gray-500 text-sm">
               © {currentYear} E2P Labs. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+              <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">
                 Privacy Policy
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors text-sm">
+              <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">
                 Terms of Service
               </a>
             </div>
