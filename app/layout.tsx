@@ -4,10 +4,9 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://e2pdao.xyz'),
-  title: 'E2P Labs - Web3 Launch-to-Listing Growth Partner',
-  description: 'E2P Labs helps Web3 projects prepare launch campaigns, activate KOL and PR resources, build investor communities, enter regional markets, and improve listing readiness.',
-  keywords: 'Web3 growth, launch campaign, TGE marketing, KOL campaign, PR campaign, regional market entry, listing readiness, E2P Labs, E2P Club',
+  title: 'E2P DAO - Blockchain Project Incubation & Investment Community',
+  description: 'E2P DAO provides comprehensive blockchain project incubation services, KOL marketing, exchange listings, and investment opportunities through our E2P Club community.',
+  keywords: 'blockchain, crypto, project incubation, KOL marketing, exchange listing, investment, E2P DAO, E2P Labs, E2P Club',
   authors: [{ name: 'E2P DAO Team' }],
   icons: {
     icon: '/logo-e2p-dao-favicon.svg',
@@ -15,15 +14,15 @@ export const metadata: Metadata = {
     apple: '/logo-e2p-dao-favicon.svg',
   },
   openGraph: {
-    title: 'E2P Labs - Web3 Launch-to-Listing Growth Partner',
-    description: 'Web3 GTM campaigns, KOL and PR activation, regional market entry, community activation, and listing-readiness support.',
+    title: 'E2P DAO - Blockchain Project Incubation & Investment Community',
+    description: 'Comprehensive blockchain project incubation services and investment opportunities',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'E2P Labs - Web3 Launch-to-Listing Growth Partner',
-    description: 'Web3 GTM campaigns, KOL and PR activation, regional market entry, community activation, and listing-readiness support.',
+    title: 'E2P DAO - Blockchain Project Incubation & Investment Community',
+    description: 'Comprehensive blockchain project incubation services and investment opportunities',
   },
   robots: {
     index: true,

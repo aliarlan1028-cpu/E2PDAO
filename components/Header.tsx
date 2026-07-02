@@ -1,79 +1,174 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { Menu, X } from 'lucide-react'
-import { navItems } from '@/app/siteData'
+import { Menu, X, ChevronDown } from 'lucide-react'
+import { motion, AnimatePresence } from 'framer-motion'
 
-export default function Header() {
-  const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const navigation = [
+    { name: 'Home', href: '/' },
+    {
+      name: 'Services',
+      href: '#',
+      dropdown: [
+        { name: 'E2P Labs', href: '/e2p-labs', description: 'Project Incubation Services' },
+        { name: 'E2P Club', href: '/e2p-club', description: 'Investment Community' },
+        { name: 'E2P Signal Bot', href: '/e2p-signal-bot', description: 'AI Trading Signals' },
+      ]
+    },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact' },
+  ]
+
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${scrolled ? 'border-white/10 bg-ink/96 backdrop-blur-xl' : 'border-white/10 bg-ink/84 backdrop-blur-md'}`}>
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          <img src="/logo-e2p-dao.svg" alt="E2P Labs" className="h-7 w-auto" />
-          <span className="text-lg font-semibold text-white">E2P Labs</span>
-        </Link>
-
-        <div className="hidden items-center gap-6 lg:flex">
-          {navItems.slice(0, -1).map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm font-medium text-stone-300 transition-colors hover:text-white">
-              {item.label}
-            </Link>
-          ))}
-        </div>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <Link href="/contact" className="border border-white/15 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/10">
-            Contact
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/90 backdrop-blur-sm'
+    }`}>
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-3">
+            <img src="/logo-e2p-dao.svg" alt="E2P DAO" className="h-6 w-auto" />
+            <span className="text-xl font-bold text-gray-900">E2P DAO</span>
           </Link>
-          <Link href="/contact" className="bg-mint px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-mintSoft">
-            Get a GTM Plan
-          </Link>
-        </div>
 
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center text-white lg:hidden"
-          aria-label="Toggle navigation"
-          onClick={() => setOpen((value) => !value)}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
-      </nav>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navigation.map((item) => (
+              <div key={item.name} className="relative">
+                {item.dropdown ? (
+                  <div
+                    className="flex items-center space-x-1 cursor-pointer text-gray-700 hover:text-primary-600 transition-colors"
+                    onMouseEnter={() => setActiveDropdown(item.name)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
+                    <span>{item.name}</span>
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="text-gray-700 hover:text-primary-600 transition-colors"
+                  >
+                    {item.name}
+                  </Link>
+                )}
 
-      {open && (
-        <div className="border-t border-white/10 bg-ink px-5 py-5 lg:hidden">
-          <div className="mx-auto grid max-w-7xl gap-1">
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-1 py-3 text-base font-medium text-stone-200"
-                onClick={() => setOpen(false)}
-              >
-                {item.label}
-              </Link>
+                {/* Dropdown Menu */}
+                <AnimatePresence>
+                  {activeDropdown === item.name && item.dropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2"
+                      onMouseEnter={() => setActiveDropdown(item.name)}
+                      onMouseLeave={() => setActiveDropdown(null)}
+                    >
+                      {item.dropdown.map((dropdownItem) => (
+                        <Link
+                          key={dropdownItem.name}
+                          href={dropdownItem.href}
+                          className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
+                        >
+                          <div className="font-medium">{dropdownItem.name}</div>
+                          <div className="text-sm text-gray-500">{dropdownItem.description}</div>
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             ))}
+          </div>
+
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center space-x-4">
             <Link
-              href="/contact"
-              className="mt-3 bg-mint px-5 py-3 text-center font-semibold text-ink"
-              onClick={() => setOpen(false)}
+              href="https://t.me/BitEsq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary-600 text-white px-6 py-2 rounded-lg hover:bg-primary-700 transition-colors btn-hover"
             >
-              Get a GTM Plan
+              Contact Us
             </Link>
           </div>
+
+          {/* Mobile menu button */}
+          <button
+            className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
-      )}
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-white border-t border-gray-200"
+            >
+              <div className="px-4 py-4 space-y-4">
+                {navigation.map((item) => (
+                  <div key={item.name}>
+                    {item.dropdown ? (
+                      <div className="space-y-2">
+                        <div className="font-medium text-gray-900">{item.name}</div>
+                        {item.dropdown.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.name}
+                            href={dropdownItem.href}
+                            className="block pl-4 py-2 text-gray-600 hover:text-primary-600 transition-colors"
+                            onClick={() => setIsMenuOpen(false)}
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="block py-2 text-gray-700 hover:text-primary-600 transition-colors"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+                <Link
+                  href="https://t.me/BitEsq"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full bg-primary-600 text-white px-6 py-3 rounded-lg text-center hover:bg-primary-700 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
     </header>
   )
 }
+
+export default Header
