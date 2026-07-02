@@ -60,8 +60,8 @@ const Header = () => {
       <nav className="section-shell">
         <div className="flex h-16 items-center justify-between">
           <Link href="/" className="flex min-w-0 items-center gap-3">
-            <span className="logo-mark flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-lg bg-slate-950 shadow-sm ring-1 ring-slate-200">
-              <img src="/e2p-icon.svg" alt="E2P DAO" className="h-9 w-9" />
+            <span className="flex h-10 w-10 flex-shrink-0 items-center justify-center">
+              <img src="/e2p-icon.svg" alt="E2P DAO" className="h-10 w-10" />
             </span>
             <span className="truncate text-xl font-bold text-slate-950">E2P DAO</span>
           </Link>
