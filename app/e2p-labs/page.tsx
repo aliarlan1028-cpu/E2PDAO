@@ -1,358 +1,292 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
-import { ArrowRight, Sprout, Users, Megaphone, Rocket, Building, TrendingUp, CheckCircle, ExternalLink } from 'lucide-react'
+import {
+  ArrowRight,
+  BadgeCheck,
+  BarChart3,
+  Briefcase,
+  Building2,
+  Globe2,
+  Megaphone,
+  Newspaper,
+  PlaySquare,
+  RadioTower,
+  Search,
+  ShieldCheck,
+  Users,
+  Video,
+} from 'lucide-react'
+
+const serviceGroups = [
+  {
+    icon: Search,
+    title: 'Project Incubation',
+    description: 'Model, tokenomics, raise.',
+    accent: 'bg-blue-50 text-blue-700',
+  },
+  {
+    icon: Megaphone,
+    title: 'Global KOL Marketing',
+    description: 'X, YouTube, Telegram, TikTok.',
+    accent: 'bg-teal-50 text-teal-700',
+  },
+  {
+    icon: Newspaper,
+    title: 'Media & PR Distribution',
+    description: 'PR, SEO, authority.',
+    accent: 'bg-amber-50 text-amber-700',
+  },
+  {
+    icon: RadioTower,
+    title: 'Community Growth',
+    description: 'AMA, airdrops, TG ops.',
+    accent: 'bg-emerald-50 text-emerald-700',
+  },
+  {
+    icon: Building2,
+    title: 'Token Listing Accelerator',
+    description: 'CEX, CMC, launchpads.',
+    accent: 'bg-indigo-50 text-indigo-700',
+  },
+  {
+    icon: Video,
+    title: 'Video & Brand Packaging',
+    description: 'Video, pitch, launch assets.',
+    accent: 'bg-rose-50 text-rose-700',
+  },
+  {
+    icon: Briefcase,
+    title: 'Advisory & Headhunting',
+    description: 'Advisors, talent, credibility.',
+    accent: 'bg-slate-100 text-slate-800',
+  },
+  {
+    icon: BarChart3,
+    title: 'Market Making & Growth Support',
+    description: 'Liquidity, structure, momentum.',
+    accent: 'bg-cyan-50 text-cyan-700',
+  },
+]
+
+const marketStack = [
+  { title: 'KOL', value: 'X / YouTube / Telegram / TikTok' },
+  { title: 'Media', value: 'PR / SEO / launch announcements' },
+  { title: 'Community', value: 'AMA / airdrop / social tasks' },
+  { title: 'Listing', value: 'CEX / CMC / launchpad prep' },
+]
+
+const process = [
+  { step: '01', title: 'Audit', text: 'Stage, market, budget.' },
+  { step: '02', title: 'Plan', text: 'Channels and sequence.' },
+  { step: '03', title: 'Execute', text: 'Creators, PR, community.' },
+  { step: '04', title: 'Convert', text: 'Users, demand, listing.' },
+]
+
+const exchanges = [
+  { name: 'OKX', logo: '/OKX.png' },
+  { name: 'Bybit', logo: '/Bybit.png' },
+  { name: 'Gate.io', logo: '/Gate.io.png' },
+  { name: 'Bitget', logo: '/Bitget Logo.png' },
+  { name: 'MEXC', logo: '/MEXC.png' },
+  { name: 'HTX', logo: '/HTX.png' },
+  { name: 'Kucoin', logo: '/Kucoin.png' },
+  { name: 'Coinstore', logo: '/CoinStore.png' },
+]
+
+const labsMetrics = [
+  { value: '400+', label: 'KOL resources' },
+  { value: '20+', label: 'Market regions' },
+  { value: '10+', label: 'Exchange resources' },
+  { value: '50M+', label: 'Potential audience reach' },
+]
 
 export default function E2PLabsPage() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
-  const services = [
-    {
-      icon: Sprout,
-      title: 'Project Incubation',
-      description: 'Helps teams and projects in business building, tokenomics and fundraising',
-      features: [
-        'Powerful Resources Network - Connecting with Top VCs and individual investors',
-        'Business Model & Tokenomics - Help with the design of the project tokenomics',
-        'Introductions - Introduce projects with market makers and security audit'
-      ],
-      color: 'from-green-500 to-green-700'
-    },
-    {
-      icon: Users,
-      title: 'Community Growth',
-      description: 'Help projects establish and grow a strong community around the project',
-      features: [
-        'Campaigns - Use Web3.0 tools to boost community engagement',
-        'Airdrop Events - Partner with E2P Club for airdrop events',
-        'Community Managers - Recruit overseas community managers',
-        'Bot Setup - Implement and manage Telegram bots',
-        'AMAs/Binance Live/X Spaces - Engage the community with AMA sessions'
-      ],
-      color: 'from-blue-500 to-blue-700'
-    },
-    {
-      icon: Megaphone,
-      title: 'KOL Marketing',
-      description: 'E2P Labs managing a global network of 300 high-profile KOLs from 20+ Countries',
-      features: [
-        'Global KOL Network - 400+ KOLs from 20+ crypto-friendly countries',
-        'Multi-Platform Campaigns - Meeting all types of KOL needs',
-        'Influencer Partnerships - Strategic collaborations with top influencers'
-      ],
-      color: 'from-purple-500 to-purple-700'
-    },
-    {
-      icon: Rocket,
-      title: 'IEO/IDO Holding',
-      description: 'E2P Labs connects projects with multiple IEO/IDO platforms',
-      features: [
-        'Gate.io IEO - Average ATH ROI 20.3x',
-        'Coinstore IEO - Subscription Rate 700%+',
-        'BitMart IEO - Number of IEOs 67+',
-        'DAO Maker IDO - Reducing token concentration',
-        'Seedify IDO - Gaming-focused platform',
-        'BullPerks IDO - Multi-chain support'
-      ],
-      color: 'from-orange-500 to-orange-700'
-    },
-    {
-      icon: Building,
-      title: 'CEX & CMC Listing',
-      description: 'E2P Labs has deep cooperation and strong relationships with 10+ major exchanges',
-      features: [
-        'Exchange Listing - Team members have over 5 years of experience',
-        'Quality Improvement - Help improve project quality to meet listing standards',
-        'Network Support - Extensive network and resources guarantee responsive support',
-        'CMC Listing - Familiar with application process and rules for listing projects'
-      ],
-      color: 'from-red-500 to-red-700'
-    },
-    {
-      icon: TrendingUp,
-      title: 'Market Making',
-      description: 'E2P Labs partners with top market makers to provide advanced strategies',
-      features: [
-        'Tide Group - One-stop Web3 AI algorithm trading company',
-        'ChainUp - Top blockchain technology solutions provider',
-        'Flow Traders - Global leader in market making and proprietary trading'
-      ],
-      color: 'from-teal-500 to-teal-700'
-    }
-  ]
-
-  const exchanges = [
-    { name: 'OKX', logo: '/OKX.png' },
-    { name: 'Crypto.com', logo: '/crypto.com.png' },
-    { name: 'Bybit', logo: '/Bybit.png' },
-    { name: 'Kucoin', logo: '/Kucoin.png' },
-    { name: 'HTX', logo: '/HTX.png' },
-    { name: 'Bitget', logo: '/Bitget Logo.png' },
-    { name: 'Gate.io', logo: '/Gate.io.png' },
-    { name: 'MEXC', logo: '/MEXC.png' },
-    { name: 'Bingx', logo: '/Bingx.png' },
-    { name: 'Coinstore', logo: '/CoinStore.png' }
-  ]
-
-  const successCases = [
-    {
-      project: 'CHAX',
-      exchange: 'Gate.io',
-      description: 'Provided listing consultation and successfully listed on Gate.io',
-      link: 'https://www.coingecko.com/en/coins/chax'
-    },
-    {
-      project: 'HIRO',
-      exchange: 'Gate.io',
-      description: 'Provided listing consultation and successfully listed on Gate.io',
-      link: 'https://coinmarketcap.com/currencies/hiro/#Markets'
-    },
-    {
-      project: 'Virtuals Protocol',
-      exchange: 'CMC',
-      description: 'Helped with verification of Circulating supply on CMC',
-      link: 'https://coinmarketcap.com/currencies/virtual-protocol/'
-    },
-    {
-      project: 'USBT',
-      exchange: 'Gate.io',
-      description: 'E2P DAO Assists $USBT in Successful Gate.io Listing',
-      link: 'https://www.gate.io/zh/announcements/article/39267'
-    }
-  ]
+  const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <div className="pt-16">
-      {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 via-white to-secondary-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              E2P Labs
-            </h1>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8 max-w-4xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl mb-2">🌱</div>
-                <div className="text-lg font-semibold text-gray-800">Incubation</div>
+    <div className="bg-white pt-16">
+      <section className="bg-slate-950 py-20 text-white">
+        <div className="section-shell">
+          <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65 }}>
+              <div className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/8 px-3 py-2 text-sm font-semibold text-slate-200">
+                <BadgeCheck className="h-4 w-4 text-teal-300" />
+                E2P Labs for project teams
               </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">💼</div>
-                <div className="text-lg font-semibold text-gray-800">Listing Advisory</div>
+              <h1 className="mt-6 text-4xl font-bold leading-tight md:text-5xl">
+                Web3 launch stack for growth and listing.
+              </h1>
+              <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">
+                Incubation, KOL, media, community, packaging and listing support in one execution layer.
+              </p>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <Link
+                  href="/contact"
+                  className="btn-hover inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 font-semibold text-slate-950 hover:bg-slate-100"
+                >
+                  Get a project proposal
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+                <Link
+                  href="/success-cases"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 px-6 py-3.5 font-semibold hover:bg-white/10"
+                >
+                  View cases
+                  <PlaySquare className="h-5 w-5" />
+                </Link>
               </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">🎯</div>
-                <div className="text-lg font-semibold text-gray-800">KOL Marketing</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl mb-2">💹</div>
-                <div className="text-lg font-semibold text-gray-800">Market Making</div>
-              </div>
-            </div>
-            <p className="text-lg text-gray-700 max-w-4xl mx-auto">
-              E2P Labs is a catalyst between Projects | VCs | KOLs | Users | Exchanges, 
-              driving interaction and collaboration. We will assist you in successfully 
-              launching and attracting investments in your project.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+            </motion.div>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">400+</div>
-              <div className="text-lg text-gray-600">High Quality KOLs</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">50M+</div>
-              <div className="text-lg text-gray-600">Users Reached</div>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">10+</div>
-              <div className="text-lg text-gray-600">Exchange Partners</div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, delay: 0.1 }}
+              className="rounded-lg border border-white/10 bg-white/6 p-5"
+            >
+              <div className="grid grid-cols-2 gap-3">
+                {labsMetrics.map((metric) => (
+                  <div key={metric.label} className="rounded-lg bg-white p-5 text-slate-950">
+                    <div className="text-3xl font-bold">{metric.value}</div>
+                    <div className="mt-1 text-sm text-slate-600">{metric.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-4 rounded-lg bg-slate-900 p-5 ring-1 ring-white/10">
+                <div className="text-sm font-semibold text-teal-200">Core promise</div>
+                <p className="mt-2 text-lg font-semibold leading-7 text-white">
+                  Turn scattered resources into market traction.
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section ref={ref} className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              E2P Labs Accelerates Your Progress
+      <section ref={ref} className="bg-slate-50 py-20">
+        <div className="section-shell">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase text-primary-600">Service architecture</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-950 md:text-4xl">
+              Pick outcomes, not scattered services.
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We will assist you in successfully launching and attracting investments in your project.
-            </p>
-          </motion.div>
+          </div>
 
-          <div className="space-y-16">
-            {services.map((service, index) => (
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {serviceGroups.map((service, index) => (
               <motion.div
                 key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-lg"
-              >
-                <div className="flex flex-col lg:flex-row items-start lg:items-center gap-8">
-                  <div className={`w-20 h-20 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center flex-shrink-0`}>
-                    <service.icon className="w-10 h-10 text-white" />
-                  </div>
-                  
-                  <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="text-gray-600 mb-6 text-lg">
-                      {service.description}
-                    </p>
-                    
-                    <div className="space-y-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-start space-x-3">
-                          <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-700">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Exchange Partners */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Exchanges We Can List Your Project
-            </h2>
-            <p className="text-xl text-gray-600">
-              Our expertise ensures smooth project listings with our extensive network
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {exchanges.map((exchange, index) => (
-              <motion.div
-                key={exchange.name}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, delay: index * 0.05 }}
-                className="bg-gray-50 rounded-xl p-6 text-center hover:bg-gray-100 transition-colors"
+                className="rounded-lg bg-white p-5 shadow-sm ring-1 ring-slate-200"
               >
-                <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center">
-                  <img 
-                    src={exchange.logo} 
-                    alt={exchange.name} 
-                    className="w-full h-full object-contain"
-                  />
+                <div className={`flex h-11 w-11 items-center justify-center rounded-lg ${service.accent}`}>
+                  <service.icon className="h-5 w-5" />
                 </div>
-                <h4 className="font-semibold text-gray-900">{exchange.name}</h4>
+                <h3 className="mt-5 font-semibold text-slate-950">{service.title}</h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600">{service.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Success Cases */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Successful Cases
-            </h2>
-            <p className="text-xl text-gray-600">
-              Real projects that achieved success with our support
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {successCases.map((case_, index) => (
-              <motion.div
-                key={case_.project}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-xl font-bold text-gray-900">{case_.project}</h3>
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                    {case_.exchange}
-                  </span>
+      <section id="global-marketing" className="bg-white py-20">
+        <div className="section-shell">
+          <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase text-primary-600">Global marketing stack</p>
+              <h2 className="mt-3 text-3xl font-bold text-slate-950 md:text-4xl">
+                Campaign systems, not text-heavy catalogs.
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-slate-600">
+                Regional channels, creators, media and communities packaged around launch goals.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {marketStack.map((item) => (
+                <div key={item.title} className="rounded-lg border border-slate-200 bg-slate-50 p-5">
+                  <div className="text-sm font-semibold uppercase text-slate-500">{item.title}</div>
+                  <div className="mt-3 text-lg font-semibold leading-7 text-slate-950">{item.value}</div>
                 </div>
-                <p className="text-gray-600 mb-4">{case_.description}</p>
-                <a
-                  href={case_.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-primary-600 hover:text-primary-700 transition-colors"
-                >
-                  View Details
-                  <ExternalLink className="ml-1 w-4 h-4" />
-                </a>
-              </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="listing" className="bg-slate-950 py-20 text-white">
+        <div className="section-shell">
+          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-semibold text-slate-950">
+                <ShieldCheck className="h-4 w-4" />
+                Listing readiness
+              </div>
+              <h2 className="mt-5 text-3xl font-bold md:text-4xl">
+                Listing prep starts before the listing talk.
+              </h2>
+              <p className="mt-4 text-lg leading-8 text-slate-300">
+                Story, users, visibility and market structure move together.
+              </p>
+            </div>
+            <div className="rounded-lg border border-white/10 bg-white/6 p-5">
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {exchanges.map((exchange) => (
+                  <div key={exchange.name} className="flex h-20 min-w-0 items-center justify-center overflow-hidden rounded-lg bg-white p-3">
+                    <img src={exchange.logo} alt={exchange.name} className="h-9 w-24 object-contain" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20">
+        <div className="section-shell">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase text-primary-600">How execution works</p>
+            <h2 className="mt-3 text-3xl font-bold text-slate-950 md:text-4xl">
+              Four-step execution loop.
+            </h2>
+          </div>
+          <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {process.map((item) => (
+              <div key={item.step} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
+                <div className="inline-flex rounded-md bg-slate-950 px-3 py-1 text-sm font-semibold text-white">{item.step}</div>
+                <h3 className="mt-5 text-xl font-semibold text-slate-950">{item.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-600">{item.text}</p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary-600 to-secondary-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Collaborate with E2P Labs
-            </h2>
-            <p className="text-xl mb-8 opacity-90 max-w-3xl mx-auto">
-              We are here to meet all your needs. Simply let us know what you require.
-            </p>
-            <a
-              href="https://t.me/BitEsq"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-4 bg-white text-primary-600 rounded-lg hover:bg-gray-50 transition-colors btn-hover font-semibold"
-            >
-              Contact TG: @BitEsq
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </a>
-          </motion.div>
+      <section className="bg-slate-50 py-20">
+        <div className="section-shell">
+          <div className="rounded-lg bg-slate-950 p-8 text-white md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
+              <div>
+                <Globe2 className="h-9 w-9 text-teal-300" />
+                <h2 className="mt-5 text-3xl font-bold">Need a custom growth stack?</h2>
+                <p className="mt-3 max-w-2xl leading-7 text-slate-300">
+                  Share stage, market and timeline. We map the stack.
+                </p>
+              </div>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 font-semibold text-slate-950 transition-colors hover:bg-slate-100"
+              >
+                Get proposal
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>

@@ -1,213 +1,156 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
-import { ArrowRight, Sprout, Users, Megaphone, Rocket, Building, TrendingUp } from 'lucide-react'
+import {
+  ArrowRight,
+  Rocket,
+  Megaphone,
+  Newspaper,
+  Users,
+  Building2,
+  Video,
+  Briefcase,
+  Bot,
+} from 'lucide-react'
+
+const labServices = [
+  {
+    icon: Rocket,
+    title: 'Project Incubation',
+    description: 'Model, tokenomics, raise, launch.',
+  },
+  {
+    icon: Megaphone,
+    title: 'Global KOL Marketing',
+    description: 'X, YouTube, Telegram, TikTok.',
+  },
+  {
+    icon: Newspaper,
+    title: 'Media & PR Distribution',
+    description: 'PR, announcements, authority.',
+  },
+  {
+    icon: Users,
+    title: 'Community Growth',
+    description: 'AMA, airdrops, TG operations.',
+  },
+  {
+    icon: Building2,
+    title: 'Token Listing Accelerator',
+    description: 'CEX, CMC, launchpad prep.',
+  },
+  {
+    icon: Video,
+    title: 'Brand Packaging',
+    description: 'Video, pitch, founder story.',
+  },
+]
+
+const clubCapabilities = [
+  'VIP trading community',
+  'Signal Bot market intelligence',
+  'Early investment opportunities',
+  'Referral rewards and $E2P incentives',
+]
 
 const ServicesSection = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
-  const e2pLabsServices = [
-    {
-      icon: Sprout,
-      title: 'Project Incubation',
-      description: 'Comprehensive support from business model design to tokenomics and fundraising',
-      features: ['Business Model & Tokenomics', 'VC Network Connection', 'Market Maker Introduction']
-    },
-    {
-      icon: Users,
-      title: 'Community Growth',
-      description: 'Build and grow a strong community around your project',
-      features: ['Web3 Campaigns', 'Airdrop Events', 'Community Management', 'AMA Sessions']
-    },
-    {
-      icon: Megaphone,
-      title: 'KOL Marketing',
-      description: 'Leverage our global network of 400+ high-profile KOLs',
-      features: ['Global KOL Network', 'Multi-Platform Campaigns', 'Influencer Partnerships']
-    },
-    {
-      icon: Rocket,
-      title: 'IEO/IDO Holding',
-      description: 'Connect with multiple IEO/IDO platforms for successful fundraising',
-      features: ['Gate.io IEO', 'DAO Maker IDO', 'Seedify IDO', 'BullPerks IDO']
-    },
-    {
-      icon: Building,
-      title: 'CEX & CMC Listing',
-      description: 'Deep cooperation with 10+ major exchanges and CoinMarketCap',
-      features: ['Exchange Listing', 'CMC Listing', 'Circulating Supply Updates']
-    },
-    {
-      icon: TrendingUp,
-      title: 'Market Making',
-      description: 'Partner with top market makers for enhanced liquidity',
-      features: ['Tide Group Partnership', 'ChainUp Solutions', 'Flow Traders']
-    }
-  ]
-
-  const e2pClubBenefits = [
-    {
-      icon: '🪂',
-      title: 'VIP Services',
-      description: 'Free market analysis, trade signals, and financial education'
-    },
-    {
-      icon: '🎟️',
-      title: 'Lucky Draw',
-      description: 'Rewards for community participation and engagement'
-    },
-    {
-      icon: '💰',
-      title: 'Recommendation Rewards',
-      description: 'Earn up to 2,000 USDT commission from listing fees'
-    },
-    {
-      icon: '🤝',
-      title: 'Early Investment',
-      description: 'Access to seed-round and IEO/IDO opportunities'
-    }
-  ]
+  const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section ref={ref} className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-          style={{ opacity: 1, transform: 'translateY(0px)' }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            Our Comprehensive Services
+    <section ref={ref} className="bg-white py-20">
+      <div className="section-shell">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-semibold uppercase text-primary-600">Two engines, one network</p>
+          <h2 className="mt-3 text-3xl font-bold text-slate-950 md:text-4xl">
+            One network. Two engines.
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From project incubation to community building, we provide end-to-end solutions 
-            for blockchain projects and investors.
+          <p className="mt-4 text-lg leading-8 text-slate-600">
+            Labs executes project growth. Club activates investor demand.
           </p>
-        </motion.div>
+        </div>
 
-        {/* E2P Labs Services */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-20"
-          style={{ opacity: 1, transform: 'translateY(0px)' }}
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              E2P Labs - Project Incubation Services
-            </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Accelerate your blockchain project from concept to market success
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {e2pLabsServices.map((service, index) => (
-              <motion.div
-                key={service.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
-                style={{ opacity: 1, transform: 'translateY(0px)' }}
-              >
-                <div className="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6">
-                  <service.icon className="w-8 h-8 text-primary-600" />
+        <div className="mt-12 grid gap-6 lg:grid-cols-[1.35fr_0.65fr]">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+            transition={{ duration: 0.6 }}
+            className="rounded-lg border border-slate-200 bg-slate-50 p-5"
+          >
+            <div className="flex flex-col justify-between gap-4 border-b border-slate-200 pb-5 md:flex-row md:items-end">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-lg bg-slate-950 px-3 py-2 text-sm font-semibold text-white">
+                  <Briefcase className="h-4 w-4" />
+                  E2P Labs
                 </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                  {service.title}
-                </h4>
-                <p className="text-gray-600 mb-4">
-                  {service.description}
-                </p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-gray-600">
-                      <div className="w-1.5 h-1.5 bg-primary-500 rounded-full mr-3"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link
-              href="/e2p-labs"
-              className="inline-flex items-center px-8 py-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors btn-hover"
-            >
-              Learn More About E2P Labs
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </div>
-        </motion.div>
-
-        {/* E2P Club Benefits */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="bg-gradient-to-r from-primary-50 to-secondary-50 rounded-3xl p-12"
-        >
-          <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              E2P Club - Investment Community
-            </h3>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Join our exclusive community of high-quality investors and traders
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {e2pClubBenefits.map((benefit, index) => (
-              <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.8, delay: 0.7 + index * 0.1 }}
-                className="text-center"
+                <h3 className="mt-4 text-2xl font-bold text-slate-950">Project growth stack</h3>
+              </div>
+              <Link
+                href="/e2p-labs"
+                className="inline-flex items-center gap-2 rounded-lg bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-slate-200 transition-colors hover:bg-slate-100"
               >
-                <div className="text-4xl mb-4">{benefit.icon}</div>
-                <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                  {benefit.title}
-                </h4>
-                <p className="text-gray-600 text-sm">
-                  {benefit.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+                View Labs
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
 
-          <div className="text-center">
+            <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {labServices.map((service, index) => (
+                <motion.div
+                  key={service.title}
+                  initial={{ opacity: 0, y: 18 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 18 }}
+                  transition={{ duration: 0.5, delay: 0.08 * index }}
+                  className="rounded-lg bg-white p-5 shadow-sm ring-1 ring-slate-200"
+                >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-50 text-primary-700">
+                    <service.icon className="h-5 w-5" />
+                  </div>
+                  <h4 className="mt-4 font-semibold text-slate-950">{service.title}</h4>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{service.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="rounded-lg bg-slate-950 p-5 text-white"
+          >
+            <div className="inline-flex items-center gap-2 rounded-lg bg-white px-3 py-2 text-sm font-semibold text-slate-950">
+              <Bot className="h-4 w-4" />
+              E2P Club
+            </div>
+            <h3 className="mt-5 text-2xl font-bold">VIP community stack</h3>
+            <p className="mt-4 leading-7 text-slate-300">
+              Signals, early access and rewards in one Club.
+            </p>
+
+            <div className="mt-6 space-y-3">
+              {clubCapabilities.map((item) => (
+                <div key={item} className="flex items-center justify-between rounded-lg border border-white/10 bg-white/6 px-4 py-3">
+                  <span className="text-sm text-slate-200">{item}</span>
+                  <span className="h-2 w-2 rounded-full bg-teal-300" />
+                </div>
+              ))}
+            </div>
+
             <Link
               href="/e2p-club"
-              className="inline-flex items-center px-8 py-4 bg-white text-primary-600 rounded-lg hover:bg-gray-50 transition-colors btn-hover border-2 border-primary-600"
+              className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-white px-5 py-3 font-semibold text-slate-950 transition-colors hover:bg-slate-100"
             >
-              Join E2P Club
-              <ArrowRight className="ml-2 w-5 h-5" />
+              Explore E2P Club
+              <ArrowRight className="h-5 w-5" />
             </Link>
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )
 }
 
 export default ServicesSection
-
-
-
-
-
-
-
-
-

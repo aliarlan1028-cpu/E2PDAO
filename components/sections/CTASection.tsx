@@ -1,133 +1,76 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useInView } from 'framer-motion'
+import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
-import { ArrowRight, MessageCircle, Users, Rocket } from 'lucide-react'
+import { ArrowRight, Rocket, Users, Send } from 'lucide-react'
+
+const paths = [
+  {
+    icon: Rocket,
+    title: 'Project teams',
+    description: 'Growth, KOL, PR, listing.',
+    href: '/contact',
+    action: 'Request growth proposal',
+  },
+  {
+    icon: Users,
+    title: 'Investors and traders',
+    description: 'Signals, access, rewards.',
+    href: '/e2p-club',
+    action: 'Explore E2P Club',
+  },
+]
 
 const CTASection = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
-
-  const ctaOptions = [
-    {
-      icon: Rocket,
-      title: 'I\'m a Project Team',
-      description: 'Looking for incubation, listing, and marketing services',
-      buttonText: 'Explore E2P Labs',
-      buttonLink: '/e2p-labs',
-      color: 'from-primary-500 to-primary-700'
-    },
-    {
-      icon: Users,
-      title: 'I\'m an Investor/Trader',
-      description: 'Seeking early investment opportunities and trading signals',
-      buttonText: 'Join E2P Club',
-      buttonLink: '/e2p-club',
-      color: 'from-secondary-500 to-secondary-700'
-    }
-  ]
+  const isInView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section ref={ref} className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="bg-slate-950 py-20 text-white">
+      <div className="section-shell">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          initial={{ opacity: 0, y: 24 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
+          transition={{ duration: 0.6 }}
+          className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Which One Describes You Better?
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Choose your path and let us help you achieve your blockchain goals
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          {ctaOptions.map((option, index) => (
-            <motion.div
-              key={option.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.8, delay: 0.2 + index * 0.2 }}
-              className="relative"
-            >
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-300">
-                <div className={`w-16 h-16 bg-gradient-to-r ${option.color} rounded-2xl flex items-center justify-center mb-6`}>
-                  <option.icon className="w-8 h-8 text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-bold mb-4">
-                  {option.title}
-                </h3>
-                
-                <p className="text-gray-300 mb-8 text-lg">
-                  {option.description}
-                </p>
-                
-                <Link
-                  href={option.buttonLink}
-                  className="inline-flex items-center px-8 py-4 bg-white text-gray-900 rounded-lg hover:bg-gray-100 transition-colors btn-hover font-semibold"
-                >
-                  {option.buttonText}
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Contact Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center"
-        >
-          <div className="bg-white/5 backdrop-blur-lg rounded-2xl p-8 border border-white/10">
-            <h3 className="text-2xl font-bold mb-4">
-              Ready to Get Started?
-            </h3>
-            <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Contact our team directly for personalized consultation and to discuss 
-              how we can help accelerate your blockchain journey.
+          <div>
+            <p className="text-sm font-semibold uppercase text-teal-300">Choose the right path</p>
+            <h2 className="mt-3 text-3xl font-bold md:text-4xl">Choose your entry point.</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-300">
+              Labs for projects. Club for investors.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://t.me/BitEsq"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors btn-hover"
-              >
-                <MessageCircle className="mr-2 w-5 h-5" />
-                Contact on Telegram
-              </a>
-              
-              <a
-                href="mailto:aliarlan1028@gmail.com"
-                className="inline-flex items-center px-8 py-4 border-2 border-white/30 text-white rounded-lg hover:bg-white/10 transition-colors"
-              >
-                <MessageCircle className="mr-2 w-5 h-5" />
-                Send Email
-              </a>
-            </div>
+            <a
+              href="https://t.me/BitEsq"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center gap-2 rounded-lg border border-white/15 px-5 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Contact on Telegram
+              <Send className="h-5 w-5" />
+            </a>
           </div>
-        </motion.div>
 
-        {/* Disclaimer */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-12 text-center"
-        >
-          <p className="text-sm text-gray-400">
-            For reference only, not investment advice
-          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            {paths.map((path) => (
+              <Link
+                key={path.title}
+                href={path.href}
+                className="rounded-lg border border-white/10 bg-white/6 p-6 transition-colors hover:bg-white/10"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-white text-slate-950">
+                  <path.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-5 text-xl font-semibold">{path.title}</h3>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{path.description}</p>
+                <div className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-teal-200">
+                  {path.action}
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
         </motion.div>
       </div>
     </section>
