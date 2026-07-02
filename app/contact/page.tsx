@@ -2,56 +2,7 @@
 
 import { useState } from 'react'
 import { CheckCircle2, Mail, MessageCircle, Send } from 'lucide-react'
-
-const projectStages = [
-  'Idea / MVP',
-  'Testnet',
-  'Pre-TGE',
-  'IDO / IEO',
-  'Post-TGE',
-  'CEX Listing Preparation',
-  'Already Listed',
-  'Regional Expansion',
-  'Fundraising',
-]
-
-const budgetRanges = [
-  '< 2,000 USDT',
-  '2,000 - 5,000 USDT',
-  '5,000 - 10,000 USDT',
-  '10,000 - 25,000 USDT',
-  '25,000 - 50,000 USDT',
-  '50,000+ USDT',
-  'Not sure yet',
-]
-
-const serviceNeeds = [
-  'KOL Campaign',
-  'PR / Media Publication',
-  'Regional Market Entry',
-  'Telegram / Community Growth',
-  'AMA / X Space',
-  'YouTube / Video Campaign',
-  'Listing Readiness',
-  'CMC / CoinGecko Support',
-  'Market Maker Introduction',
-  'VC / Fundraising Support',
-  'KOL Round',
-  'Not sure, need advice',
-]
-
-const targetMarkets = [
-  'Chinese-speaking',
-  'English-speaking',
-  'Vietnam',
-  'Japan',
-  'Korea',
-  'Indonesia',
-  'Turkey',
-  'Brazil / Portuguese',
-  'MENA / Arabic',
-  'Global',
-]
+import { budgetRanges, projectStages, serviceNeeds, targetMarkets } from '../siteData'
 
 const initialForm = {
   project_name: '',
@@ -81,61 +32,80 @@ const initialForm = {
 
 export default function ContactPage() {
   const [formData, setFormData] = useState(initialForm)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
     console.log('Project brief submitted:', formData)
-    setIsSubmitted(true)
+    setSubmitted(true)
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [event.target.name]: event.target.value,
-    })
+    setFormData({ ...formData, [event.target.name]: event.target.value })
   }
 
   return (
-    <div className="pt-16 bg-white text-gray-900">
-      <section className="py-20 bg-gray-950 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-sm font-bold uppercase tracking-wide text-emerald-300">Project Intake</p>
-          <h1 className="mt-4 text-4xl md:text-5xl font-bold max-w-4xl">Submit Your Project Brief</h1>
-          <p className="mt-6 text-lg text-gray-300 max-w-3xl">
-            Tell us your launch goal, stage, target markets, current traction, and budget range. E2P Labs will review your context and recommend a practical GTM campaign plan.
-          </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3">
-            <a href="https://t.me/BitEsq" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white hover:bg-primary-700 transition-colors">
-              <MessageCircle className="mr-2 w-5 h-5" />
-              Telegram @BitEsq
-            </a>
-            <a href="mailto:aliarlan1028@gmail.com" className="inline-flex items-center justify-center rounded-lg border border-white/20 px-6 py-3 font-semibold text-white hover:bg-white/10 transition-colors">
-              <Mail className="mr-2 w-5 h-5" />
-              Email E2P
-            </a>
+    <div className="bg-paper">
+      <section className="bg-ink pb-20 pt-36 text-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:px-8">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-mint">Project intake</p>
+            <h1 className="mt-6 text-balance text-4xl font-semibold leading-[1.04] md:text-6xl">Tell us what you are trying to launch.</h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-300">
+              Share your project stage, target market, current traction, budget range, and biggest challenge. E2P will recommend a practical campaign path.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href="https://t.me/BitEsq" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center bg-mint px-6 font-semibold text-ink hover:bg-mintSoft">
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Telegram @BitEsq
+              </a>
+              <a href="mailto:aliarlan1028@gmail.com" className="inline-flex min-h-12 items-center justify-center border border-white/15 px-6 font-semibold text-white hover:bg-white/10">
+                <Mail className="mr-2 h-5 w-5" />
+                Email E2P
+              </a>
+            </div>
+            <div className="mt-10 grid grid-cols-1 gap-3 text-sm text-stone-300 sm:grid-cols-2">
+              {['Stage-aware campaign plan', 'KOL / PR / regional resources', 'Delivery proof and reporting', 'No guaranteed outcome claims'].map((item) => (
+                <div key={item} className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-mint" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="border border-white/10 bg-white/[0.04] p-6">
+            <h2 className="text-xl font-semibold">What happens next</h2>
+            <div className="mt-6 space-y-4">
+              {[
+                ['01', 'E2P reviews your stage, market, and objective.'],
+                ['02', 'We recommend a campaign structure and budget logic.'],
+                ['03', 'You approve scope before execution starts.'],
+                ['04', 'Delivery is tracked with proof and reporting.'],
+              ].map(([num, text]) => (
+                <div key={num} className="flex gap-4 border-t border-white/10 pt-4 first:border-t-0 first:pt-0">
+                  <span className="font-semibold text-mint">{num}</span>
+                  <p className="text-stone-300">{text}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-lg border border-gray-200 bg-white p-6 lg:p-8 shadow-sm">
-            {isSubmitted ? (
-              <div className="py-14 text-center">
-                <CheckCircle2 className="w-14 h-14 text-emerald-600 mx-auto mb-4" />
-                <h2 className="text-3xl font-bold text-gray-950">Project brief captured</h2>
-                <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
-                  This frontend currently records the brief in the browser console. Please also contact E2P through Telegram or email so the team can follow up quickly.
+      <section className="py-20">
+        <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+          <div className="border border-ink/10 bg-white p-5 shadow-lift sm:p-8">
+            {submitted ? (
+              <div className="py-16 text-center">
+                <CheckCircle2 className="mx-auto h-14 w-14 text-forest" />
+                <h2 className="mt-5 text-3xl font-semibold text-ink">Project brief captured</h2>
+                <p className="mx-auto mt-4 max-w-2xl leading-8 text-stone-600">
+                  This frontend records the brief in the browser console. Please also contact E2P through Telegram or email so the team can follow up quickly.
                 </p>
-                <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
-                  <a href="https://t.me/BitEsq" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white hover:bg-primary-700 transition-colors">
-                    Contact on Telegram
-                  </a>
-                  <button onClick={() => { setFormData(initialForm); setIsSubmitted(false) }} className="inline-flex items-center justify-center rounded-lg border border-gray-300 px-6 py-3 font-semibold text-gray-900 hover:bg-gray-50 transition-colors">
-                    Submit another brief
-                  </button>
-                </div>
+                <button onClick={() => { setFormData(initialForm); setSubmitted(false) }} className="mt-8 border border-ink/10 px-6 py-3 font-semibold text-ink hover:bg-mist">
+                  Submit another brief
+                </button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-10">
@@ -144,8 +114,8 @@ export default function ContactPage() {
                   <Input label="Website" name="website" value={formData.website} onChange={handleChange} placeholder="https://" />
                   <Input label="X URL" name="x_url" value={formData.x_url} onChange={handleChange} placeholder="https://x.com/..." />
                   <Input label="Telegram URL" name="telegram_url" value={formData.telegram_url} onChange={handleChange} placeholder="https://t.me/..." />
-                  <Input label="Project Category" name="project_category" value={formData.project_category} onChange={handleChange} placeholder="DeFi, AI, GameFi, Infra..." />
-                  <Input label="Token Status" name="token_status" value={formData.token_status} onChange={handleChange} placeholder="No token, testnet points, TGE planned..." />
+                  <Input label="Category" name="project_category" value={formData.project_category} onChange={handleChange} placeholder="DeFi, AI, GameFi, Infra..." />
+                  <Input label="Token Status" name="token_status" value={formData.token_status} onChange={handleChange} placeholder="No token, points, TGE planned..." />
                 </FormSection>
 
                 <FormSection title="Contact">
@@ -158,8 +128,8 @@ export default function ContactPage() {
                   <Select label="Project Stage" name="project_stage" value={formData.project_stage} onChange={handleChange} options={projectStages} />
                   <Input label="Launch or TGE Date" name="launch_or_tge_date" value={formData.launch_or_tge_date} onChange={handleChange} placeholder="YYYY-MM-DD or approximate" />
                   <Select label="Campaign Budget Range" name="campaign_budget_range" value={formData.campaign_budget_range} onChange={handleChange} options={budgetRanges} />
-                  <Input label="Current Monthly Marketing Budget" name="current_monthly_marketing_budget" value={formData.current_monthly_marketing_budget} onChange={handleChange} placeholder="Example: 10,000 USDT" />
-                  <Input label="Current Community Size" name="current_community_size" value={formData.current_community_size} onChange={handleChange} placeholder="Telegram, Discord, X followers..." />
+                  <Input label="Monthly Marketing Budget" name="current_monthly_marketing_budget" value={formData.current_monthly_marketing_budget} onChange={handleChange} placeholder="Example: 10,000 USDT" />
+                  <Input label="Community Size" name="current_community_size" value={formData.current_community_size} onChange={handleChange} placeholder="Telegram, Discord, X followers..." />
                   <Input label="Expected Timeline" name="expected_timeline" value={formData.expected_timeline} onChange={handleChange} placeholder="2 weeks, 1 month, before TGE..." />
                 </FormSection>
 
@@ -167,23 +137,23 @@ export default function ContactPage() {
                   <Textarea label="Target Markets" name="target_markets" value={formData.target_markets} onChange={handleChange} placeholder={`Examples: ${targetMarkets.join(', ')}`} />
                   <Textarea label="Needed Services" name="needed_services" value={formData.needed_services} onChange={handleChange} placeholder={serviceNeeds.join(', ')} />
                   <Textarea label="Main Goal" name="main_goal" value={formData.main_goal} onChange={handleChange} placeholder="What should this campaign accomplish?" required />
-                  <Textarea label="Biggest Challenge" name="biggest_challenge" value={formData.biggest_challenge} onChange={handleChange} placeholder="What is blocking growth or listing readiness today?" />
+                  <Textarea label="Biggest Challenge" name="biggest_challenge" value={formData.biggest_challenge} onChange={handleChange} placeholder="What is blocking growth or readiness today?" />
                 </FormSection>
 
                 <FormSection title="Existing resources">
                   <Select label="Existing KOL List" name="has_existing_kol_list" value={formData.has_existing_kol_list} onChange={handleChange} options={['Yes', 'No', 'Not sure']} />
                   <Select label="Existing PR" name="has_existing_pr" value={formData.has_existing_pr} onChange={handleChange} options={['Yes', 'No', 'Not sure']} />
-                  <Select label="Existing Exchange Contact" name="has_existing_exchange_contact" value={formData.has_existing_exchange_contact} onChange={handleChange} options={['Yes', 'No', 'Not sure']} />
+                  <Select label="Exchange Contact" name="has_existing_exchange_contact" value={formData.has_existing_exchange_contact} onChange={handleChange} options={['Yes', 'No', 'Not sure']} />
                   <Textarea label="Notes" name="notes" value={formData.notes} onChange={handleChange} placeholder="Anything else E2P should know?" />
                 </FormSection>
 
-                <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">
+                <div className="bg-mist p-5 text-sm leading-6 text-stone-600">
                   E2P provides GTM planning, campaign execution, delivery reporting, and readiness support. We do not guarantee token price, exchange approval, CMC / CoinGecko approval, trading volume, ROI, or fundraising outcomes.
                 </div>
 
-                <button type="submit" className="inline-flex items-center justify-center rounded-lg bg-primary-600 px-8 py-4 font-semibold text-white hover:bg-primary-700 transition-colors">
+                <button type="submit" className="inline-flex min-h-12 items-center justify-center bg-ink px-8 font-semibold text-white hover:bg-charcoal">
                   Submit Project Brief
-                  <Send className="ml-2 w-5 h-5" />
+                  <Send className="ml-2 h-5 w-5" />
                 </button>
               </form>
             )}
@@ -197,21 +167,13 @@ export default function ContactPage() {
 function FormSection({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section>
-      <h2 className="text-xl font-bold text-gray-950 mb-5">{title}</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">{children}</div>
+      <h2 className="mb-5 border-b border-ink/10 pb-3 text-xl font-semibold text-ink">{title}</h2>
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">{children}</div>
     </section>
   )
 }
 
-function Input({
-  label,
-  name,
-  value,
-  onChange,
-  type = 'text',
-  placeholder,
-  required = false,
-}: {
+function Input({ label, name, value, onChange, type = 'text', placeholder, required = false }: {
   label: string
   name: string
   value: string
@@ -222,27 +184,13 @@ function Input({
 }) {
   return (
     <label className="block">
-      <span className="text-sm font-semibold text-gray-700">{label}{required ? ' *' : ''}</span>
-      <input
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        required={required}
-        placeholder={placeholder}
-        className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-100"
-      />
+      <span className="text-sm font-semibold text-ink">{label}{required ? ' *' : ''}</span>
+      <input type={type} name={name} value={value} onChange={onChange} required={required} placeholder={placeholder} className="mt-2 w-full border border-ink/10 bg-paper px-4 py-3 text-ink outline-none focus:border-forest" />
     </label>
   )
 }
 
-function Select({
-  label,
-  name,
-  value,
-  onChange,
-  options,
-}: {
+function Select({ label, name, value, onChange, options }: {
   label: string
   name: string
   value: string
@@ -251,29 +199,15 @@ function Select({
 }) {
   return (
     <label className="block">
-      <span className="text-sm font-semibold text-gray-700">{label}</span>
-      <select
-        name={name}
-        value={value}
-        onChange={onChange}
-        className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-100"
-      >
-        {options.map((option) => (
-          <option key={option} value={option}>{option}</option>
-        ))}
+      <span className="text-sm font-semibold text-ink">{label}</span>
+      <select name={name} value={value} onChange={onChange} className="mt-2 w-full border border-ink/10 bg-paper px-4 py-3 text-ink outline-none focus:border-forest">
+        {options.map((option) => <option key={option} value={option}>{option}</option>)}
       </select>
     </label>
   )
 }
 
-function Textarea({
-  label,
-  name,
-  value,
-  onChange,
-  placeholder,
-  required = false,
-}: {
+function Textarea({ label, name, value, onChange, placeholder, required = false }: {
   label: string
   name: string
   value: string
@@ -283,16 +217,8 @@ function Textarea({
 }) {
   return (
     <label className="block md:col-span-2">
-      <span className="text-sm font-semibold text-gray-700">{label}{required ? ' *' : ''}</span>
-      <textarea
-        name={name}
-        value={value}
-        onChange={onChange}
-        required={required}
-        placeholder={placeholder}
-        rows={4}
-        className="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-100"
-      />
+      <span className="text-sm font-semibold text-ink">{label}{required ? ' *' : ''}</span>
+      <textarea name={name} value={value} onChange={onChange} required={required} placeholder={placeholder} rows={4} className="mt-2 w-full border border-ink/10 bg-paper px-4 py-3 text-ink outline-none focus:border-forest" />
     </label>
   )
 }

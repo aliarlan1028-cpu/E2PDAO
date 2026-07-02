@@ -1,182 +1,73 @@
 import Link from 'next/link'
-import { MessageCircle, Mail, ExternalLink } from 'lucide-react'
+import { Mail, Send } from 'lucide-react'
+import { navItems } from '@/app/siteData'
 
-// X (Twitter) Icon Component
-const XIcon = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-  >
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-)
-
-// TG (Telegram) Icon Component
-const TGIcon = ({ className }: { className?: string }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-  >
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.87 1.19-5.28 3.5-.5.35-.95.52-1.35.51-.45-.01-1.31-.25-1.95-.46-.79-.26-1.42-.4-1.37-.85.03-.22.4-.44 1.1-.67 4.33-1.88 7.22-3.12 8.66-3.68 4.05-1.6 4.89-1.88 5.44-1.89.12 0 .38.03.55.17.14.11.18.26.2.36.01.06.01.24 0 .37z"/>
-  </svg>
-)
-
-const Footer = () => {
-  const currentYear = new Date().getFullYear()
-
-  const footerLinks = {
-    services: [
-      { name: 'Solutions', href: '/solutions' },
-      { name: 'Case Studies', href: '/cases' },
-      { name: 'E2P Club', href: '/e2p-club' },
-      { name: 'Signal Bot', href: '/e2p-club/signal-bot' },
-      { name: 'Partner Program', href: '/partner-program' },
-    ],
-    community: [
-      { name: 'Telegram', href: 'https://t.me/+RcB2FVha7bo4N2Nk', external: true },
-      { name: 'X', href: 'https://x.com/e2p_dao', external: true },
-      { name: 'TaskOn', href: 'https://taskon.xyz/E2P_DAO', external: true },
-      { name: 'CoinMarketCap', href: 'https://coinmarketcap.com/currencies/e2p-token/', external: true },
-    ],
-    resources: [
-      { name: 'Project Intake', href: '/contact', external: false },
-      { name: 'GTM Resources', href: '/resources', external: false },
-      { name: 'Project Recommendation', href: 'https://tekmrajjzl3.larksuite.com/share/base/form/shrusvRnucx6PXYKzsXtRC72nTI', external: true },
-      { name: 'KOL Application', href: 'https://tekmrajjzl3.larksuite.com/share/base/form/shrus2nxIgRpMN9luP12gZUMN1b', external: true },
-    ]
-  }
+export default function Footer() {
+  const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-[#0b100f] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Brand Section */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center space-x-3 mb-4">
-              <img src="/logo-e2p-dao.svg" alt="E2P Labs" className="w-8 h-8 flex-shrink-0" />
-              <span className="text-xl font-bold">E2P Labs</span>
+    <footer className="bg-ink text-white">
+      <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
+            <Link href="/" className="flex items-center gap-3">
+              <img src="/logo-e2p-dao.svg" alt="E2P Labs" className="h-8 w-auto" />
+              <span className="text-xl font-semibold">E2P Labs</span>
             </Link>
-            <p className="text-gray-400 mb-6 max-w-md leading-7">
-              E2P Labs helps Web3 projects plan and execute launch, KOL, PR, community, regional market entry, and listing-readiness campaigns with transparent delivery reporting.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-300">
+              Web3 launch, KOL, PR, regional market entry, community activation, and listing-readiness campaigns built for transparent delivery.
             </p>
-            <div className="flex space-x-4">
-              <a
-                href="https://x.com/e2p_dao"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
-              >
-                <XIcon className="w-5 h-5" />
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link href="/contact" className="inline-flex min-h-12 items-center justify-center bg-mint px-6 font-semibold text-ink hover:bg-mintSoft">
+                Submit Project Brief
+              </Link>
+              <a href="https://t.me/BitEsq" target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center justify-center border border-white/15 px-6 font-semibold text-white hover:bg-white/10">
+                <Send className="mr-2 h-4 w-4" />
+                Telegram
               </a>
-              <a
-                href="https://t.me/+RcB2FVha7bo4N2Nk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
-              >
-                <TGIcon className="w-5 h-5" />
-              </a>
-              <a
-                href="mailto:aliarlan1028@gmail.com"
-                className="p-2 border border-white/10 bg-white/5 hover:bg-white/10 transition-colors"
-              >
-                <Mail className="w-5 h-5" />
+              <a href="mailto:aliarlan1028@gmail.com" className="inline-flex min-h-12 items-center justify-center border border-white/15 px-6 font-semibold text-white hover:bg-white/10">
+                <Mail className="mr-2 h-4 w-4" />
+                Email
               </a>
             </div>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300 mb-4">Services</h3>
-            <ul className="space-y-2">
-              {footerLinks.services.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Community and Resources */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300 mb-4">Community</h3>
-            <ul className="space-y-2 mb-6">
-              {footerLinks.community.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noopener noreferrer" : undefined}
-                    className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2"
-                  >
-                    {link.name === 'X' && <XIcon className="w-4 h-4" />}
-                    {link.name === 'Telegram' && <TGIcon className="w-4 h-4" />}
-                    <span>{link.name}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-            
-            <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300 mb-4">Resources</h3>
-            <ul className="space-y-2">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  {link.external ? (
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      <span>{link.name}</span>
-                    </a>
-                  ) : (
-                    <Link
-                      href={link.href}
-                      className="text-gray-400 hover:text-white transition-colors flex items-center space-x-2"
-                    >
-                      <span>{link.name}</span>
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+            <div>
+              <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-mint">Navigate</h2>
+              <ul className="mt-5 space-y-3">
+                {navItems.map((item) => (
+                  <li key={item.href}>
+                    <Link href={item.href} className="text-stone-400 transition-colors hover:text-white">
+                      {item.label}
                     </Link>
-                  )}
-                </li>
-              ))}
-            </ul>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-mint">External</h2>
+              <ul className="mt-5 space-y-3">
+                <li><a href="https://x.com/e2p_dao" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white">X</a></li>
+                <li><a href="https://t.me/+RcB2FVha7bo4N2Nk" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white">Telegram</a></li>
+                <li><a href="https://taskon.xyz/E2P_DAO" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white">TaskOn</a></li>
+              </ul>
+            </div>
+            <div>
+              <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-mint">Forms</h2>
+              <ul className="mt-5 space-y-3">
+                <li><Link href="/contact" className="text-stone-400 hover:text-white">Project Intake</Link></li>
+                <li><a href="https://tekmrajjzl3.larksuite.com/share/base/form/shrusvRnucx6PXYKzsXtRC72nTI" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white">Scout Lead</a></li>
+                <li><a href="https://tekmrajjzl3.larksuite.com/share/base/form/shrus2nxIgRpMN9luP12gZUMN1b" target="_blank" rel="noopener noreferrer" className="text-stone-400 hover:text-white">KOL Apply</a></li>
+              </ul>
+            </div>
           </div>
         </div>
 
-        {/* Bottom Section */}
-        <div className="border-t border-white/10 mt-12 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-500 text-sm">
-              © {currentYear} E2P Labs. All rights reserved.
-            </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-gray-500 hover:text-white transition-colors text-sm">
-                Terms of Service
-              </a>
-            </div>
-          </div>
+        <div className="mt-14 border-t border-white/10 pt-8 text-sm text-stone-500">
+          <p>© {year} E2P Labs. Campaign execution and readiness support only. No listing, price, ROI, volume, or fundraising guarantees.</p>
         </div>
       </div>
     </footer>
   )
 }
-
-export default Footer
