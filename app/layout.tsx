@@ -9,9 +9,9 @@ export const metadata: Metadata = {
   keywords: 'web3 growth, crypto marketing, KOL marketing, media PR, exchange listing, project incubation, investor community, E2P DAO, E2P Labs, E2P Club',
   authors: [{ name: 'E2P DAO Team' }],
   icons: {
-    icon: '/e2p-icon.svg',
-    shortcut: '/e2p-icon.svg',
-    apple: '/e2p-icon.svg',
+    icon: '/e2p-icon-transparent.svg',
+    shortcut: '/e2p-icon-transparent.svg',
+    apple: '/e2p-icon-transparent.svg',
   },
   openGraph: {
     title: 'E2P DAO - Web3 Growth, Listing & Investor Network',
