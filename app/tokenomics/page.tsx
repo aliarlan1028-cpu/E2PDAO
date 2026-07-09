@@ -1,7 +1,8 @@
 'use client'
 
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Coins, HandCoins, Share2, Megaphone, Target } from 'lucide-react'
+import { Coins, HandCoins, Share2, Megaphone, Target, Copy, Check, ExternalLink } from 'lucide-react'
 
 const EARN_WAYS = [
   { icon: HandCoins, task: 'Copy Trade on Binance', reward: '5,000 $E2P per $5k vol' },
@@ -10,7 +11,42 @@ const EARN_WAYS = [
   { icon: Megaphone, task: 'Social Engagement', reward: '50 - 100 $E2P per action' },
 ]
 
+const CONTRACT = '0x597716022fc149c2b89061d6ec6b5eac4a97bc20'
+
+const TOKEN_STATS = [
+  { label: 'Network', value: 'BNB Smart Chain' },
+  { label: 'Standard', value: 'BEP-20' },
+  { label: 'Max Supply', value: '10,000,000,000' },
+  { label: 'Total Supply', value: '10,000,000,000' },
+  { label: 'Circulating', value: '6,000,000,000' },
+  { label: 'Symbol', value: '$E2P' },
+]
+
+const TAGS = ['Proof of Community', 'Marketing', 'AI & Big Data', 'Governance']
+
+const C = 301.593 // circumference for r = 48
+const ALLOCATION = [
+  { label: 'Community', pct: 60, color: '#00FF66', dot: 'bg-web3-accent shadow-[0_0_5px_#00FF66]' },
+  { label: 'Treasury', pct: 20, color: '#8A2BE2', dot: 'bg-web3-purple shadow-[0_0_5px_#8A2BE2]' },
+  { label: 'Team', pct: 10, color: '#ffffff', dot: 'bg-white' },
+  { label: 'Advisors', pct: 10, color: '#6b7280', dot: 'bg-gray-500' },
+]
+
 export default function TokenomicsPage() {
+  const [copied, setCopied] = useState(false)
+
+  const copyContract = async () => {
+    try {
+      await navigator.clipboard.writeText(CONTRACT)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    } catch {
+      /* clipboard unavailable */
+    }
+  }
+
+  let cumulative = 0
+
   return (
     <div className="py-12 bg-web3-dark min-h-screen grid-bg relative">
       <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-b from-transparent to-web3-dark z-0 pointer-events-none"></div>
@@ -18,7 +54,7 @@ export default function TokenomicsPage() {
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
 
-        <div className="mb-16">
+        <div className="mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -41,9 +77,54 @@ export default function TokenomicsPage() {
             transition={{ delay: 0.2 }}
             className="text-gray-400 max-w-2xl text-sm font-mono leading-relaxed"
           >
-            $E2P serves as the governance token of E2P DAO. It captures ecosystem value, aligns incentives, and rewards those who actively contribute to our network&apos;s growth. 60% of the total supply is strictly reserved for community distribution.
+            $E2P is the governance token of E2P DAO, live on BNB Smart Chain. It captures ecosystem value, aligns incentives across projects, KOLs and traders, and rewards contributors to network growth. 60% of the fixed 10B supply is reserved for the community.
           </motion.p>
         </div>
+
+        {/* On-chain metadata */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.25 }}
+          className="bg-web3-card/80 backdrop-blur-md p-6 md:p-8 rounded-xl border border-white/10 shadow-2xl mb-8"
+        >
+          <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+            <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest font-mono">On-Chain Registry // Verified</h4>
+            <div className="w-2 h-2 rounded-full bg-web3-accent animate-pulse shadow-[0_0_5px_#00FF66]"></div>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-6">
+            {TOKEN_STATS.map((stat) => (
+              <div key={stat.label} className="bg-black/40 border border-white/5 rounded-lg p-4">
+                <div className="text-[9px] text-gray-500 uppercase tracking-widest font-mono mb-1">{stat.label}</div>
+                <div className="text-sm font-bold text-white break-words">{stat.value}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-col md:flex-row md:items-center gap-3 bg-black/40 border border-white/5 rounded-lg p-4">
+            <span className="text-[9px] text-gray-500 uppercase tracking-widest font-mono shrink-0">Contract (BEP-20)</span>
+            <code className="text-[11px] md:text-xs text-web3-accent font-mono break-all flex-1">{CONTRACT}</code>
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={copyContract}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-widest text-gray-300 hover:text-web3-accent hover:border-web3-accent/50 transition-colors"
+              >
+                {copied ? <Check className="w-3 h-3 text-web3-accent" /> : <Copy className="w-3 h-3" />}
+                {copied ? 'Copied' : 'Copy'}
+              </button>
+              <a
+                href={`https://bscscan.com/token/${CONTRACT}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-widest text-gray-300 hover:text-web3-accent hover:border-web3-accent/50 transition-colors"
+              >
+                <ExternalLink className="w-3 h-3" />
+                BscScan
+              </a>
+            </div>
+          </div>
+        </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* Ways to earn */}
@@ -72,6 +153,15 @@ export default function TokenomicsPage() {
               ))}
             </div>
 
+            <div className="mt-auto pt-2">
+              <div className="flex flex-wrap gap-2">
+                {TAGS.map((tag) => (
+                  <span key={tag} className="text-[9px] font-mono uppercase tracking-widest text-gray-400 bg-white/5 border border-white/10 rounded px-2 py-1">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Token Distribution Chart */}
@@ -85,37 +175,68 @@ export default function TokenomicsPage() {
 
               <h3 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-6 self-start border-b border-white/10 pb-4 w-full">Token Allocation</h3>
               <div className="relative w-56 h-56 flex flex-col items-center justify-center my-8">
-                <div className="text-5xl font-light text-white mb-1">60<span className="text-2xl text-web3-accent">%</span></div>
-                <div className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Community Airdrop</div>
+                <div className="text-5xl font-light text-white mb-1">10<span className="text-2xl text-web3-accent">B</span></div>
+                <div className="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Fixed Supply</div>
 
-                {/* Decorative rings */}
+                {/* Multi-segment allocation ring */}
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 100">
                   <circle cx="50" cy="50" r="48" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="4" />
-                  <circle cx="50" cy="50" r="48" fill="none" stroke="#00FF66" strokeWidth="4" strokeDasharray="180 300" strokeLinecap="round" className="transform -rotate-90 origin-center drop-shadow-[0_0_10px_rgba(0,255,102,0.5)]" />
+                  {ALLOCATION.map((seg) => {
+                    const len = (seg.pct / 100) * C
+                    const offset = -(cumulative / 100) * C
+                    cumulative += seg.pct
+                    return (
+                      <circle
+                        key={seg.label}
+                        cx="50"
+                        cy="50"
+                        r="48"
+                        fill="none"
+                        stroke={seg.color}
+                        strokeWidth="4"
+                        strokeDasharray={`${len} ${C - len}`}
+                        strokeDashoffset={offset}
+                        strokeLinecap="butt"
+                        className="origin-center -rotate-90"
+                      />
+                    )
+                  })}
                 </svg>
               </div>
 
               <div className="w-full grid grid-cols-2 gap-4 mt-4 font-mono text-[10px] text-gray-400 uppercase tracking-widest">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-web3-accent rounded-full shadow-[0_0_5px_#00FF66]"></div>
-                  Community (60%)
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-web3-purple rounded-full shadow-[0_0_5px_#8A2BE2]"></div>
-                  Treasury (20%)
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-white rounded-full"></div>
-                  Team (10%)
-                </div>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                  Advisors (10%)
-                </div>
+                {ALLOCATION.map((seg) => (
+                  <div key={seg.label} className="flex items-center gap-2">
+                    <div className={`w-2 h-2 rounded-full ${seg.dot}`}></div>
+                    {seg.label} ({seg.pct}%)
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
         </div>
+
+        {/* CMC CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-8 bg-web3-card/80 backdrop-blur-md p-6 md:p-8 rounded-xl border border-white/10 shadow-2xl flex flex-col md:flex-row md:items-center justify-between gap-6"
+        >
+          <div>
+            <h4 className="text-lg font-bold text-white mb-1">Track $E2P live</h4>
+            <p className="text-xs text-gray-400 font-mono">Price, market cap and holders are tracked on CoinMarketCap.</p>
+          </div>
+          <a
+            href="https://coinmarketcap.com/currencies/e2p-token/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-web3-accent text-black rounded text-xs font-bold uppercase tracking-widest hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all shrink-0"
+          >
+            View on CoinMarketCap
+            <ExternalLink className="w-4 h-4" />
+          </a>
+        </motion.div>
 
       </div>
     </div>
