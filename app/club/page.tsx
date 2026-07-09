@@ -39,7 +39,7 @@ const AGENT_SAFEGUARDS = [
 ]
 
 const VIP_METRICS = [
-  { value: '200 USDT', label: 'One-time lifetime access' },
+  { value: 'OKX / Binance', label: 'Supported exchanges' },
   { value: '24/7', label: 'Agent runtime & monitoring' },
   { value: '60%', label: '$E2P reserved for members' },
 ]
@@ -275,20 +275,20 @@ export default function ClubPage() {
 
             <div className="mt-auto flex flex-col sm:flex-row gap-4">
               <a
-                href="https://t.me/+RcB2FVha7bo4N2Nk"
+                href="https://yegidawir.xyz/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center px-6 py-4 bg-web3-accent text-black rounded text-xs font-bold uppercase tracking-widest hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all"
               >
-                Join VIP - 200 USDT
+                Subscribe AI Trading System
               </a>
               <a
-                href="https://t.me/e2pdaoviptrail"
+                href="https://t.me/+RcB2FVha7bo4N2Nk"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 inline-flex items-center justify-center px-6 py-4 bg-transparent text-white border border-white/20 rounded text-xs font-bold uppercase tracking-widest hover:border-web3-accent hover:text-web3-accent transition-all"
               >
-                Try Free Community
+                Join Community - Free
               </a>
             </div>
           </motion.div>
