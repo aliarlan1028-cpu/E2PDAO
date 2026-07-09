@@ -26,7 +26,7 @@ const CONTACT_CHANNELS = [
     title: 'Recommend a Project',
     desc: 'Refer projects for CEX/CMC listing services and earn bounties.',
     action: 'Submit Recommendation',
-    href: 'https://tekmrajjzl3.larksuite.com/share/base/form/shrusvRnucx6PXYKzsXtRC72nTI',
+    href: 'https://t.me/BitEsq',
     accent: 'text-web3-purple',
     border: 'hover:border-web3-purple',
     iconBg: 'bg-web3-purple/10 text-web3-purple',
