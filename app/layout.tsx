@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'E2P DAO - Web3 Incubator, Labs & Trading Club',
   description: 'Token-powered incubator and trading club. E2P DAO leverages extensive networks, industry expertise, and deep exchange relationships to provide comprehensive support for projects.',
-  keywords: 'web3 incubator, crypto KOL marketing, CEX listing, launchpad, trading community, alpha signals, E2P DAO, E2P Labs, E2P Club, $E2P token',
+  keywords: 'web3 incubator, crypto KOL marketing, CEX listing, launchpad, trading community, alpha signals, E2P DAO, E2P Labs, E2P Club, $E2P point',
   authors: [{ name: 'E2P DAO Team' }],
   icons: {
     icon: '/e2p-icon-transparent.svg',

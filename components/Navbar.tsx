@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { name: 'Home', href: '/' },
   { name: 'Labs', href: '/labs' },
   { name: 'Club', href: '/club' },
-  { name: '$E2P Token', href: '/tokenomics' },
+  { name: '$E2P Point', href: '/tokenomics' },
 ]
 
 export default function Navbar() {

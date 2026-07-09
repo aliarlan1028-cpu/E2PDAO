@@ -85,7 +85,7 @@ export default function HomePage() {
               <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6 text-white">
                 <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
               </div>
-              <h4 className="text-xl font-bold text-white mb-4">$E2P Token</h4>
+              <h4 className="text-xl font-bold text-white mb-4">$E2P Point</h4>
               <p className="text-sm text-gray-400 mb-8 font-mono">Governance, staking rewards, and ecosystem utility capturing value.</p>
               <Link href="/tokenomics" className="mt-auto text-white font-mono text-sm group-hover:underline">Tokenomics &rarr;</Link>
             </div>
