@@ -42,6 +42,44 @@ const SERVICES = [
   },
 ]
 
+const RESOURCE_MATRIX = [
+  {
+    label: 'Exchange Partners',
+    items: [
+      { name: 'OKX', logo: '/OKX.png' },
+      { name: 'Crypto.com', logo: '/crypto.com.png' },
+      { name: 'Bybit', logo: '/Bybit.png' },
+      { name: 'Kucoin', logo: '/Kucoin.png' },
+      { name: 'HTX', logo: '/HTX.png' },
+      { name: 'Bitget', logo: '/Bitget Logo.png' },
+      { name: 'Gate.io', logo: '/Gate.io.png' },
+      { name: 'MEXC', logo: '/MEXC.png' },
+      { name: 'Bingx', logo: '/Bingx.png' },
+      { name: 'Coinstore', logo: '/CoinStore.png' },
+    ],
+  },
+  {
+    label: 'Launchpad Alliance',
+    items: [
+      { name: 'DAO Maker', logo: '/DAO Maker.png' },
+      { name: 'Seedify', logo: '/seedify.svg' },
+      { name: 'Poolz Finance', logo: '/Poolz Finance.png' },
+      { name: 'BullPerks', logo: '/BullPerks.png' },
+      { name: 'Kommunitas', logo: '/kommunitas.png' },
+    ],
+  },
+  {
+    label: 'Capital Partners',
+    items: [
+      { name: 'Coresky', logo: '/Coresky.jpeg' },
+      { name: 'Unicorne-Verse', logo: '/Unicorne-Verse.jpg' },
+      { name: 'MT Capital', logo: '/MT Capital.avif' },
+      { name: 'Mirana Ventures', logo: '/Mirana Ventures.png' },
+      { name: 'Snova Capital', logo: '/Snova Capital.png' },
+    ],
+  },
+]
+
 const TRACK_RECORD = [
   {
     project: 'CHAX',
@@ -127,11 +165,6 @@ export default function LabsPage() {
               <p className="text-xs font-mono text-gray-400 leading-relaxed flex-1">
                 {service.description}
               </p>
-              <div className="mt-6 pt-4 border-t border-white/10">
-                <button className="text-[10px] font-bold text-gray-500 uppercase tracking-widest group-hover:text-web3-accent transition-colors flex items-center gap-2">
-                  Execute Protocol <span className="font-mono">&gt;</span>
-                </button>
-              </div>
             </motion.div>
           ))}
         </div>
@@ -189,20 +222,30 @@ export default function LabsPage() {
           className="mt-20 bg-web3-card p-8 rounded-xl border border-white/5"
         >
           <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
-            <h2 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 font-mono">Verified Exchange Network</h2>
+            <h2 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 font-mono">Resource Matrix // Verified Network</h2>
             <div className="flex gap-2">
               <div className="w-2 h-2 rounded-full bg-web3-accent"></div>
               <div className="w-2 h-2 rounded-full bg-web3-purple"></div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center">
-            <div className="text-xl md:text-2xl font-bold font-heading text-gray-500 hover:text-white transition-colors cursor-default">OKX</div>
-            <div className="text-xl md:text-2xl font-bold font-heading text-gray-500 hover:text-white transition-colors cursor-default">Gate.io</div>
-            <div className="text-xl md:text-2xl font-bold font-heading text-gray-500 hover:text-white transition-colors cursor-default">Bitget</div>
-            <div className="text-xl md:text-2xl font-bold font-heading text-gray-500 hover:text-white transition-colors cursor-default">MEXC</div>
-            <div className="text-xl md:text-2xl font-bold font-heading text-gray-500 hover:text-white transition-colors cursor-default">KuCoin</div>
-            <div className="text-xl md:text-2xl font-bold font-heading text-gray-500 hover:text-white transition-colors cursor-default">Binance</div>
+          <div className="space-y-10">
+            {RESOURCE_MATRIX.map((group) => (
+              <div key={group.label}>
+                <h3 className="text-[10px] font-bold uppercase tracking-widest text-web3-accent font-mono mb-4">{group.label}</h3>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+                  {group.items.map((item) => (
+                    <div
+                      key={item.name}
+                      title={item.name}
+                      className="flex h-16 min-w-0 items-center justify-center overflow-hidden rounded bg-white p-3 opacity-90 hover:opacity-100 transition-opacity"
+                    >
+                      <img src={item.logo} alt={item.name} className="h-8 w-24 object-contain" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

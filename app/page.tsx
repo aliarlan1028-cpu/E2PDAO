@@ -1,5 +1,47 @@
 import Link from 'next/link'
+import { Send, UserPlus, Megaphone, Mail } from 'lucide-react'
 import Hero from '@/components/Hero'
+
+const TIMELINE = [
+  { year: '2018', text: 'Bitget futures operations — exchange floor roots' },
+  { year: '2020', text: 'Tron ecosystem DeFi operations' },
+  { year: '2021', text: 'Gate.io KOL creator network built' },
+  { year: '2022', text: 'E2P DAO founded — growth and listing network' },
+  { year: 'NOW', text: 'Labs + Club dual-engine operating layer' },
+]
+
+const CONTACT_CHANNELS = [
+  {
+    icon: Send,
+    title: 'Business Inquiry',
+    desc: 'Fastest route for growth, listing and partnership discussions.',
+    action: 'Message @BitEsq',
+    href: 'https://t.me/BitEsq',
+    accent: 'text-web3-accent',
+    border: 'hover:border-web3-accent',
+    iconBg: 'bg-web3-accent/10 text-web3-accent',
+  },
+  {
+    icon: UserPlus,
+    title: 'Recommend a Project',
+    desc: 'Refer projects for CEX/CMC listing services and earn bounties.',
+    action: 'Submit Recommendation',
+    href: 'https://tekmrajjzl3.larksuite.com/share/base/form/shrusvRnucx6PXYKzsXtRC72nTI',
+    accent: 'text-web3-purple',
+    border: 'hover:border-web3-purple',
+    iconBg: 'bg-web3-purple/10 text-web3-purple',
+  },
+  {
+    icon: Megaphone,
+    title: 'KOL Application',
+    desc: 'Join the 400+ creator resource network across global markets.',
+    action: 'Apply as KOL',
+    href: 'https://tekmrajjzl3.larksuite.com/share/base/form/shrus2nxIgRpMN9luP12gZUMN1b',
+    accent: 'text-white',
+    border: 'hover:border-white',
+    iconBg: 'bg-white/10 text-white',
+  },
+]
 
 export default function HomePage() {
   return (
@@ -47,6 +89,62 @@ export default function HomePage() {
               <p className="text-sm text-gray-400 mb-8 font-mono">Governance, staking rewards, and ecosystem utility capturing value.</p>
               <Link href="/tokenomics" className="mt-auto text-white font-mono text-sm group-hover:underline">Tokenomics &rarr;</Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Operator history */}
+      <section className="py-24 border-b border-white/5 bg-web3-card grid-bg">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+          <h2 className="text-[12px] font-bold text-web3-accent uppercase tracking-widest mb-4">Operator History</h2>
+          <h3 className="text-3xl md:text-5xl font-bold text-white mb-10 leading-tight">
+            Exchange, DeFi & <span className="text-web3-accent glow-text">KOL Roots</span>
+          </h3>
+          <div className="bg-black/50 rounded-xl p-6 md:p-8 font-mono border border-web3-accent/20">
+            <div className="mb-4 text-[10px] text-web3-accent opacity-50 uppercase tracking-widest">// Boot Sequence</div>
+            <div className="space-y-4">
+              {TIMELINE.map((item) => (
+                <div key={item.year} className="flex items-start gap-4 text-xs md:text-sm">
+                  <span className={`shrink-0 w-14 text-right font-bold ${item.year === 'NOW' ? 'text-web3-accent' : 'text-gray-500'}`}>{item.year}</span>
+                  <span className="text-gray-600">&gt;</span>
+                  <span className={item.year === 'NOW' ? 'text-white' : 'text-gray-400'}>{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="py-24 border-b border-white/5 bg-web3-dark">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+          <div className="mb-12">
+            <h2 className="text-[12px] font-bold text-web3-accent uppercase tracking-widest mb-4">Establish Connection</h2>
+            <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight">
+              Start the Right <span className="text-web3-purple">E2P Path</span>
+            </h3>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {CONTACT_CHANNELS.map((channel) => (
+              <a
+                key={channel.title}
+                href={channel.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-8 border border-white/10 rounded-2xl bg-web3-card ${channel.border} transition-colors flex flex-col items-start group`}
+              >
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${channel.iconBg}`}>
+                  <channel.icon className="w-6 h-6" />
+                </div>
+                <h4 className="text-xl font-bold text-white mb-4">{channel.title}</h4>
+                <p className="text-sm text-gray-400 mb-8 font-mono">{channel.desc}</p>
+                <span className={`mt-auto font-mono text-sm ${channel.accent} group-hover:underline`}>{channel.action} &rarr;</span>
+              </a>
+            ))}
+          </div>
+          <div className="mt-10 flex items-center gap-3 font-mono text-xs text-gray-500">
+            <Mail className="w-4 h-4" />
+            <a href="mailto:aliarlan1028@gmail.com" className="hover:text-white transition-colors">aliarlan1028@gmail.com</a>
           </div>
         </div>
       </section>

@@ -1,7 +1,8 @@
 export default function Footer() {
   return (
-    <footer id="contact" className="py-8 bg-black border-t border-white/10 flex flex-col sm:flex-row items-center px-4 sm:px-8 text-[10px] font-mono font-medium text-gray-500 uppercase tracking-widest shrink-0 justify-between relative z-10">
+    <footer className="py-8 bg-black border-t border-white/10 flex flex-col sm:flex-row items-center px-4 sm:px-8 text-[10px] font-mono font-medium text-gray-500 uppercase tracking-widest shrink-0 justify-between relative z-10">
       <div className="flex items-center gap-4 mb-4 sm:mb-0">
+        <img src="/e2p-icon-transparent.svg" alt="E2P DAO" className="w-6 h-6" />
         <div className="flex items-center gap-2">
           <div className="w-2 h-2 rounded-full bg-web3-accent animate-pulse shadow-[0_0_5px_#00FF66]"></div>
           <span className="hidden sm:inline">System Synchronized</span>
@@ -25,6 +26,9 @@ export default function Footer() {
         </a>
         <a href="https://x.com/SinperX_250728" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
           Twitter
+        </a>
+        <a href="mailto:aliarlan1028@gmail.com" className="text-gray-400 hover:text-white transition-colors">
+          Email
         </a>
         <span className="hidden sm:inline opacity-50">© {new Date().getFullYear()} E2P DAO</span>
       </div>

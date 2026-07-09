@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Coins, HandCoins, Share2, Megaphone, Target, ArrowRight } from 'lucide-react'
+import { Coins, HandCoins, Share2, Megaphone, Target } from 'lucide-react'
 
 const EARN_WAYS = [
   { icon: HandCoins, task: 'Copy Trade on Binance', reward: '5,000 $E2P per $5k vol' },
@@ -72,10 +72,6 @@ export default function TokenomicsPage() {
               ))}
             </div>
 
-            <button className="mt-4 w-full py-4 border border-dashed border-white/20 text-gray-400 text-[10px] font-bold uppercase tracking-widest hover:border-web3-accent hover:text-web3-accent transition-colors rounded group flex items-center justify-center gap-2">
-              View Detailed Whitepaper
-              <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-            </button>
           </div>
 
           {/* Token Distribution Chart */}

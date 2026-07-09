@@ -19,6 +19,24 @@ const VIP_SERVICES = [
   { icon: Search, title: 'Alpha Alerts', desc: 'Real-time alerts for high-potential, undervalued tokens.' },
 ]
 
+const SIGNAL_TIERS = [
+  { tier: 'Basic', accuracy: '45% - 55%', width: 'w-[50%]', color: 'bg-white/40' },
+  { tier: 'Standard', accuracy: '55% - 65%', width: 'w-[60%]', color: 'bg-web3-purple' },
+  { tier: 'Premium', accuracy: '65% - 80%', width: 'w-[75%]', color: 'bg-web3-accent' },
+]
+
+const SIGNAL_FEATURES = [
+  'Trend and volatility signals on OKX perpetual markets',
+  'OI, funding rate and order-book tracking',
+  'False breakout and manipulation risk filters',
+]
+
+const VIP_METRICS = [
+  { value: '200 USDT', label: 'One-time lifetime access' },
+  { value: '24/7', label: 'Signal monitoring' },
+  { value: '60%', label: '$E2P reserved for members' },
+]
+
 export default function ClubPage() {
   return (
     <div className="py-12 bg-web3-dark min-h-screen grid-bg relative">
@@ -159,6 +177,86 @@ export default function ClubPage() {
             </div>
           </motion.div>
 
+        </div>
+
+        {/* Signal Engine & VIP Access */}
+        <div className="mt-12 grid lg:grid-cols-2 gap-8 items-stretch">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-web3-card/80 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-2xl"
+          >
+            <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 font-mono">Signal Engine // Accuracy Tiers</h4>
+              <div className="w-2 h-2 rounded-full bg-web3-accent animate-pulse shadow-[0_0_5px_#00FF66]"></div>
+            </div>
+
+            <div className="space-y-5">
+              {SIGNAL_TIERS.map((tier) => (
+                <div key={tier.tier}>
+                  <div className="flex items-center justify-between font-mono text-[11px] mb-2">
+                    <span className="text-white font-bold uppercase tracking-widest">{tier.tier}</span>
+                    <span className="text-web3-accent font-bold px-2 py-1 bg-web3-accent/10 rounded">{tier.accuracy}</span>
+                  </div>
+                  <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                    <div className={`h-full rounded-full ${tier.color} ${tier.width}`}></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 p-5 bg-black/50 border border-white/10 rounded-lg font-mono text-[10px] text-gray-400 leading-relaxed">
+              {SIGNAL_FEATURES.map((feature) => (
+                <div key={feature}>&gt; {feature}</div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="bg-web3-card/80 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-2xl flex flex-col"
+          >
+            <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-web3-purple font-mono">VIP Access Protocol</h4>
+              <div className="w-2 h-2 rounded-full bg-web3-purple animate-pulse shadow-[0_0_5px_#8A2BE2]"></div>
+            </div>
+
+            <div className="grid grid-cols-3 gap-3 mb-8">
+              {VIP_METRICS.map((metric) => (
+                <div key={metric.label} className="bg-black/40 border border-white/5 rounded-lg p-4">
+                  <div className="text-lg font-bold text-white">{metric.value}</div>
+                  <div className="mt-1 text-[10px] leading-4 text-gray-500 font-mono uppercase tracking-wider">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-xs text-gray-400 font-mono leading-relaxed mb-8">
+              Lifetime access to signals, market context, early opportunities and $E2P rewards. Preview the engine in the free community before upgrading.
+            </p>
+
+            <div className="mt-auto flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://t.me/+RcB2FVha7bo4N2Nk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center px-6 py-4 bg-web3-accent text-black rounded text-xs font-bold uppercase tracking-widest hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all"
+              >
+                Join VIP - 200 USDT
+              </a>
+              <a
+                href="https://t.me/e2pdaoviptrail"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 inline-flex items-center justify-center px-6 py-4 bg-transparent text-white border border-white/20 rounded text-xs font-bold uppercase tracking-widest hover:border-web3-accent hover:text-web3-accent transition-all"
+              >
+                Try Free Community
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

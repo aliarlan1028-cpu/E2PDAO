@@ -35,9 +35,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded bg-gradient-to-br from-web3-accent to-web3-purple flex items-center justify-center overflow-hidden font-bold text-xl group-hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all">
-              <span className="text-black group-hover:text-white transition-colors duration-300">E2P</span>
-            </div>
+            <img
+              src="/e2p-icon-transparent.svg"
+              alt="E2P DAO"
+              className="w-10 h-10 group-hover:drop-shadow-[0_0_10px_rgba(0,255,102,0.6)] transition-all duration-300"
+            />
             <div>
               <h1 className="text-lg font-bold leading-none tracking-tight text-white group-hover:text-web3-accent transition-colors glow-text">E2P DAO</h1>
               <p className="text-[10px] text-gray-400 uppercase tracking-widest mt-1">Ecosystem Hub</p>
@@ -59,8 +61,8 @@ export default function Navbar() {
 
           {/* CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
-            <a href="https://x.com/e2p_dao" target="_blank" rel="noreferrer" className="hidden md:flex items-center gap-2 px-6 py-2 bg-web3-accent text-black rounded text-xs font-bold hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all uppercase tracking-widest">
-              Launch App <ArrowRight className="w-4 h-4" />
+            <a href="https://t.me/BitEsq" target="_blank" rel="noreferrer" className="hidden md:flex items-center gap-2 px-6 py-2 bg-web3-accent text-black rounded text-xs font-bold hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all uppercase tracking-widest">
+              Get Proposal <ArrowRight className="w-4 h-4" />
             </a>
 
             <button
@@ -94,8 +96,8 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <a href="https://x.com/e2p_dao" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-web3-accent text-black rounded text-xs font-bold hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all uppercase tracking-widest mt-4">
-                Launch App
+              <a href="https://t.me/BitEsq" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-web3-accent text-black rounded text-xs font-bold hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all uppercase tracking-widest mt-4">
+                Get Proposal
               </a>
             </div>
           </motion.div>
