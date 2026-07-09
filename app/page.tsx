@@ -36,7 +36,7 @@ const CONTACT_CHANNELS = [
     title: 'KOL Application',
     desc: 'Join the 400+ creator resource network across global markets.',
     action: 'Apply as KOL',
-    href: 'https://tekmrajjzl3.larksuite.com/share/base/form/shrus2nxIgRpMN9luP12gZUMN1b',
+    href: 'https://w3claw.xyz/kol-apply',
     accent: 'text-white',
     border: 'hover:border-white',
     iconBg: 'bg-white/10 text-white',

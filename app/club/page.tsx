@@ -4,9 +4,9 @@ import { motion } from 'framer-motion'
 import {
   BarChart3,
   BookOpen,
+  Bot,
   Gift,
   Handshake,
-  TrendingUp,
   Search,
   CheckCircle2,
   Users,
@@ -14,26 +14,33 @@ import {
 
 const VIP_SERVICES = [
   { icon: BarChart3, title: 'Market Analysis', desc: 'Expert insights, economic calendars, and macro trends.' },
-  { icon: TrendingUp, title: 'Trading Signals', desc: 'Actionable trading signals and verified copy trade options.' },
+  { icon: Bot, title: 'E2P Trading Agent', desc: 'Autonomous multi-agent trading engine for OKX & Binance under hard risk controls.' },
   { icon: BookOpen, title: 'Financial Education', desc: 'Resources and courses to elevate your investing knowledge.' },
   { icon: Search, title: 'Alpha Alerts', desc: 'Real-time alerts for high-potential, undervalued tokens.' },
 ]
 
-const SIGNAL_TIERS = [
-  { tier: 'Basic', accuracy: '45% - 55%', width: 'w-[50%]', color: 'bg-white/40' },
-  { tier: 'Standard', accuracy: '55% - 65%', width: 'w-[60%]', color: 'bg-web3-purple' },
-  { tier: 'Premium', accuracy: '65% - 80%', width: 'w-[75%]', color: 'bg-web3-accent' },
+const AGENT_PIPELINE = [
+  { step: '01', title: 'Perceive', text: 'Market structure, macro, regulatory and on-chain event scanning' },
+  { step: '02', title: 'Analyze', text: 'Expert knowledge base distills books, research and reviews into evidence' },
+  { step: '03', title: 'Plan', text: 'AI Trader generates structured trade plans, never impulsive orders' },
+  { step: '04', title: 'Validate', text: 'Mandate guard and hard risk engine approve or reject every plan' },
+  { step: '05', title: 'Execute', text: 'Unified OKX / Binance connector with idempotent order control' },
+  { step: '06', title: 'Monitor', text: '24/7 position, stop-loss, funding rate and drawdown tracking' },
+  { step: '07', title: 'Evolve', text: 'Post-trade reviews written back into memory and strategy rules' },
 ]
 
-const SIGNAL_FEATURES = [
-  'Trend and volatility signals on OKX perpetual markets',
-  'OI, funding rate and order-book tracking',
-  'False breakout and manipulation risk filters',
+const AGENT_SAFEGUARDS = [
+  'Trades only inside a signed mandate: coins, leverage, risk caps, expiry',
+  'No stop-loss, no trade — every position ships with hard protection',
+  'Daily loss and weekly drawdown limits trigger automatic circuit breakers',
+  'High-impact events freeze new entries, allowing only de-risking actions',
+  'Withdrawal permission permanently disabled; API keys never reach the model',
+  'Append-only audit trail for every order, risk check and agent decision',
 ]
 
 const VIP_METRICS = [
   { value: '200 USDT', label: 'One-time lifetime access' },
-  { value: '24/7', label: 'Signal monitoring' },
+  { value: '24/7', label: 'Agent runtime & monitoring' },
   { value: '60%', label: '$E2P reserved for members' },
 ]
 
@@ -169,8 +176,9 @@ export default function ClubPage() {
               <div>
                 <h5 className="font-bold text-xs uppercase tracking-widest mb-2 text-web3-accent">System Status</h5>
                 <p className="text-[10px] text-gray-400 font-mono leading-relaxed">
-                  &gt; Market analysts online.<br />
-                  &gt; Signal engine active.<br />
+                  &gt; AI Trader online.<br />
+                  &gt; Risk engine armed.<br />
+                  &gt; Event scanner active.<br />
                   &gt; Waiting for user connection...
                 </p>
               </div>
@@ -179,8 +187,38 @@ export default function ClubPage() {
 
         </div>
 
-        {/* Signal Engine & VIP Access */}
-        <div className="mt-12 grid lg:grid-cols-2 gap-8 items-stretch">
+        {/* E2P Trading Agent */}
+        <div className="mt-20 mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded bg-white/5 border border-web3-accent/30 text-[10px] text-web3-accent uppercase tracking-widest font-mono mb-4"
+          >
+            <span className="w-2 h-2 rounded-full bg-web3-accent animate-pulse shadow-[0_0_5px_#00FF66]"></span>
+            Active Module // E2P Trading Agent
+          </motion.div>
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-2xl md:text-4xl font-bold text-white mb-4 tracking-tight"
+          >
+            An Autonomous Trading Agent, <br /> <span className="text-web3-accent glow-text">Not Just Signals</span>
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-gray-400 max-w-2xl text-sm font-mono leading-relaxed"
+          >
+            A multi-agent cockpit for OKX and Binance: AI Trader, Risk Officer, Executor, Event Analyst and Review Agent operating inside user-signed mandates, backed by an expert knowledge base and a full audit trail.
+          </motion.p>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -188,27 +226,19 @@ export default function ClubPage() {
             className="bg-web3-card/80 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-2xl"
           >
             <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
-              <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 font-mono">Signal Engine // Accuracy Tiers</h4>
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-gray-400 font-mono">Agent Loop // Execution Pipeline</h4>
               <div className="w-2 h-2 rounded-full bg-web3-accent animate-pulse shadow-[0_0_5px_#00FF66]"></div>
             </div>
 
-            <div className="space-y-5">
-              {SIGNAL_TIERS.map((tier) => (
-                <div key={tier.tier}>
-                  <div className="flex items-center justify-between font-mono text-[11px] mb-2">
-                    <span className="text-white font-bold uppercase tracking-widest">{tier.tier}</span>
-                    <span className="text-web3-accent font-bold px-2 py-1 bg-web3-accent/10 rounded">{tier.accuracy}</span>
-                  </div>
-                  <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                    <div className={`h-full rounded-full ${tier.color} ${tier.width}`}></div>
+            <div className="space-y-4 font-mono">
+              {AGENT_PIPELINE.map((stage) => (
+                <div key={stage.step} className="flex items-start gap-4 text-[11px]">
+                  <span className="shrink-0 w-7 text-web3-accent font-bold">{stage.step}</span>
+                  <div>
+                    <span className="text-white font-bold uppercase tracking-widest">{stage.title}</span>
+                    <span className="text-gray-500"> — {stage.text}</span>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            <div className="mt-8 p-5 bg-black/50 border border-white/10 rounded-lg font-mono text-[10px] text-gray-400 leading-relaxed">
-              {SIGNAL_FEATURES.map((feature) => (
-                <div key={feature}>&gt; {feature}</div>
               ))}
             </div>
           </motion.div>
@@ -221,11 +251,20 @@ export default function ClubPage() {
             className="bg-web3-card/80 backdrop-blur-sm border border-white/10 rounded-xl p-8 shadow-2xl flex flex-col"
           >
             <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
-              <h4 className="text-[10px] font-bold uppercase tracking-widest text-web3-purple font-mono">VIP Access Protocol</h4>
+              <h4 className="text-[10px] font-bold uppercase tracking-widest text-web3-purple font-mono">Hard Risk Architecture</h4>
               <div className="w-2 h-2 rounded-full bg-web3-purple animate-pulse shadow-[0_0_5px_#8A2BE2]"></div>
             </div>
 
-            <div className="grid grid-cols-3 gap-3 mb-8">
+            <div className="space-y-3 mb-8">
+              {AGENT_SAFEGUARDS.map((rule) => (
+                <div key={rule} className="flex items-start gap-3 font-mono text-[11px]">
+                  <CheckCircle2 className="w-4 h-4 text-web3-purple shrink-0 mt-0.5" />
+                  <span className="text-gray-400">{rule}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-auto grid grid-cols-3 gap-3 mb-8">
               {VIP_METRICS.map((metric) => (
                 <div key={metric.label} className="bg-black/40 border border-white/5 rounded-lg p-4">
                   <div className="text-lg font-bold text-white">{metric.value}</div>
@@ -233,10 +272,6 @@ export default function ClubPage() {
                 </div>
               ))}
             </div>
-
-            <p className="text-xs text-gray-400 font-mono leading-relaxed mb-8">
-              Lifetime access to signals, market context, early opportunities and $E2P rewards. Preview the engine in the free community before upgrading.
-            </p>
 
             <div className="mt-auto flex flex-col sm:flex-row gap-4">
               <a
