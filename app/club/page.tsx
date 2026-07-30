@@ -4,14 +4,11 @@ import {
   ArrowRight,
   BarChart3,
   BookOpen,
-  Bot,
-  CheckCircle2,
+  Coins,
   ExternalLink,
   MessageCircle,
   Radar,
   ShieldCheck,
-  TestTube2,
-  Users,
 } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
 import {
@@ -38,6 +35,7 @@ const SNAPSHOT = [
   ["1", "Trading Agent"],
   ["0", "Application forms"],
 ];
+const E2P_CONTRACT = "0x597716022fc149c2b89061d6ec6b5eac4a97bc20";
 const AREAS = [
   {
     icon: BarChart3,
@@ -47,7 +45,7 @@ const AREAS = [
   {
     icon: BookOpen,
     title: "Trading Education",
-    text: "Research frameworks, strategy reviews and practical risk-management concepts.",
+    text: "Research frameworks, trade-plan reviews and practical risk-management concepts.",
   },
   {
     icon: Radar,
@@ -60,39 +58,6 @@ const AREAS = [
     text: "Direct discussion that helps teams understand questions, objections and market perception.",
   },
 ];
-const LAYERS = [
-  {
-    name: "Public Community",
-    status: "Open",
-    items: [
-      "Market discussion",
-      "E2P ecosystem updates",
-      "Public AMAs",
-      "Educational content",
-    ],
-  },
-  {
-    name: "Research & Tools",
-    status: "Product layer",
-    items: [
-      "Structured market analysis",
-      "Trading Agent introduction",
-      "Risk frameworks",
-      "Strategy reviews",
-    ],
-  },
-  {
-    name: "Project Activation",
-    status: "Cooperation",
-    items: [
-      "Product feedback",
-      "Community AMA",
-      "Campaign amplification",
-      "Regional member insights",
-    ],
-  },
-];
-
 export default function ClubPage() {
   return (
     <div className="min-h-screen bg-web3-dark">
@@ -157,7 +122,10 @@ export default function ClubPage() {
         </div>
       </section>
 
-      <section id="trading-agent" className="scroll-mt-24 border-b border-white/5 bg-web3-card/30 py-20">
+      <section
+        id="trading-agent"
+        className="scroll-mt-24 border-b border-white/5 bg-web3-card/30 py-20"
+      >
         <div className="container mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.85fr] lg:items-center lg:px-8">
           <AgentTerminal />
           <div>
@@ -208,6 +176,53 @@ export default function ClubPage() {
         </div>
       </section>
 
+      <section
+        id="e2p-point"
+        className="scroll-mt-24 border-b border-white/5 py-20"
+      >
+        <div className="container mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:px-8">
+          <div>
+            <Coins className="h-8 w-8 text-web3-accent" />
+            <span className="mt-5 block font-mono text-[10px] font-bold uppercase tracking-widest text-web3-accent">
+              $E2P Point
+            </span>
+            <h2 className="mt-3 text-3xl font-bold text-white">
+              Contribution powers access
+            </h2>
+            <p className="mt-4 font-mono text-sm leading-7 text-gray-400">
+              KOL delivery, Ambassador work, project referrals and Club
+              contribution connect to recognition and future utility.
+            </p>
+            <a
+              href={`https://bscscan.com/token/${E2P_CONTRACT}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-7 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-web3-accent"
+            >
+              View contract <ExternalLink className="h-4 w-4" />
+            </a>
+          </div>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            {[
+              ["Earn", "Verified contribution"],
+              ["Access", "Club & ecosystem"],
+              ["Use", "Published utility"],
+              ["Govern", "Future rules"],
+            ].map(([title, text]) => (
+              <div
+                key={title}
+                className="rounded-xl border border-white/10 bg-web3-card p-5"
+              >
+                <strong className="text-lg text-white">{title}</strong>
+                <span className="mt-2 block font-mono text-[8px] uppercase tracking-widest text-gray-500">
+                  {text}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="border-b border-white/5 py-20">
         <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
@@ -233,89 +248,6 @@ export default function ClubPage() {
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-white/5 bg-web3-card/30 py-20">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-6 lg:grid-cols-3">
-            {LAYERS.map((layer) => (
-              <div
-                key={layer.name}
-                className="rounded-xl border border-white/10 bg-web3-dark p-7"
-              >
-                <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-web3-accent">
-                  {layer.status}
-                </span>
-                <h2 className="mt-3 text-xl font-bold text-white">
-                  {layer.name}
-                </h2>
-                <div className="mt-6 space-y-3">
-                  {layer.items.map((item) => (
-                    <div
-                      key={item}
-                      className="flex gap-3 font-mono text-xs text-gray-400"
-                    >
-                      <CheckCircle2 className="h-4 w-4 shrink-0 text-web3-purple" />
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-b border-white/5 py-20">
-        <div className="container mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-          <div>
-            <TestTube2 className="h-7 w-7 text-web3-accent" />
-            <h2 className="mt-5 text-3xl font-bold text-white">
-              Why projects should care
-            </h2>
-            <p className="mt-4 font-mono text-sm leading-7 text-gray-400">
-              Club can support product education, AMA participation, early
-              feedback and campaign amplification. It is a community
-              touchpoint—not a source of guaranteed buyers, volume or token
-              performance.
-            </p>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {[
-                "Message testing",
-                "User objections",
-                "AMA feedback",
-                "Regional insights",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="rounded-lg border border-white/5 bg-web3-card p-4 font-mono text-xs text-gray-300"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="rounded-2xl border border-web3-accent/20 bg-web3-accent/5 p-8">
-            <Bot className="h-8 w-8 text-web3-accent" />
-            <span className="mt-6 block font-mono text-[9px] font-bold uppercase tracking-widest text-web3-accent">
-              Integrated Club product
-            </span>
-            <h2 className="mt-3 text-3xl font-bold text-white">
-              E2P Trading Agent
-            </h2>
-            <p className="mt-4 font-mono text-sm leading-7 text-gray-400">
-              A multi-agent operating loop for market observation, trade
-              planning, risk approval, execution monitoring and post-trade
-              review.
-            </p>
-            <Link
-              href="#trading-agent"
-              className="mt-7 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-web3-accent"
-            >
-              Return to Agent cockpit <ArrowRight className="h-4 w-4" />
-            </Link>
           </div>
         </div>
       </section>
