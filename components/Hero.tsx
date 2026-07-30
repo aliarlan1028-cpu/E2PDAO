@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle2, Network, ShieldCheck } from 'lucide-react'
 import { E2P_LINKS } from '@/lib/e2p-links'
+import { Sparkline } from '@/components/EcosystemVisuals'
 
 export default function Hero() {
   return (
@@ -21,12 +22,12 @@ export default function Hero() {
           </motion.div>
           <p className="mt-5 font-mono text-[10px] leading-5 text-gray-600">Applications are securely handled in E2PDAO’s private W3Claw Owner workspace for evaluation and follow-up.</p>
         </div>
-        <motion.div initial={{opacity:0,scale:.96}} animate={{opacity:1,scale:1}} transition={{delay:.25}} className="rounded-2xl border border-white/10 bg-web3-card/85 p-7 shadow-2xl backdrop-blur">
-          <div className="flex items-center gap-3 border-b border-white/10 pb-5"><Network className="h-5 w-5 text-web3-accent"/><div><h2 className="text-sm font-bold text-white">One network, structured execution</h2><p className="mt-1 font-mono text-[9px] uppercase tracking-widest text-gray-500">Project → Resource → Delivery</p></div></div>
-          <div className="mt-6 space-y-4">
-            {['Project growth and market-entry planning','KOL and Ambassador cooperation matching','Listing materials and BD process support','Execution tracking and post-campaign review'].map(item=><div key={item} className="flex items-start gap-3 rounded-lg bg-black/30 p-4 font-mono text-xs leading-5 text-gray-300"><CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-web3-accent"/>{item}</div>)}
-          </div>
-          <div className="mt-6 flex items-start gap-3 rounded-lg border border-web3-purple/20 bg-web3-purple/5 p-4"><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-web3-purple"/><p className="font-mono text-[10px] leading-5 text-gray-500">Cooperation is subject to review. E2PDAO does not guarantee listing, campaign performance, investment return or token value.</p></div>
+        <motion.div initial={{opacity:0,scale:.96}} animate={{opacity:1,scale:1}} transition={{delay:.25}} className="scan-line relative overflow-hidden rounded-2xl border border-white/10 bg-[#07090c]/95 p-6 shadow-2xl backdrop-blur">
+          <div className="flex items-center justify-between border-b border-white/10 pb-4"><div className="flex items-center gap-3"><Network className="h-5 w-5 text-web3-accent"/><div><h2 className="text-sm font-bold text-white">E2P Network Terminal</h2><p className="mt-1 font-mono text-[8px] uppercase tracking-[.2em] text-gray-600">Ecosystem telemetry</p></div></div><span className="flex items-center gap-2 font-mono text-[8px] font-bold text-web3-accent"><i className="h-1.5 w-1.5 animate-pulse rounded-full bg-web3-accent"/>ONLINE</span></div>
+          <div className="mt-5 grid grid-cols-2 gap-3">{[['400+','KOL NETWORK'],['20','RESOURCE NODES'],['4','VERIFIED CASES'],['24/7','AGENT DESIGN']].map(([value,label])=><div key={label} className="rounded-lg border border-white/5 bg-white/[.025] p-4"><strong className="text-2xl text-white">{value}</strong><span className="mt-1 block font-mono text-[7px] tracking-[.18em] text-gray-600">{label}</span></div>)}</div>
+          <div className="mt-4 rounded-lg border border-white/5 bg-white/[.02] p-4"><div className="flex justify-between font-mono text-[8px] uppercase tracking-widest"><span className="text-gray-600">Network activity model</span><span className="text-web3-accent">Growing</span></div><Sparkline values={[18,26,23,38,34,49,45,62,57,74]}/></div>
+          <div className="mt-4 grid grid-cols-[1fr_auto_1fr_auto_1fr] items-center gap-2 font-mono text-[7px] font-bold uppercase tracking-widest text-gray-500"><span className="rounded border border-web3-accent/20 p-2 text-center text-web3-accent">Project</span><span>→</span><span className="rounded border border-web3-purple/20 p-2 text-center text-web3-purple">KOL Matrix</span><span>→</span><span className="rounded border border-white/10 p-2 text-center text-white">Market</span></div>
+          <div className="mt-5 flex items-start gap-3"><ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-web3-purple"/><p className="font-mono text-[9px] leading-5 text-gray-600">Network counts use current public E2PDAO resource claims; charts visualize platform structure, not live financial performance.</p></div>
         </motion.div>
       </div>
     </section>
