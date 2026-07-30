@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import {
   Activity,
@@ -16,6 +17,15 @@ import {
 } from 'lucide-react'
 
 const PRODUCT_URL = 'https://yegidawir.xyz/'
+
+export const metadata: Metadata = { title: 'E2P Trading Agent | Structured AI Trading', description: 'Explore the E2P multi-agent trading workflow, hard risk controls and live product.', alternates: { canonical: '/trading-agent/' }, openGraph: { title: 'E2P Trading Agent', description: 'Structured AI trading bounded by explicit risk controls.', url: '/trading-agent/' } }
+
+const PRODUCT_STATS = [
+  ['6', 'Specialized agent roles'],
+  ['7', 'Control-loop stages'],
+  ['24/7', 'Monitoring design'],
+  ['0', 'Withdrawal permission required'],
+]
 
 const AGENTS = [
   {
@@ -151,6 +161,17 @@ export default function TradingAgentPage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="border-b border-white/5 bg-web3-card/30 py-12">
+        <div className="container mx-auto grid max-w-7xl gap-3 px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
+          {PRODUCT_STATS.map(([value, label]) => (
+            <div key={label} className="rounded-xl border border-white/5 bg-web3-dark p-5">
+              <div className="text-3xl font-bold text-white">{value}</div>
+              <div className="mt-1 font-mono text-[10px] font-bold uppercase tracking-widest text-web3-accent">{label}</div>
+            </div>
+          ))}
         </div>
       </section>
 

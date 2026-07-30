@@ -32,6 +32,7 @@ export default function Footer() {
         <a href="mailto:aliarlan1028@gmail.com" className="text-gray-400 hover:text-white transition-colors">
           Email
         </a>
+        <Link href="/about" className="text-gray-400 hover:text-white transition-colors">About</Link>
         <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy</Link>
         <Link href="/risk-disclosure" className="text-gray-400 hover:text-white transition-colors">Risk</Link>
         <span className="hidden sm:inline opacity-50">© {new Date().getFullYear()} E2P DAO</span>

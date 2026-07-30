@@ -8,12 +8,12 @@ import { usePathname } from 'next/navigation'
 import { E2P_LINKS } from '@/lib/e2p-links'
 
 const NAV_LINKS = [
-  { name: 'Home', href: '/' },
   { name: 'Services', href: '/services' },
   { name: 'KOL Network', href: '/influence' },
   { name: 'E2P Club', href: '/club' },
+  { name: 'Trading Agent', href: '/trading-agent' },
+  { name: '$E2P Point', href: '/tokenomics' },
   { name: 'Success Cases', href: '/success-cases' },
-  { name: 'About', href: '/about' },
 ]
 
 export default function Navbar() {
