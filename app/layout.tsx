@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://e2pdao.xyz'),
   title: 'E2P DAO - Web3 Incubator, Labs & Trading Club',
   description: 'Token-powered incubator and trading club. E2P DAO leverages extensive networks, industry expertise, and deep exchange relationships to provide comprehensive support for projects.',
   keywords: 'web3 incubator, crypto KOL marketing, CEX listing, launchpad, trading community, alpha signals, E2P DAO, E2P Labs, E2P Club, $E2P point',

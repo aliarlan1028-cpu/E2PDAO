@@ -1,153 +1,36 @@
 import Link from 'next/link'
-import { Send, UserPlus, Megaphone, Mail } from 'lucide-react'
+import { ArrowRight, BarChart3, Building2, CheckCircle2, ClipboardCheck, Megaphone, Search, Users } from 'lucide-react'
 import Hero from '@/components/Hero'
+import PartnershipCards from '@/components/PartnershipCards'
+import { E2P_LINKS } from '@/lib/e2p-links'
 
-const TIMELINE = [
-  { year: '2018', text: 'Bitget futures operations — exchange floor roots' },
-  { year: '2020', text: 'Tron ecosystem DeFi operations' },
-  { year: '2021', text: 'Gate.io KOL creator network built' },
-  { year: '2022', text: 'E2P DAO founded — growth and listing network' },
-  { year: 'NOW', text: 'Labs + Club dual-engine operating layer' },
+const SERVICES = [
+  { icon: BarChart3, title: 'Project Growth', text: 'Market positioning, growth diagnosis, KOL campaign design, community activation and performance review.' },
+  { icon: Building2, title: 'Listing & BD Support', text: 'Project material review, exchange requirement mapping, target-path recommendations and process follow-up.' },
+  { icon: Megaphone, title: 'KOL & Ambassador Network', text: 'Creator assessment, regional matching, content briefs, cooperation scheduling and longer-term relationship building.' },
 ]
 
-const CONTACT_CHANNELS = [
-  {
-    icon: Send,
-    title: 'Business Inquiry',
-    desc: 'Fastest route for growth, listing and partnership discussions.',
-    action: 'Message @BitEsq',
-    href: 'https://t.me/BitEsq',
-    accent: 'text-web3-accent',
-    border: 'hover:border-web3-accent',
-    iconBg: 'bg-web3-accent/10 text-web3-accent',
-  },
-  {
-    icon: UserPlus,
-    title: 'Recommend a Project',
-    desc: 'Refer projects for CEX/CMC listing services and earn bounties.',
-    action: 'Submit Recommendation',
-    href: 'https://t.me/BitEsq',
-    accent: 'text-web3-purple',
-    border: 'hover:border-web3-purple',
-    iconBg: 'bg-web3-purple/10 text-web3-purple',
-  },
-  {
-    icon: Megaphone,
-    title: 'KOL Application',
-    desc: 'Join the 400+ creator resource network across global markets.',
-    action: 'Apply as KOL',
-    href: '/influence#kol-apply',
-    accent: 'text-white',
-    border: 'hover:border-white',
-    iconBg: 'bg-white/10 text-white',
-  },
+const PROCESS = [
+  ['01','Apply','Choose the cooperation type and submit structured information through W3Claw.'],
+  ['02','Evaluate','E2PDAO reviews completeness, fit, public signals and potential duplication.'],
+  ['03','Propose','Qualified applicants receive a tailored cooperation path, scope and next steps.'],
+  ['04','Execute','Approved parties coordinate briefs, resources, timelines and accountable delivery.'],
+  ['05','Review','Results, open items and future opportunities are recorded for follow-up.'],
 ]
 
 export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <section id="about" className="py-24 relative border-y border-white/5 bg-web3-card grid-bg">
-        <div className="absolute inset-0 bg-gradient-to-b from-web3-dark to-transparent opacity-50"></div>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl text-center relative z-10">
-          <h2 className="text-[12px] font-bold text-web3-accent uppercase tracking-widest mb-4">Strategic Positioning</h2>
-          <h3 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
-            A Catalyst Between <br />
-            <span className="text-web3-purple">Projects, VCs, KOLs, Users, & Exchanges</span>
-          </h3>
-          <p className="text-base text-gray-400 leading-relaxed font-mono max-w-3xl mx-auto">
-            E2P DAO leverages extensive networks, industry expertise, and deep exchange relationships to provide comprehensive, one-stop support for projects. Our self-built trading community ensures real user growth and creates early investment opportunities.
-          </p>
-        </div>
-      </section>
+  return <>
+    <Hero/>
+    <section className="border-b border-white/5 py-20"><div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="max-w-3xl"><div className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-accent">Core Services</div><h2 className="mt-3 text-3xl font-bold text-white md:text-5xl">Three paths to market</h2><p className="mt-4 font-mono text-sm leading-6 text-gray-400">Clear deliverables for projects, creators and professional partners—without exposing private rates or internal cooperation terms.</p></div><div className="mt-10 grid gap-6 md:grid-cols-3">{SERVICES.map(service=><div key={service.title} className="rounded-xl border border-white/5 bg-web3-card p-7"><service.icon className="h-6 w-6 text-web3-accent"/><h3 className="mt-5 text-xl font-bold text-white">{service.title}</h3><p className="mt-3 font-mono text-xs leading-6 text-gray-400">{service.text}</p></div>)}</div><Link href="/services" className="mt-8 inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-web3-accent">View service deliverables <ArrowRight className="h-4 w-4"/></Link></div></section>
 
-      {/* Quick links to sections for the homepage */}
-      <section className="py-24 border-b border-white/5 bg-web3-dark">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="p-8 border border-white/10 rounded-2xl bg-web3-card hover:border-web3-accent transition-colors flex flex-col items-start group">
-              <div className="w-12 h-12 bg-web3-accent/10 rounded-lg flex items-center justify-center mb-6 text-web3-accent">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" /></svg>
-              </div>
-              <h4 className="text-xl font-bold text-white mb-4">E2P Launch</h4>
-              <p className="text-sm text-gray-400 mb-8 font-mono">A structured incubation pipeline from project diagnosis to growth and exchange readiness.</p>
-              <Link href="/launch" className="mt-auto text-web3-accent font-mono text-sm group-hover:underline">Launch a Project &rarr;</Link>
-            </div>
-            <div className="p-8 border border-white/10 rounded-2xl bg-web3-card hover:border-web3-purple transition-colors flex flex-col items-start group">
-              <div className="w-12 h-12 bg-web3-purple/10 rounded-lg flex items-center justify-center mb-6 text-web3-purple">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-              </div>
-              <h4 className="text-xl font-bold text-white mb-4">E2P Influence</h4>
-              <p className="text-sm text-gray-400 mb-8 font-mono">Discover verified creators, publish structured campaigns and manage KOL participation.</p>
-              <Link href="/influence" className="mt-auto text-web3-purple font-mono text-sm group-hover:underline">Browse Marketplace &rarr;</Link>
-            </div>
-            <div className="p-8 border border-white/10 rounded-2xl bg-web3-card hover:border-white transition-colors flex flex-col items-start group">
-              <div className="w-12 h-12 bg-white/10 rounded-lg flex items-center justify-center mb-6 text-white">
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-              </div>
-              <h4 className="text-xl font-bold text-white mb-4">Campaign Hub</h4>
-              <p className="text-sm text-gray-400 mb-8 font-mono">Create project briefs, review open opportunities and track local participation.</p>
-              <Link href="/campaigns" className="mt-auto text-white font-mono text-sm group-hover:underline">Explore Campaigns &rarr;</Link>
-            </div>
-          </div>
-        </div>
-      </section>
+    <section className="border-b border-white/5 bg-web3-card/35 py-20 grid-bg"><div className="container mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8"><div><div className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-purple">Why E2PDAO</div><h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">Operator-led cooperation</h2><p className="mt-5 font-mono text-sm leading-7 text-gray-400">E2PDAO combines exchange operations experience, Web3 growth execution, creator relationships and a trading-oriented community. Cooperation starts with fit and evidence—not generic reach promises.</p><div className="mt-7 space-y-3">{['Structured application and evaluation','Resource matching by market and objective','Private business records handled through W3Claw','Clear separation between verified facts and applicant-provided data'].map(item=><div key={item} className="flex gap-3 font-mono text-xs text-gray-300"><CheckCircle2 className="h-4 w-4 shrink-0 text-web3-purple"/>{item}</div>)}</div></div><div className="rounded-xl border border-white/10 bg-web3-dark p-7"><div className="flex items-center gap-3 border-b border-white/10 pb-4"><ClipboardCheck className="h-5 w-5 text-web3-accent"/><span className="font-mono text-[10px] font-bold uppercase tracking-widest text-gray-400">Operating background</span></div><div className="mt-6 space-y-5 font-mono text-xs">{[['2018','Exchange futures operations'],['2020','TRON ecosystem DeFi operations'],['2021','KOL creator network development'],['2022','E2PDAO growth and listing network'],['Now','Structured project, KOL and partner collaboration']].map(([year,text])=><div key={year} className="flex gap-4"><span className="w-12 shrink-0 font-bold text-web3-accent">{year}</span><span className="text-gray-400">{text}</span></div>)}</div></div></div></section>
 
-      {/* Operator history */}
-      <section className="py-24 border-b border-white/5 bg-web3-card grid-bg">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
-          <h2 className="text-[12px] font-bold text-web3-accent uppercase tracking-widest mb-4">Operator History</h2>
-          <h3 className="text-3xl md:text-5xl font-bold text-white mb-10 leading-tight">
-            Exchange, DeFi & <span className="text-web3-accent glow-text">KOL Roots</span>
-          </h3>
-          <div className="bg-black/50 rounded-xl p-6 md:p-8 font-mono border border-web3-accent/20">
-            <div className="mb-4 text-[10px] text-web3-accent opacity-50 uppercase tracking-widest">// Boot Sequence</div>
-            <div className="space-y-4">
-              {TIMELINE.map((item) => (
-                <div key={item.year} className="flex items-start gap-4 text-xs md:text-sm">
-                  <span className={`shrink-0 w-14 text-right font-bold ${item.year === 'NOW' ? 'text-web3-accent' : 'text-gray-500'}`}>{item.year}</span>
-                  <span className="text-gray-600">&gt;</span>
-                  <span className={item.year === 'NOW' ? 'text-white' : 'text-gray-400'}>{item.text}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+    <section className="border-b border-white/5 py-20"><div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="text-center"><div className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-accent">Cooperation Process</div><h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">From application to review</h2></div><div className="mt-10 grid gap-4 md:grid-cols-5">{PROCESS.map(([step,title,text])=><div key={step} className="rounded-xl border border-white/5 bg-web3-card p-5"><span className="font-mono text-xs font-bold text-web3-accent">{step}</span><h3 className="mt-4 text-base font-bold text-white">{title}</h3><p className="mt-3 font-mono text-[10px] leading-5 text-gray-500">{text}</p></div>)}</div></div></section>
 
-      {/* Contact */}
-      <section id="contact" className="py-24 border-b border-white/5 bg-web3-dark">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-          <div className="mb-12">
-            <h2 className="text-[12px] font-bold text-web3-accent uppercase tracking-widest mb-4">Establish Connection</h2>
-            <h3 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-              Start the Right <span className="text-web3-purple">E2P Path</span>
-            </h3>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {CONTACT_CHANNELS.map((channel) => (
-              <a
-                key={channel.title}
-                href={channel.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-8 border border-white/10 rounded-2xl bg-web3-card ${channel.border} transition-colors flex flex-col items-start group`}
-              >
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${channel.iconBg}`}>
-                  <channel.icon className="w-6 h-6" />
-                </div>
-                <h4 className="text-xl font-bold text-white mb-4">{channel.title}</h4>
-                <p className="text-sm text-gray-400 mb-8 font-mono">{channel.desc}</p>
-                <span className={`mt-auto font-mono text-sm ${channel.accent} group-hover:underline`}>{channel.action} &rarr;</span>
-              </a>
-            ))}
-          </div>
-          <div className="mt-10 flex items-center gap-3 font-mono text-xs text-gray-500">
-            <Mail className="w-4 h-4" />
-            <a href="mailto:aliarlan1028@gmail.com" className="hover:text-white transition-colors">aliarlan1028@gmail.com</a>
-          </div>
-        </div>
-      </section>
-    </>
-  )
+    <section className="border-b border-white/5 bg-web3-card/30 py-20"><div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between"><div><div className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-purple">Verified Work</div><h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">Evidence before promises</h2></div><Link href="/success-cases" className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-widest text-web3-accent">View success cases <ArrowRight className="h-4 w-4"/></Link></div><div className="mt-9 grid gap-5 md:grid-cols-3">{[['CHAX','CEX listing coordination','Public market reference available'],['HIRO','Listing readiness and coordination','Public market reference available'],['Virtuals Protocol','Circulating supply verification support','Public CMC reference available']].map(([name,work,proof])=><div key={name} className="rounded-xl border border-white/10 bg-web3-dark p-6"><h3 className="text-xl font-bold text-white">{name}</h3><p className="mt-3 font-mono text-xs text-gray-400">{work}</p><p className="mt-5 border-t border-white/5 pt-4 font-mono text-[9px] uppercase tracking-widest text-web3-accent">{proof}</p></div>)}</div></div></section>
+
+    <section className="border-b border-white/5 py-20"><div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><div className="max-w-3xl"><div className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-accent">Choose Your Path</div><h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">Four cooperation types, one intake system</h2><p className="mt-4 font-mono text-sm leading-6 text-gray-400">Applications open in the E2PDAO-branded W3Claw intake and are privately routed to the correct business library.</p></div><div className="mt-10"><PartnershipCards source="home_partnerships"/></div></div></section>
+
+    <section className="py-20 grid-bg"><div className="container mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8"><Users className="mx-auto h-8 w-8 text-web3-purple"/><h2 className="mt-5 text-3xl font-bold text-white">E2P Club is open to community members</h2><p className="mx-auto mt-4 max-w-2xl font-mono text-sm leading-6 text-gray-400">Join the public Telegram community for market discussion, education and E2P updates. No application form is required.</p><a href={E2P_LINKS.telegram} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex items-center gap-2 rounded bg-web3-purple px-7 py-4 text-xs font-bold uppercase tracking-widest text-white">Join E2P Club <ArrowRight className="h-4 w-4"/></a><p className="mt-8 font-mono text-[10px] leading-5 text-gray-600">E2PDAO does not guarantee listing, campaign outcomes, investment returns or token performance. Never submit private keys, seed phrases or exchange passwords.</p></div></section>
+  </>
 }

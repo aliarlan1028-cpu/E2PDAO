@@ -5,15 +5,15 @@ import { Menu, X, ArrowRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { E2P_LINKS } from '@/lib/e2p-links'
 
 const NAV_LINKS = [
-  { name: 'Launch', href: '/launch' },
-  { name: 'Influence', href: '/influence' },
-  { name: 'Campaigns', href: '/campaigns' },
-  { name: 'Club', href: '/club' },
-  { name: 'Agent', href: '/trading-agent' },
-  { name: '$E2P', href: '/tokenomics' },
-  { name: 'Dashboard', href: '/dashboard' },
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'KOL Network', href: '/influence' },
+  { name: 'E2P Club', href: '/club' },
+  { name: 'Success Cases', href: '/success-cases' },
+  { name: 'About', href: '/about' },
 ]
 
 export default function Navbar() {
@@ -50,7 +50,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-5 text-[11px] font-medium uppercase tracking-wider">
+          <nav className="hidden lg:flex items-center gap-6 text-[11px] font-medium uppercase tracking-wider">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.name}
@@ -64,12 +64,12 @@ export default function Navbar() {
 
           {/* CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
-            <a href="https://t.me/BitEsq" target="_blank" rel="noreferrer" className="hidden xl:flex items-center gap-2 px-5 py-2 bg-web3-accent text-black rounded text-[10px] font-bold hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all uppercase tracking-widest">
-              Get Proposal <ArrowRight className="w-4 h-4" />
+            <a href={E2P_LINKS.project('navbar')} className="flex items-center gap-2 px-3 py-2 sm:px-5 bg-web3-accent text-black rounded text-[9px] sm:text-[10px] font-bold hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all uppercase tracking-widest">
+              <span className="hidden sm:inline">Start a Partnership</span><span className="sm:hidden">Apply</span> <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4" />
             </a>
 
             <button
-              className="md:hidden text-gray-400 hover:text-web3-accent"
+              className="lg:hidden text-gray-400 hover:text-web3-accent"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle navigation"
             >
@@ -86,7 +86,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-web3-card border-b border-white/10 overflow-hidden shadow-sm"
+            className="lg:hidden bg-web3-card border-b border-white/10 overflow-hidden shadow-sm"
           >
             <div className="px-4 py-4 space-y-4 flex flex-col">
               {NAV_LINKS.map((link) => (
@@ -99,8 +99,8 @@ export default function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <a href="https://t.me/BitEsq" target="_blank" rel="noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-web3-accent text-black rounded text-xs font-bold hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all uppercase tracking-widest mt-4">
-                Get Proposal
+              <a href={E2P_LINKS.project('mobile_menu')} onClick={() => setIsMobileMenuOpen(false)} className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-web3-accent text-black rounded text-xs font-bold hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all uppercase tracking-widest mt-4">
+                Start a Partnership
               </a>
             </div>
           </motion.div>
