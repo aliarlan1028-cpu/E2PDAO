@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
 
 export default function E2PSignalBotRedirect() {
-  redirect('/club')
+  redirect('/trading-agent')
 }

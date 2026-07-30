@@ -7,10 +7,13 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 const NAV_LINKS = [
-  { name: 'Home', href: '/' },
-  { name: 'Labs', href: '/labs' },
+  { name: 'Launch', href: '/launch' },
+  { name: 'Influence', href: '/influence' },
+  { name: 'Campaigns', href: '/campaigns' },
   { name: 'Club', href: '/club' },
-  { name: '$E2P Point', href: '/tokenomics' },
+  { name: 'Agent', href: '/trading-agent' },
+  { name: '$E2P', href: '/tokenomics' },
+  { name: 'Dashboard', href: '/dashboard' },
 ]
 
 export default function Navbar() {
@@ -47,7 +50,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-wider">
+          <nav className="hidden md:flex items-center gap-5 text-[11px] font-medium uppercase tracking-wider">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.name}
@@ -61,7 +64,7 @@ export default function Navbar() {
 
           {/* CTA & Mobile Toggle */}
           <div className="flex items-center gap-4">
-            <a href="https://t.me/BitEsq" target="_blank" rel="noreferrer" className="hidden md:flex items-center gap-2 px-6 py-2 bg-web3-accent text-black rounded text-xs font-bold hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all uppercase tracking-widest">
+            <a href="https://t.me/BitEsq" target="_blank" rel="noreferrer" className="hidden xl:flex items-center gap-2 px-5 py-2 bg-web3-accent text-black rounded text-[10px] font-bold hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all uppercase tracking-widest">
               Get Proposal <ArrowRight className="w-4 h-4" />
             </a>
 

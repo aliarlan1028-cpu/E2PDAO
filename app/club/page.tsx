@@ -275,12 +275,10 @@ export default function ClubPage() {
 
             <div className="mt-auto flex flex-col sm:flex-row gap-4">
               <a
-                href="https://yegidawir.xyz/"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/trading-agent/"
                 className="flex-1 inline-flex items-center justify-center px-6 py-4 bg-web3-accent text-black rounded text-xs font-bold uppercase tracking-widest hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all"
               >
-                Subscribe AI Trading System
+                Explore Trading Agent
               </a>
               <a
                 href="https://t.me/+RcB2FVha7bo4N2Nk"

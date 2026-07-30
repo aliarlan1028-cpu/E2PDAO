@@ -51,13 +51,13 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-col sm:flex-row items-center gap-4 mt-4"
             >
-              <Link href="/labs" className="w-full sm:w-auto px-6 py-3 bg-web3-accent text-black rounded text-xs font-bold uppercase tracking-widest hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all duration-300 flex items-center justify-center gap-2 group">
-                Enter Labs
+              <Link href="/launch" className="w-full sm:w-auto px-6 py-3 bg-web3-accent text-black rounded text-xs font-bold uppercase tracking-widest hover:bg-web3-accent/80 hover:shadow-[0_0_15px_rgba(0,255,102,0.5)] transition-all duration-300 flex items-center justify-center gap-2 group">
+                Launch a Project
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <a href="https://t.me/+RcB2FVha7bo4N2Nk" target="_blank" rel="noreferrer" className="w-full sm:w-auto px-6 py-3 bg-transparent text-white border border-white/20 rounded text-xs font-bold uppercase tracking-widest hover:border-web3-purple hover:text-web3-purple hover:shadow-[0_0_15px_rgba(138,43,226,0.5)] transition-all duration-300 flex items-center justify-center gap-2">
-                Join Community
-              </a>
+              <Link href="/influence" className="w-full sm:w-auto px-6 py-3 bg-transparent text-white border border-white/20 rounded text-xs font-bold uppercase tracking-widest hover:border-web3-purple hover:text-web3-purple hover:shadow-[0_0_15px_rgba(138,43,226,0.5)] transition-all duration-300 flex items-center justify-center gap-2">
+                Browse KOLs
+              </Link>
             </motion.div>
           </div>
 
