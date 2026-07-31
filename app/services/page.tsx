@@ -291,8 +291,12 @@ export default function ServicesPage() {
               Resource Network
             </div>
             <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-              20 publicly presented resource nodes
+              Exchanges, launchpads and capital partners
             </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-400">
+              20+ partners across the E2P resource network — the relationships
+              we draw on to help projects grow and get listing-ready.
+            </p>
           </div>
           <div className="space-y-8">
             {PARTNERS.map((group) => (
@@ -317,10 +321,10 @@ export default function ServicesPage() {
               </div>
             ))}
           </div>
-          <p className="mt-7 font-mono text-[9px] leading-5 text-gray-600">
-            Logo display represents the resource network previously presented by
-            E2PDAO and does not imply endorsement, guaranteed access or fixed
-            commercial terms.
+          <p className="mt-7 text-xs leading-relaxed text-gray-500">
+            Partners in the E2PDAO resource network. Each keeps its own
+            listing criteria — working with us does not guarantee acceptance or
+            specific terms from any third party.
           </p>
         </div>
       </section>
