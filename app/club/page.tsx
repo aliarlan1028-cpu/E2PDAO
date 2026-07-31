@@ -31,9 +31,9 @@ export const metadata: Metadata = {
 
 const SNAPSHOT = [
   ["24/7", "Community access"],
-  ["3", "Value layers"],
   ["1", "Trading Agent"],
-  ["0", "Application forms"],
+  ["$E2P", "Contribution token"],
+  ["Free", "To join the chat"],
 ];
 const E2P_CONTRACT = "0x597716022fc149c2b89061d6ec6b5eac4a97bc20";
 const AREAS = [
@@ -67,15 +67,16 @@ export default function ClubPage() {
             <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-purple">
               E2P Club
             </div>
-            <h1 className="mt-4 text-4xl font-bold text-white md:text-6xl">
-              The community layer behind{" "}
-              <span className="text-web3-purple glow-text">market growth</span>
+            <h1 className="mt-4 text-4xl font-bold leading-tight text-white md:text-6xl">
+              A trading community with a{" "}
+              <span className="text-web3-purple glow-text">Trading Agent</span>{" "}
+              and $E2P rewards
             </h1>
-            <p className="mt-6 max-w-3xl font-mono text-sm leading-7 text-gray-400">
-              E2P Club brings together market learning, trading discussion,
-              project discovery and real community feedback. It serves
-              traders—and gives projects a closer view of how users understand
-              their product.
+            <p className="mt-6 max-w-3xl text-base leading-relaxed text-gray-300 md:text-lg">
+              E2P Club is where traders learn, discuss the market and discover
+              projects. Members get access to the E2P Trading Agent, and
+              contribution is rewarded through the $E2P token. Projects get a
+              close-up view of how real users react to their product.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <a
@@ -114,9 +115,9 @@ export default function ClubPage() {
                 </div>
               ))}
             </div>
-            <p className="mt-5 font-mono text-[10px] leading-5 text-gray-600">
-              Community access is direct. Identity and business applications
-              remain separate.
+            <p className="mt-5 text-xs leading-relaxed text-gray-500">
+              Joining the community chat is direct and free. Business and
+              identity applications are handled separately.
             </p>
           </div>
         </div>
@@ -133,12 +134,17 @@ export default function ClubPage() {
               E2P Trading Agent
             </div>
             <h2 className="mt-3 text-3xl font-bold text-white">
-              Token-based access, risk-first operation
+              What the Trading Agent does
             </h2>
-            <p className="mt-4 font-mono text-sm leading-7 text-gray-400">
-              The visual terminal demonstrates the Agent control model. It does
-              not show live positions, a real account balance or historical
-              returns.
+            <p className="mt-4 text-base leading-relaxed text-gray-300">
+              An automated trading tool inside the Club. It observes the market,
+              plans trades, and only acts after passing hard risk checks — it can
+              execute, but never has withdrawal access. Access is gated by your
+              $E2P contribution.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-gray-500">
+              The terminal on the left illustrates this workflow. It does not
+              show live positions, a real account balance or historical returns.
             </p>
             <div className="mt-7 flex gap-4">
               <RingChart
@@ -189,9 +195,10 @@ export default function ClubPage() {
             <h2 className="mt-3 text-3xl font-bold text-white">
               Contribution powers access
             </h2>
-            <p className="mt-4 font-mono text-sm leading-7 text-gray-400">
-              KOL delivery, Ambassador work, project referrals and Club
-              contribution connect to recognition and future utility.
+            <p className="mt-4 text-base leading-relaxed text-gray-300">
+              Earn $E2P by contributing — KOL delivery, Ambassador work, project
+              referrals and active Club participation. Use it to unlock access
+              and future utility across the ecosystem.
             </p>
             <a
               href={`https://bscscan.com/token/${E2P_CONTRACT}`}
@@ -243,7 +250,7 @@ export default function ClubPage() {
                 <h3 className="mt-5 text-lg font-bold text-white">
                   {area.title}
                 </h3>
-                <p className="mt-3 font-mono text-xs leading-6 text-gray-400">
+                <p className="mt-3 text-sm leading-relaxed text-gray-400">
                   {area.text}
                 </p>
               </div>
@@ -258,7 +265,7 @@ export default function ClubPage() {
           <h2 className="mt-5 text-3xl font-bold text-white">
             Trade with explicit risk boundaries
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl font-mono text-xs leading-6 text-gray-500">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-gray-500">
             Community discussion and automated tools are not financial advice.
             Cryptocurrency trading can result in total loss. No return, win rate
             or future performance is guaranteed.

@@ -103,25 +103,33 @@ const PARTNERS = [
 const CASES = [
   {
     project: "CHAX",
-    work: "CEX listing coordination",
+    context: "Token preparing for centralized-exchange entry.",
+    work: "We coordinated the CEX listing process.",
+    result: "Live and tracked on CoinGecko",
     proof: "CoinGecko",
     href: "https://www.coingecko.com/en/coins/chax",
   },
   {
     project: "HIRO",
-    work: "Listing readiness and coordination",
+    context: "Project working toward exchange listing readiness.",
+    work: "We supported readiness and listing coordination.",
+    result: "Listed with active markets on CoinMarketCap",
     proof: "CoinMarketCap",
     href: "https://coinmarketcap.com/currencies/hiro/#Markets",
   },
   {
     project: "Virtuals Protocol",
-    work: "Supply verification support",
+    context: "Token requiring public supply verification.",
+    work: "We supported the supply-verification process.",
+    result: "Tracked on CoinMarketCap",
     proof: "CoinMarketCap",
     href: "https://coinmarketcap.com/currencies/virtual-protocol/",
   },
   {
     project: "USBT",
-    work: "Listing advisory and coordination",
+    context: "Token targeting a tier-1 exchange listing.",
+    work: "We provided listing advisory and coordination.",
+    result: "Listing announced on Gate.io",
     proof: "Gate.io",
     href: "https://www.gate.io/zh/announcements/article/39267",
   },
@@ -143,10 +151,10 @@ export default function ServicesPage() {
                 Engineer the market.
               </span>
             </h1>
-            <p className="mt-6 max-w-3xl font-mono text-sm leading-7 text-gray-400">
-              A stage-based operating layer combining project diagnosis, token
-              strategy, KOL activation, community feedback and listing
-              readiness.
+            <p className="mt-6 max-w-3xl text-base leading-relaxed text-gray-300">
+              One team for the whole journey — project diagnosis, token
+              strategy, KOL campaigns, community feedback and listing
+              readiness — in five clear stages.
             </p>
             <a
               href={E2P_LINKS.project("incubator_hero")}
@@ -220,7 +228,7 @@ export default function ServicesPage() {
                 <h3 className="mt-2 text-lg font-bold text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 font-mono text-[10px] leading-5 text-gray-500">
+                <p className="mt-3 text-sm leading-relaxed text-gray-400">
                   {item.text}
                 </p>
               </div>
@@ -236,10 +244,10 @@ export default function ServicesPage() {
             <h2 className="mt-5 text-3xl font-bold text-white">
               What readiness means
             </h2>
-            <p className="mt-4 font-mono text-sm leading-7 text-gray-400">
-              The score console is a visual model—not a public promise. A real
-              evaluation should use project materials, public evidence and Owner
-              review.
+            <p className="mt-4 text-base leading-relaxed text-gray-400">
+              The score console is a visual model — not a public promise. A real
+              evaluation uses your project materials, public evidence and an
+              internal review.
             </p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
@@ -267,7 +275,7 @@ export default function ServicesPage() {
               >
                 <CheckCircle2 className="h-5 w-5 text-web3-accent" />
                 <h3 className="mt-4 text-lg font-bold text-white">{title}</h3>
-                <p className="mt-3 font-mono text-xs leading-6 text-gray-400">
+                <p className="mt-3 text-sm leading-relaxed text-gray-400">
                   {text}
                 </p>
               </div>
@@ -342,7 +350,7 @@ export default function ServicesPage() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group rounded-xl border border-white/10 bg-web3-dark p-6 hover:border-web3-accent/40"
+                className="group flex flex-col rounded-xl border border-white/10 bg-web3-dark p-6 hover:border-web3-accent/40"
               >
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[8px] uppercase tracking-widest text-web3-accent">
@@ -353,12 +361,21 @@ export default function ServicesPage() {
                 <h3 className="mt-6 text-xl font-bold text-white">
                   {item.project}
                 </h3>
-                <p className="mt-3 font-mono text-[10px] leading-5 text-gray-400">
+                <p className="mt-3 text-xs leading-relaxed text-gray-500">
+                  {item.context}
+                </p>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-300">
                   {item.work}
                 </p>
-                <p className="mt-5 border-t border-white/5 pt-4 font-mono text-[8px] uppercase tracking-widest text-gray-600">
-                  {item.proof}
-                </p>
+                <div className="mt-5 border-t border-white/5 pt-4">
+                  <div className="flex items-center gap-2 text-sm font-bold text-web3-accent">
+                    <CheckCircle2 className="h-4 w-4 shrink-0" />
+                    {item.result}
+                  </div>
+                  <span className="mt-2 block font-mono text-[8px] uppercase tracking-widest text-gray-600">
+                    Source: {item.proof}
+                  </span>
+                </div>
               </a>
             ))}
           </div>
@@ -372,10 +389,10 @@ export default function ServicesPage() {
             <h2 className="mt-5 text-3xl font-bold text-white">
               A project should leave with an operating plan
             </h2>
-            <p className="mt-4 max-w-2xl font-mono text-sm leading-7 text-gray-400">
-              The output is not a generic introduction. It is a prioritized path
-              connecting readiness gaps, growth resources, Campaign design and
-              market-entry actions.
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-400">
+              The output is not a generic introduction. It is a prioritized plan
+              connecting your readiness gaps, the right growth resources,
+              campaign design and concrete market-entry actions.
             </p>
           </div>
           <a

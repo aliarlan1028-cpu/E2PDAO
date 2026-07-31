@@ -1,43 +1,78 @@
-import Link from 'next/link'
+import Link from "next/link";
+
+const LINKS = [
+  { name: "Contact", href: "/contact", external: false },
+  { name: "About", href: "/about", external: false },
+  { name: "Privacy", href: "/privacy", external: false },
+  { name: "Risk", href: "/risk-disclosure", external: false },
+  {
+    name: "Telegram",
+    href: "https://t.me/BitEsq",
+    external: true,
+  },
+  {
+    name: "Twitter",
+    href: "https://x.com/SinperX_250728",
+    external: true,
+  },
+  { name: "Email", href: "mailto:aliarlan1028@gmail.com", external: true },
+];
 
 export default function Footer() {
   return (
-    <footer className="py-8 bg-black border-t border-white/10 flex flex-col sm:flex-row items-center px-4 sm:px-8 text-[10px] font-mono font-medium text-gray-500 uppercase tracking-widest shrink-0 justify-between relative z-10">
-      <div className="flex items-center gap-4 mb-4 sm:mb-0">
-        <img src="/e2p-icon-transparent.svg" alt="E2P DAO" className="w-6 h-6" />
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-web3-accent animate-pulse shadow-[0_0_5px_#00FF66]"></div>
-          <span className="hidden sm:inline">System Synchronized</span>
-        </div>
-        <div className="hidden sm:block w-px h-4 bg-white/20"></div>
-        <div className="flex items-center gap-4 text-[10px] font-bold text-gray-500 font-heading">
-          <span className="hover:text-white transition-colors cursor-default">OKX</span>
-          <span className="hover:text-white transition-colors cursor-default">GATE.IO</span>
-        </div>
-      </div>
+    <footer className="shrink-0 border-t border-white/10 bg-black">
+      <div className="container mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
+            <img
+              src="/e2p-icon-transparent.svg"
+              alt="E2P DAO"
+              className="h-8 w-8"
+            />
+            <div>
+              <div className="text-sm font-bold text-white">E2P DAO</div>
+              <div className="font-mono text-[10px] uppercase tracking-widest text-gray-500">
+                Web3 Growth &amp; Listing Network
+              </div>
+            </div>
+          </div>
 
-      <div className="hidden lg:flex gap-8 border-l border-r border-white/10 px-8 mx-8">
-        <span>Nodes: <span className="text-white">Active</span></span>
-        <span>Network: <span className="text-web3-accent">Optimal</span></span>
-        <span>Engine: <span className="text-web3-purple">E2P-V2</span></span>
-      </div>
+          <nav className="flex flex-wrap items-center gap-x-6 gap-y-3 text-[11px] font-medium uppercase tracking-widest">
+            {LINKS.map((link) =>
+              link.external ? (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 transition-colors hover:text-web3-accent"
+                >
+                  {link.name}
+                </a>
+              ) : (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-gray-400 transition-colors hover:text-web3-accent"
+                >
+                  {link.name}
+                </Link>
+              ),
+            )}
+          </nav>
+        </div>
 
-      <div className="flex items-center gap-6">
-        <a href="https://t.me/BitEsq" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-          Telegram
-        </a>
-        <a href="https://x.com/SinperX_250728" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
-          Twitter
-        </a>
-        <a href="mailto:aliarlan1028@gmail.com" className="text-gray-400 hover:text-white transition-colors">
-          Email
-        </a>
-        <Link href="/about" className="text-gray-400 hover:text-white transition-colors">About</Link>
-        <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">Privacy</Link>
-        <Link href="/risk-disclosure" className="text-gray-400 hover:text-white transition-colors">Risk</Link>
-        <span className="hidden sm:inline opacity-50">© {new Date().getFullYear()} E2P DAO</span>
+        <div className="mt-8 flex flex-col gap-4 border-t border-white/5 pt-6 text-[11px] leading-5 text-gray-600 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-2xl">
+            Applications are processed privately for evaluation and follow-up.
+            Never submit private keys, seed phrases or exchange passwords —
+            E2PDAO never needs them.
+          </p>
+          <span className="whitespace-nowrap">
+            © {new Date().getFullYear()} E2P DAO
+          </span>
+        </div>
       </div>
-      <p className="mt-5 w-full border-t border-white/5 pt-5 text-center normal-case tracking-normal text-gray-600 sm:mt-0 sm:hidden">Applications are privately processed through the E2PDAO Owner workspace in W3Claw. Never submit private keys, seed phrases or exchange passwords.</p>
     </footer>
-  )
+  );
 }
