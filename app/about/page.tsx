@@ -55,20 +55,48 @@ export default function AboutPage() {
 
       <section className="e2p-section e2p-section-ink">
         <div className="e2p-container">
-          <header className="e2p-section-head">
-            <span className="e2p-section-index">02 / Operating principles</span>
-            <h2>Move with evidence.<br />Stay honest about risk.</h2>
-            <p>External partners make their own decisions, market outcomes remain uncertain and trading can result in total loss.</p>
+          <header className="e2p-principles-head">
+            <div>
+              <span className="e2p-section-index">02 / Operating principles</span>
+              <h2>Evidence in.<br /><em>Action out.</em></h2>
+            </div>
+            <p>
+              E2P is designed to move work forward without hiding uncertainty.
+              Every system starts from verifiable inputs, produces an owned next
+              action and leaves the final decision with people.
+            </p>
           </header>
-          <div className="e2p-path e2p-path-four">
-            {[
-              ["01", "Start from the real project", "Use the actual product, token, proof, market and constraints—not generic Web3 language."],
-              ["02", "Turn research into action", "Every finding should become a priority, material, owner, introduction or next step."],
-              ["03", "Build repeat relationships", "Creator and partner value comes from qualified repeat work, not one-off blasts."],
-              ["04", "Keep risk explicit", "No listing, campaign, token or trading result is guaranteed by the network."],
-            ].map(([index, title, text]) => (
-              <article key={title}><span>{index}</span><h3 style={{ marginTop: "auto" }}>{title}</h3><p>{text}</p></article>
-            ))}
+
+          <div className="e2p-principles-system">
+            <aside className="e2p-principles-console">
+              <header><span>OPERATING LOGIC / 01</span><b>HUMAN IN CONTROL</b></header>
+              <div className="e2p-principles-prompt">
+                <small>SYSTEM QUESTION</small>
+                <strong>Can this input<br />change the next move?</strong>
+              </div>
+              <div className="e2p-principles-run">
+                <span><i>01</i><b>Source attached</b><em>CHECKED</em></span>
+                <span><i>02</i><b>Constraint surfaced</b><em>VISIBLE</em></span>
+                <span><i>03</i><b>Owner assigned</b><em>READY</em></span>
+                <span className="active"><i>04</i><b>Human confirms</b><em>REQUIRED</em></span>
+              </div>
+              <footer><span>NO GUARANTEED OUTCOMES</span><span>01:1 DECISION LOG</span></footer>
+            </aside>
+
+            <div className="e2p-principles-ledger">
+              {[
+                ["01", "Evidence before opinion", "Use the real product, token, audience, market proof and source trail. Assumptions stay labelled until verified.", "INPUT", "SOURCE ATTACHED"],
+                ["02", "Output before activity", "Research becomes a priority, asset, owner, introduction or next action. Motion without an operating output does not count.", "OUTPUT", "ACTIONABLE"],
+                ["03", "Relationships that compound", "Project, creator and partner value is built through qualified repeat work—not a disposable campaign blast.", "NETWORK", "CONTINUITY"],
+                ["04", "Boundaries stay explicit", "E2P supports decisions; it does not replace them. Listings, campaigns, tokens and trading outcomes remain uncertain.", "CONTROL", "HUMAN OWNED"],
+              ].map(([index, title, text, label, state], itemIndex) => (
+                <article key={title} className={itemIndex === 1 ? "active" : ""}>
+                  <span>{index}</span>
+                  <div><h3>{title}</h3><p>{text}</p></div>
+                  <footer><small>{label}</small><b>{state}</b></footer>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
       </section>

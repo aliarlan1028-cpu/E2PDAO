@@ -1,18 +1,8 @@
 import type { Metadata } from "next";
 import {
   ArrowUpRight,
-  BarChart3,
   CheckCircle2,
   ExternalLink,
-  FileCheck2,
-  LineChart,
-  MessagesSquare,
-  PackageCheck,
-  Radar,
-  Rocket,
-  Route,
-  SearchCheck,
-  Send,
 } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
@@ -36,12 +26,12 @@ const SERVICES = [
 ];
 
 const PATH = [
-  { icon: SearchCheck, title: "Diagnose", text: "Review product, token, narrative, community and market context." },
-  { icon: Route, title: "Design", text: "Set the project path, milestones, priorities and decision gates." },
-  { icon: PackageCheck, title: "Upgrade", text: "Improve the story, materials, proof and market-facing package." },
-  { icon: Radar, title: "Map", text: "Match exchanges and launch resources against the project profile." },
-  { icon: Send, title: "Move BD", text: "Prepare outreach, introductions, follow-up and stakeholder actions." },
-  { icon: LineChart, title: "Launch & Learn", text: "Coordinate market entry and feed results into the next growth cycle." },
+  ["01", "Project evidence", "Product, token, traction and source trail", "PROFILE"],
+  ["02", "Path architecture", "Milestones, dependencies and decision gates", "ROUTE"],
+  ["03", "Quality upgrade", "Narrative, proof and market-facing assets", "BUILD"],
+  ["04", "Listing fit", "Standards, gaps and target priority", "MATCH"],
+  ["05", "BD motion", "Route, owner, outreach and follow-up", "MOVE"],
+  ["06", "Market loop", "Launch signals, feedback and next cycle", "LEARN"],
 ];
 
 const PARTNERS = [
@@ -145,65 +135,125 @@ export default function ServicesPage() {
 
       <section id="operating-path" className="e2p-section e2p-section-ink">
         <div className="e2p-container">
-          <header className="e2p-section-head">
+          <header className="e2p-section-head e2p-path-head">
             <span className="e2p-section-index">02 / Project path</span>
-            <h2>Six stages from<br />project to market.</h2>
+            <h2>One project.<br /><em>One decision system.</em></h2>
             <p>
-              Every engagement leaves behind priorities, owners, materials and
-              concrete next actions—not a generic strategy deck.
+              We turn the project into a live operating track: evidence at the
+              bottom, decisions in the middle and owned next actions at the top.
             </p>
           </header>
-          <div className="e2p-path">
-            {PATH.map((item, index) => (
-              <article key={item.title}>
-                <span>0{index + 1}</span>
-                <item.icon size={25} />
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
-              </article>
-            ))}
+
+          <div className="e2p-project-system">
+            <aside className="e2p-project-route">
+              <header><span>PROJECT ROUTE / LIVE</span><b>6 STAGES</b></header>
+              <div>
+                {PATH.map(([index, title, text, state], itemIndex) => (
+                  <article key={title} className={itemIndex === 3 ? "active" : itemIndex < 3 ? "done" : ""}>
+                    <i>{index}</i>
+                    <span><b>{title}</b><small>{text}</small></span>
+                    <em>{state}</em>
+                  </article>
+                ))}
+              </div>
+              <footer><span>INPUT / VERIFIED PROJECT DATA</span><span>OUTPUT / OWNED ACTION</span></footer>
+            </aside>
+
+            <div className="e2p-project-workspace">
+              <header><span>PROJECT CONTROL ROOM</span><span className="e2p-live">TRACK ACTIVE</span></header>
+              <div className="e2p-project-score">
+                <div><small>PATH SIGNAL</small><strong>82</strong><em>/ 100</em></div>
+                <div className="e2p-project-score-bars">
+                  <span><b>Product evidence</b><i><em style={{ width: "88%" }} /></i><strong>88</strong></span>
+                  <span><b>Market narrative</b><i><em style={{ width: "76%" }} /></i><strong>76</strong></span>
+                  <span><b>Listing package</b><i><em style={{ width: "68%" }} /></i><strong>68</strong></span>
+                </div>
+              </div>
+              <div className="e2p-project-decisions">
+                <header><span>NEXT DECISIONS</span><span>OWNER / DUE</span></header>
+                {[
+                  ["01", "Close market-proof gap", "PROJECT", "48H", "IN PROGRESS"],
+                  ["02", "Confirm target-exchange tier", "E2P BD", "72H", "REVIEW"],
+                  ["03", "Approve listing narrative v2", "FOUNDER", "FRI", "DECISION"],
+                ].map(([index, action, owner, due, state], itemIndex) => (
+                  <article key={action} className={itemIndex === 2 ? "active" : ""}>
+                    <i>{index}</i><b>{action}</b><span>{owner}</span><span>{due}</span><em>{state}</em>
+                  </article>
+                ))}
+              </div>
+              <footer><b>Every stage must leave an artifact, an owner and a next move.</b><span>DECISION LOG / UPDATED</span></footer>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="e2p-section">
+      <section id="listing-bd" className="e2p-section">
         <div className="e2p-container">
-          <header className="e2p-section-head">
+          <header className="e2p-section-head e2p-bd-head">
             <span className="e2p-section-index">03 / Listing BD system</span>
-            <h2>A visible pipeline.<br />A clear next move.</h2>
+            <h2>A BD command system.<br /><em>Not a spreadsheet.</em></h2>
             <p>
-              The Growth-Ops listing workflow is translated into four operating
-              lanes that keep strategy, materials and outreach in sync.
+              Listing standards, project fit, relationship routes and follow-up
+              live together—so the team knows what deserves attention now.
             </p>
           </header>
-          <div className="e2p-loop">
-            <div className="e2p-loop-board" style={{ background: "#111311", color: "#fff" }}>
-              <header><span>LISTING OPERATING LANES</span><b>4 / 4 ACTIVE</b></header>
-              <div className="e2p-loop-track">
-                {[
-                  ["01", "Standards & fit", "Map exchange criteria against the real project profile", "EVIDENCE"],
-                  ["02", "Materials & gaps", "Build the listing package and close missing items", "PACKAGE"],
-                  ["03", "Target & outreach", "Prioritize targets, routes, timing and message", "BD"],
-                  ["04", "Follow-up timeline", "Track owners, status, feedback and next actions", "RUNNING"],
-                ].map(([index, title, text, state], i) => (
-                  <article key={title} className={i === 3 ? "active" : ""}>
-                    <i>{index}</i><span><b>{title}</b><small>{text}</small></span><em>{state}</em>
-                  </article>
-                ))}
-              </div>
+
+          <div className="e2p-bd-system">
+            <header className="e2p-bd-metrics">
+              <span><small>PRIORITY TARGETS</small><b>04</b><em>fit qualified</em></span>
+              <span><small>ACTIVE ROUTES</small><b>06</b><em>owner assigned</em></span>
+              <span><small>MATERIAL GAPS</small><b>03</b><em>being closed</em></span>
+              <span><small>NEXT ACTIONS</small><b>08</b><em>this cycle</em></span>
+            </header>
+
+            <div className="e2p-bd-main">
+              <section className="e2p-bd-funnel">
+                <header><span>PIPELINE / STAGE MOVEMENT</span><b>ILLUSTRATIVE TRACK</b></header>
+                <div className="e2p-bd-stages">
+                  {[
+                    ["01", "Qualified", "12"], ["02", "Contacted", "08"], ["03", "Negotiating", "04"],
+                    ["04", "Signed", "02"], ["05", "Listing", "01"], ["06", "Live", "01"],
+                  ].map(([index, label, count], itemIndex) => (
+                    <span key={label} className={itemIndex === 2 ? "active" : ""}><i>{index}</i><b>{label}</b><em>{count}</em></span>
+                  ))}
+                </div>
+                <div className="e2p-bd-gapmatrix">
+                  <header><span>TARGET FIT / GAP MATRIX</span><span>FIT · MATERIAL · ROUTE</span></header>
+                  {[
+                    ["Priority target A", "GLOBAL / TIER 1", "8.8", "2 GAPS", "ROUTE SET"],
+                    ["Priority target B", "APAC / TIER 1", "8.2", "READY", "INTRO"],
+                    ["Growth target C", "GLOBAL / GROWTH", "7.6", "1 GAP", "OUTREACH"],
+                    ["Regional target D", "MENA / FIT", "7.1", "READY", "RESEARCH"],
+                  ].map(([name, tier, score, gap, route], itemIndex) => (
+                    <article key={name} className={itemIndex === 1 ? "active" : ""}>
+                      <span><b>{name}</b><small>{tier}</small></span><strong>{score}</strong><em>{gap}</em><i>{route}</i>
+                    </article>
+                  ))}
+                </div>
+              </section>
+
+              <aside className="e2p-bd-queue">
+                <header><span>ACTION QUEUE</span><b>PRIORITIZED</b></header>
+                <div className="e2p-bd-radar"><i /><i /><i /><b>FIT<br />SIGNAL</b><span /><span /><span /></div>
+                <div className="e2p-bd-actions">
+                  {[
+                    ["NOW", "Send revised evidence pack", "E2P BD · Target B"],
+                    ["TODAY", "Confirm listing window", "Founder · Target A"],
+                    ["48H", "Close compliance answer", "Legal · Target C"],
+                  ].map(([time, action, owner], itemIndex) => (
+                    <article key={action} className={itemIndex === 0 ? "active" : ""}><i>{time}</i><span><b>{action}</b><small>{owner}</small></span></article>
+                  ))}
+                </div>
+                <a href={E2P_LINKS.project("listing_system")} className="e2p-btn e2p-btn-acid">
+                  Open a project track <ArrowUpRight size={15} />
+                </a>
+              </aside>
             </div>
-            <div className="e2p-loop-copy" style={{ background: "#caff3d", color: "#111311", borderColor: "#111311" }}>
-              <span className="e2p-eyebrow">From gap to action</span>
-              <h3 style={{ color: "#111311" }}>Know the gap.<br />Own the next step.</h3>
-              <p style={{ color: "#4f5633" }}>
-                Standards research is only useful when it changes the plan. Each
-                finding is converted into a material task, BD decision, owner or
-                follow-up checkpoint.
-              </p>
-              <a href={E2P_LINKS.project("listing_system")} className="e2p-btn e2p-btn-dark">
-                Open a project track <ArrowUpRight size={15} />
-              </a>
-            </div>
+
+            <footer className="e2p-bd-footer">
+              <span><b>STANDARDS</b> source-linked criteria</span><span><b>SCORING</b> fit and timing</span>
+              <span><b>CRM</b> stage and owner</span><span><b>ACTION</b> next move</span>
+            </footer>
           </div>
         </div>
       </section>
