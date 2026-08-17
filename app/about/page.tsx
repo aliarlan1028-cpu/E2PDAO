@@ -16,6 +16,13 @@ const MODEL = [
   { icon: Bot, title: "Build the user layer", text: "Connect projects to a token-based trading community and a disciplined AI Agent product." },
 ];
 
+const PRINCIPLES = [
+  ["01", "Evidence before opinion", "Real product, token, audience and market proof come first. Assumptions stay visible until verified.", "VERIFY"],
+  ["02", "Output before activity", "Every piece of work becomes a decision, asset, introduction, owner or next move.", "MOVE"],
+  ["03", "Relationships that compound", "Qualified repeat work creates more value than a disposable campaign or a one-off introduction.", "COMPOUND"],
+  ["04", "Boundaries stay explicit", "E2P supports decisions without pretending outcomes are guaranteed. People keep final control.", "CONTROL"],
+];
+
 export default function AboutPage() {
   return (
     <>
@@ -54,49 +61,38 @@ export default function AboutPage() {
       </section>
 
       <section className="e2p-section e2p-section-ink">
-        <div className="e2p-container">
-          <header className="e2p-principles-head">
-            <div>
-              <span className="e2p-section-index">02 / Operating principles</span>
-              <h2>Evidence in.<br /><em>Action out.</em></h2>
-            </div>
+        <div className="e2p-container e2p-signal-principles">
+          <header className="e2p-signal-principles-head">
+            <span className="e2p-section-index">02 / Operating principles</span>
+            <h2>Clear input.<br /><em>Real movement.</em></h2>
             <p>
-              E2P is designed to move work forward without hiding uncertainty.
-              Every system starts from verifiable inputs, produces an owned next
-              action and leaves the final decision with people.
+              E2P does not hide uncertainty behind activity. We verify what is
+              real, make the next move visible and keep people in control.
             </p>
           </header>
 
-          <div className="e2p-principles-system">
-            <aside className="e2p-principles-console">
-              <header><span>OPERATING LOGIC / 01</span><b>HUMAN IN CONTROL</b></header>
-              <div className="e2p-principles-prompt">
-                <small>SYSTEM QUESTION</small>
-                <strong>Can this input<br />change the next move?</strong>
-              </div>
-              <div className="e2p-principles-run">
-                <span><i>01</i><b>Source attached</b><em>CHECKED</em></span>
-                <span><i>02</i><b>Constraint surfaced</b><em>VISIBLE</em></span>
-                <span><i>03</i><b>Owner assigned</b><em>READY</em></span>
-                <span className="active"><i>04</i><b>Human confirms</b><em>REQUIRED</em></span>
-              </div>
-              <footer><span>NO GUARANTEED OUTCOMES</span><span>01:1 DECISION LOG</span></footer>
-            </aside>
-
-            <div className="e2p-principles-ledger">
-              {[
-                ["01", "Evidence before opinion", "Use the real product, token, audience, market proof and source trail. Assumptions stay labelled until verified.", "INPUT", "SOURCE ATTACHED"],
-                ["02", "Output before activity", "Research becomes a priority, asset, owner, introduction or next action. Motion without an operating output does not count.", "OUTPUT", "ACTIONABLE"],
-                ["03", "Relationships that compound", "Project, creator and partner value is built through qualified repeat work—not a disposable campaign blast.", "NETWORK", "CONTINUITY"],
-                ["04", "Boundaries stay explicit", "E2P supports decisions; it does not replace them. Listings, campaigns, tokens and trading outcomes remain uncertain.", "CONTROL", "HUMAN OWNED"],
-              ].map(([index, title, text, label, state], itemIndex) => (
-                <article key={title} className={itemIndex === 1 ? "active" : ""}>
-                  <span>{index}</span>
-                  <div><h3>{title}</h3><p>{text}</p></div>
-                  <footer><small>{label}</small><b>{state}</b></footer>
-                </article>
-              ))}
+          <div className="e2p-principles-signal" aria-label="E2P operating logic">
+            <div className="e2p-principles-signal-copy">
+              <small>THE OPERATING QUESTION</small>
+              <strong>Does this change<br />the next move?</strong>
+              <span><i /> Evidence enters</span>
+              <span><i /> Action leaves</span>
+              <span><i /> Humans decide</span>
             </div>
+            <div className="e2p-principles-pulse" aria-hidden="true">
+              <i /><i /><i /><b>E2P</b>
+            </div>
+          </div>
+
+          <div className="e2p-principle-lines">
+            {PRINCIPLES.map(([index, title, text, state]) => (
+              <article key={title}>
+                <span>{index}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+                <b>{state} →</b>
+              </article>
+            ))}
           </div>
         </div>
       </section>
