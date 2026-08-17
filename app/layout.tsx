@@ -5,9 +5,9 @@ import Footer from '@/components/Footer'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://e2pdao.xyz'),
-  title: 'E2P DAO - Web3 Incubator, Labs & Trading Club',
-  description: 'Token-powered incubator and trading club. E2P DAO leverages extensive networks, industry expertise, and deep exchange relationships to provide comprehensive support for projects.',
-  keywords: 'web3 incubator, crypto KOL marketing, CEX listing, launchpad, trading community, alpha signals, E2P DAO, E2P Labs, E2P Club, $E2P point',
+  title: 'E2P DAO — Incubator, KOL Marketplace & Token-Based Trading Community',
+  description: 'E2P DAO connects project incubation and listing support, a two-sided KOL marketplace, and a token-based trading community powered by a risk-controlled AI Trading Agent.',
+  keywords: 'web3 incubator, crypto KOL marketplace, CEX listing support, listing BD, token-based community, AI trading agent, E2P DAO, E2P Club, E2P Token',
   authors: [{ name: 'E2P DAO Team' }],
   icons: {
     icon: '/e2p-icon-transparent.svg',
@@ -15,15 +15,15 @@ export const metadata: Metadata = {
     apple: '/e2p-icon-transparent.svg',
   },
   openGraph: {
-    title: 'E2P DAO - Web3 Incubator, Labs & Trading Club',
-    description: 'Data-driven Web3 incubator bridging Top Tier KOLs, tier-1 exchanges, and retail communities, powered by the $E2P ecosystem.',
+    title: 'E2P DAO — Incubate. Influence. Trade.',
+    description: 'One network connecting project incubation, KOL distribution and a token-based trading community.',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'E2P DAO - Web3 Incubator, Labs & Trading Club',
-    description: 'Data-driven Web3 incubator bridging Top Tier KOLs, tier-1 exchanges, and retail communities, powered by the $E2P ecosystem.',
+    title: 'E2P DAO — Incubate. Influence. Trade.',
+    description: 'One network connecting project incubation, KOL distribution and a token-based trading community.',
   },
   robots: {
     index: true,
@@ -38,9 +38,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="flex flex-col min-h-screen bg-web3-dark text-gray-200 overflow-x-hidden font-sans">
+      <body>
         <Navbar />
-        <main className="flex-1 mt-20">
+        <main className="e2p-main">
           {children}
         </main>
         <Footer />

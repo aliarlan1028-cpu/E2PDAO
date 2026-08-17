@@ -1,317 +1,221 @@
 import type { Metadata } from "next";
-import { ArrowRight, CheckCircle2, Globe2, Megaphone, Radio } from "lucide-react";
-import { BarDistribution, RingChart } from "@/components/EcosystemVisuals";
+import {
+  ArrowUpRight,
+  BadgeCheck,
+  CalendarDays,
+  Handshake,
+  Megaphone,
+  Network,
+  PackageCheck,
+  Radio,
+  Sparkles,
+} from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
 export const metadata: Metadata = {
-  title: "KOL Marketplace | E2PDAO",
+  title: "KOL Marketplace & Campaign Packages | E2PDAO",
   description:
-    "400+ KOL creators across channels and markets. Projects launch coordinated campaigns; creators get matched to paid work.",
+    "A two-sided Web3 creator marketplace: projects find matched KOLs and campaign packages; creators access qualified projects, brand partnerships and events.",
   alternates: { canonical: "/influence/" },
   openGraph: {
     title: "E2PDAO KOL Marketplace",
-    description: "400+ KOL creators across channels and markets.",
+    description: "Where Web3 projects and creators find the right match.",
     url: "/influence/",
   },
 };
 
-const PROFILES = [
+const MATCHES = [
+  ["AC", "APAC DeFi Creator", "X · Telegram · APAC", "91"],
+  ["GT", "Global Trading Channel", "YouTube · English", "87"],
+  ["LE", "LATAM Web3 Educator", "Video · Spanish", "84"],
+  ["MA", "MENA Community Lead", "Telegram · Events", "82"],
+];
+
+const PACKAGES = [
   {
-    name: "APAC DeFi Creator A",
-    platform: "X / Telegram",
-    audience: "100K–250K",
-    region: "APAC",
-    niche: "DeFi",
-    score: 88,
+    name: "Launch Signal",
+    stage: "PRE-TGE / LAUNCH",
+    text: "A coordinated creator matrix that introduces the narrative, builds recognition and creates a clean path into launch.",
+    items: ["Campaign brief & audience map", "Macro / mid / micro KOL mix", "Content formats & publishing sequence", "Delivery tracking & results review"],
   },
   {
-    name: "English Trading Channel B",
-    platform: "YouTube",
-    audience: "50K–100K",
-    region: "Global",
-    niche: "Trading",
-    score: 84,
+    name: "Market Expansion",
+    stage: "REGIONAL GROWTH",
+    text: "A market-specific package built around local language, trusted creators and the right community or event touchpoints.",
+    items: ["Regional KOL shortlist", "Localized message and assets", "AMA / event / community formats", "Lead and conversion review"],
+    featured: true,
   },
   {
-    name: "LATAM Web3 Educator C",
-    platform: "YouTube / X",
-    audience: "25K–75K",
-    region: "LATAM",
-    niche: "Education",
-    score: 81,
-  },
-  {
-    name: "MENA Ambassador D",
-    platform: "Telegram / Events",
-    audience: "Community-led",
-    region: "MENA",
-    niche: "Growth",
-    score: 79,
+    name: "Always-On Influence",
+    stage: "ONGOING GROWTH",
+    text: "A sustained creator program for education, product updates, social proof and long-term brand presence.",
+    items: ["Creator ambassador matrix", "Monthly content cadence", "Product and campaign moments", "Performance and relationship review"],
   },
 ];
 
-const CAMPAIGNS = [
-  {
-    title: "Launch Awareness",
-    stage: "Pre-TGE",
-    mix: "Macro + Mid + Micro KOLs",
-    goal: "Get your narrative seen before launch",
-  },
-  {
-    title: "Regional Expansion",
-    stage: "Growth",
-    mix: "Local KOLs + Ambassadors",
-    goal: "Enter a new market with local voices",
-  },
-  {
-    title: "Community Activation",
-    stage: "Product",
-    mix: "X + Telegram + AMA",
-    goal: "Turn attention into user action",
-  },
+const CREATOR_BENEFITS = [
+  { icon: Network, title: "Qualified project access", text: "See relevant project opportunities instead of relying only on cold inbound messages." },
+  { icon: Handshake, title: "Brand partnerships", text: "Get matched to paid collaborations based on audience, language, region and format fit." },
+  { icon: CalendarDays, title: "Event invitations", text: "Access AMAs, spaces, community events and selected ecosystem activations." },
+  { icon: BadgeCheck, title: "Long-term positioning", text: "Build repeat relationships, ambassador roles and a stronger verified creator profile." },
 ];
 
-const KOL_BENEFITS = [
-  "Get matched to paid campaigns that fit your channel and audience",
-  "Work with vetted projects instead of chasing cold DMs",
-  "Build a long-term relationship, not one-off posts",
-];
+function MatchBoard() {
+  return (
+    <div className="e2p-visual-card" aria-label="KOL marketplace matching preview">
+      <header className="e2p-visual-header">
+        <span>KOL MATCH / CAMPAIGN PACKAGE</span>
+        <span className="e2p-live">400+ NETWORK</span>
+      </header>
+      <div className="e2p-market-board">
+        <div className="e2p-brief-card">
+          <span>PROJECT BRIEF / 01</span>
+          <h3>DeFi launch.<br />APAC first.</h3>
+          <p>Find creators with trading and DeFi audiences for launch awareness, education and community conversion.</p>
+          <div className="e2p-brief-tags"><i>APAC</i><i>DeFi</i><i>X / TG</i><i>Pre-TGE</i><i>Education</i></div>
+        </div>
+        <div className="e2p-match-list">
+          {MATCHES.map(([avatar, name, detail, score]) => (
+            <article key={name}>
+              <i className="e2p-match-avatar">{avatar}</i>
+              <span><b>{name}</b><small>{detail}</small></span>
+              <strong>{score}</strong>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function InfluencePage() {
   return (
-    <div className="min-h-screen bg-web3-dark">
-      {/* Hero */}
-      <section className="border-b border-white/5 py-20 grid-bg">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-purple">
-            KOL Marketplace
-          </span>
-          <h1 className="mt-4 max-w-4xl text-4xl font-bold leading-tight text-white md:text-6xl">
-            400+ KOL creators.{" "}
-            <span className="text-web3-accent glow-text">
-              One coordinated campaign.
-            </span>
+    <>
+      <section className="e2p-container e2p-page-hero e2p-grid-wash">
+        <div className="e2p-page-hero-copy">
+          <span className="e2p-eyebrow">E2P KOL Marketplace</span>
+          <h1>
+            The right creators.<br />
+            <span className="e2p-highlight">The right project.</span>
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-300 md:text-lg">
-            A network of creators sorted by channel, market and content type —
-            so projects reach the right audience, and creators get matched to
-            the right work.
+          <p>
+            A two-sided marketplace where projects get a coordinated KOL growth
+            system—and creators gain qualified project resources, brand
+            partnerships and event opportunities.
           </p>
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {[
-              ["400+", "KOLs"],
-              ["4", "Channels"],
-              ["6", "Markets"],
-              ["2", "Roles"],
-            ].map(([value, label]) => (
-              <div
-                key={label}
-                className="rounded-xl border border-white/10 bg-web3-card p-5"
-              >
-                <strong className="text-2xl text-white">{value}</strong>
-                <span className="mt-1 block font-mono text-[8px] uppercase tracking-widest text-web3-accent">
-                  {label}
-                </span>
-              </div>
+          <div className="e2p-hero-facts">
+            <span><strong>400+</strong>Creator network</span>
+            <span><strong>6</strong>Market regions</span>
+            <span><strong>4</strong>Core channels</span>
+            <span><strong>2</strong>Sides, one market</span>
+          </div>
+        </div>
+        <MatchBoard />
+      </section>
+
+      <section className="e2p-section-compact">
+        <div className="e2p-container e2p-market-split">
+          <article className="e2p-market-door">
+            <span>01 / For projects</span>
+            <h2>I need<br />KOLs.</h2>
+            <p>Tell us the market, stage, audience, deliverables and budget. We turn the brief into a creator shortlist, a campaign package and an operating timeline.</p>
+            <a href={E2P_LINKS.project("marketplace_project_door")} className="e2p-btn e2p-btn-dark">Build my campaign <ArrowUpRight size={15} /></a>
+          </article>
+          <article className="e2p-market-door">
+            <span>02 / For KOLs & creators</span>
+            <h2>I need<br />opportunities.</h2>
+            <p>Join the network to access relevant Web3 projects, paid brand work, community activations and selected event invitations.</p>
+            <a href={E2P_LINKS.kol("marketplace_kol_door")} className="e2p-btn e2p-btn-acid">Join the network <ArrowUpRight size={15} /></a>
+          </article>
+        </div>
+      </section>
+
+      <section id="campaigns" className="e2p-section e2p-section-white">
+        <div className="e2p-container">
+          <header className="e2p-section-head">
+            <span className="e2p-section-index">01 / Campaign packages</span>
+            <h2>A creator list is not<br />a growth strategy.</h2>
+            <p>
+              Each package connects the project brief, creator selection,
+              deliverables, publishing sequence and review into one plan.
+            </p>
+          </header>
+          <div className="e2p-package-grid">
+            {PACKAGES.map((item, index) => (
+              <article className={`e2p-package${item.featured ? " featured" : ""}`} key={item.name}>
+                <header><span>0{index + 1} / {item.stage}</span>{item.featured && <b>Core package</b>}</header>
+                <h3>{item.name}</h3>
+                <p>{item.text}</p>
+                <ul>{item.items.map((detail) => <li key={detail}>✓ {detail}</li>)}</ul>
+                <a href={E2P_LINKS.project(`marketplace_package_${index + 1}`)}>Request this package <ArrowUpRight size={13} /></a>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* FOR PROJECTS */}
-      <section className="border-b border-white/5 py-20">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-accent">
-            For projects
-          </span>
-          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-            Reach the right audience, not just a big one
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-400">
-            We build your campaign from the network&apos;s channel and market
-            coverage, then pick the format that matches your stage.
-          </p>
-
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-2xl border border-white/10 bg-web3-card p-7">
-              <div className="mb-7 flex items-center justify-between">
-                <h3 className="text-xl font-bold text-white">Channel mix</h3>
-                <RingChart value={72} label="Social" size="sm" />
-              </div>
-              <BarDistribution
-                items={[
-                  { label: "X / Twitter", value: 78 },
-                  { label: "Telegram", value: 66, color: "#8A2BE2" },
-                  { label: "YouTube", value: 43 },
-                  { label: "TikTok", value: 28, color: "#8A2BE2" },
-                ]}
-              />
+      <section className="e2p-section e2p-section-ink">
+        <div className="e2p-container">
+          <header className="e2p-section-head">
+            <span className="e2p-section-index">02 / KOL partnership growth</span>
+            <h2>From first match<br />to repeat partnership.</h2>
+            <p>
+              The Growth-Ops workflow becomes a transparent collaboration track
+              for creator discovery, campaign delivery and relationship growth.
+            </p>
+          </header>
+          <div className="e2p-loop">
+            <div className="e2p-loop-copy">
+              <span className="e2p-eyebrow">Partnership operating loop</span>
+              <h3>Discover.<br />Package.<br />Deliver.<br />Review.</h3>
+              <p>Public evidence and audience fit guide the match. Campaign assets, delivery status and results stay connected to the same creator relationship.</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-web3-card p-7">
-              <div className="mb-7 flex items-center gap-3">
-                <Globe2 className="h-6 w-6 text-web3-purple" />
-                <h3 className="text-xl font-bold text-white">Market coverage</h3>
-              </div>
-              <div className="grid grid-cols-3 gap-2">
-                {["APAC", "Europe", "LATAM", "MENA", "N. America", "CIS"].map(
-                  (region, index) => (
-                    <div
-                      key={region}
-                      className={`rounded-lg border p-4 text-center ${index === 0 ? "border-web3-accent/30 bg-web3-accent/10" : "border-web3-purple/15 bg-web3-purple/5"}`}
-                    >
-                      <span className="text-xs font-medium text-white">
-                        {region}
-                      </span>
-                    </div>
-                  ),
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Campaign formats */}
-          <div id="campaigns" className="scroll-mt-24">
-            <div className="mt-14 flex items-end justify-between">
-              <h3 className="text-2xl font-bold text-white">
-                Three campaign formats
-              </h3>
-              <Radio className="hidden h-8 w-8 text-web3-accent md:block" />
-            </div>
-            <div className="mt-8 grid gap-5 md:grid-cols-3">
-              {CAMPAIGNS.map((item) => (
-                <div
-                  key={item.title}
-                  className="rounded-xl border border-white/10 bg-web3-card p-6"
-                >
-                  <span className="font-mono text-[8px] uppercase tracking-widest text-web3-purple">
-                    {item.stage}
-                  </span>
-                  <h4 className="mt-3 text-xl font-bold text-white">
-                    {item.title}
-                  </h4>
-                  <p className="mt-4 text-sm leading-relaxed text-gray-400">
-                    {item.mix}
-                  </p>
-                  <p className="mt-5 flex items-start gap-2 border-t border-white/5 pt-4 text-xs leading-relaxed text-web3-accent">
-                    <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                    {item.goal}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <a
-            href={E2P_LINKS.project("marketplace_projects")}
-            className="mt-10 inline-flex items-center gap-2 rounded bg-web3-accent px-7 py-4 text-xs font-bold uppercase tracking-widest text-black transition-all hover:shadow-[0_0_20px_rgba(0,255,102,0.45)]"
-          >
-            Launch a campaign <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
-      </section>
-
-      {/* FOR KOLS */}
-      <section className="border-b border-white/5 bg-web3-card/30 py-20">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-purple">
-            For KOLs &amp; creators
-          </span>
-          <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-            Join the network, get matched to paid work
-          </h2>
-
-          <div className="mt-8 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <ul className="space-y-4">
-              {KOL_BENEFITS.map((b) => (
-                <li key={b} className="flex items-start gap-3">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-web3-accent" />
-                  <span className="text-base leading-relaxed text-gray-300">
-                    {b}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            <div>
-              <div className="mb-3 flex items-center justify-between">
-                <span className="text-sm font-bold text-white">
-                  The kind of creators in the network
-                </span>
-                <span className="font-mono text-[8px] text-gray-600">
-                  ANONYMIZED PREVIEW
-                </span>
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2">
-                {PROFILES.map((profile) => (
-                  <article
-                    key={profile.name}
-                    className="overflow-hidden rounded-xl border border-white/10 bg-web3-dark"
-                  >
-                    <div className="relative h-20 bg-[radial-gradient(circle_at_20%_20%,rgba(0,255,102,.2),transparent_50%),radial-gradient(circle_at_80%_80%,rgba(138,43,226,.25),transparent_50%)]">
-                      <span className="absolute right-3 top-3 rounded bg-black/60 px-2 py-1 font-mono text-[8px] font-bold text-web3-accent">
-                        E2P {profile.score}
-                      </span>
-                    </div>
-                    <div className="p-5">
-                      <h3 className="text-sm font-bold text-white">
-                        {profile.name}
-                      </h3>
-                      <p className="mt-1 font-mono text-[9px] text-gray-500">
-                        {profile.platform} · {profile.region}
-                      </p>
-                      <div className="mt-4 flex items-center justify-between">
-                        <span className="text-xs font-medium text-white">
-                          {profile.audience}
-                        </span>
-                        <span className="rounded bg-web3-purple/10 px-2 py-1 font-mono text-[8px] text-web3-purple">
-                          {profile.niche}
-                        </span>
-                      </div>
-                    </div>
+            <div className="e2p-loop-board">
+              <header><span>CREATOR PARTNERSHIP PIPELINE</span><b>ONE SHARED TRACK</b></header>
+              <div className="e2p-loop-track">
+                {[
+                  ["01", "Discover & verify", "Channels, audience, region, content and public signals", "EVIDENCE"],
+                  ["02", "Match & package", "Project fit, creator mix, deliverables and client package", "PACKAGE"],
+                  ["03", "Launch & coordinate", "Brief, assets, publishing, AMAs and event actions", "DELIVERY"],
+                  ["04", "Review & grow", "Results, relationship notes and next collaboration", "COMPOUND"],
+                ].map(([index, title, text, state], i) => (
+                  <article key={title} className={i === 2 ? "active" : ""}>
+                    <i>{index}</i><span><b>{title}</b><small>{text}</small></span><em>{state}</em>
                   </article>
                 ))}
               </div>
-              <p className="mt-4 font-mono text-[8px] text-gray-600">
-                Interface samples only; not public identities or performance
-                claims.
-              </p>
             </div>
           </div>
-
-          <a
-            href={E2P_LINKS.kol("marketplace_kols")}
-            className="mt-10 inline-flex items-center gap-2 rounded border border-web3-purple px-7 py-4 text-xs font-bold uppercase tracking-widest text-web3-purple hover:bg-web3-purple/10"
-          >
-            Join as a KOL <ArrowRight className="h-4 w-4" />
-          </a>
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="py-20">
-        <div className="container mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
-          <div>
-            <Megaphone className="h-7 w-7 text-web3-purple" />
-            <h2 className="mt-4 text-3xl font-bold text-white">
-              Creators join. Projects launch campaigns.
-            </h2>
-          </div>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <a
-              href={E2P_LINKS.kol("marketplace_bottom")}
-              className="rounded border border-web3-purple px-6 py-4 text-xs font-bold uppercase tracking-widest text-web3-purple"
-            >
-              Join as KOL
-            </a>
-            <a
-              href={E2P_LINKS.project("marketplace_bottom")}
-              className="rounded bg-web3-accent px-6 py-4 text-xs font-bold uppercase tracking-widest text-black"
-            >
-              Launch Campaign
-            </a>
+      <section className="e2p-section e2p-section-ink" style={{ paddingTop: 0 }}>
+        <div className="e2p-container">
+          <header className="e2p-section-head">
+            <span className="e2p-section-index">03 / For creators</span>
+            <h2>More than<br />one-off posts.</h2>
+            <p>Build access, relationships and repeat opportunities inside the E2P project network.</p>
+          </header>
+          <div className="e2p-benefit-grid">
+            {CREATOR_BENEFITS.map((item) => (
+              <article key={item.title}>
+                <item.icon size={23} />
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
-    </div>
+
+      <section className="e2p-final">
+        <span>Creators need projects · Projects need creators</span>
+        <h2>Meet in the<br />right market.</h2>
+        <div className="e2p-actions">
+          <a href={E2P_LINKS.kol("marketplace_final")} className="e2p-btn e2p-btn-dark">Join as a KOL <ArrowUpRight size={15} /></a>
+          <a href={E2P_LINKS.project("marketplace_final")} className="e2p-btn">Launch a campaign <Megaphone size={14} /></a>
+        </div>
+      </section>
+    </>
   );
 }

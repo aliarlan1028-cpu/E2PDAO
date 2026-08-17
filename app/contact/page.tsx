@@ -1,155 +1,78 @@
 import type { Metadata } from "next";
-import { MessageCircle, Mail, Send, Twitter } from "lucide-react";
+import { ArrowUpRight, Mail, MessageCircle, Send, Twitter } from "lucide-react";
 import PartnershipCards from "@/components/PartnershipCards";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
 export const metadata: Metadata = {
-  title: "Contact E2PDAO | Talk to the team",
-  description:
-    "Reach E2PDAO — apply for cooperation, join the community, or contact the team directly on Telegram and email.",
+  title: "Contact E2PDAO | Start the Right Conversation",
+  description: "Apply as a project or KOL, join E2P Club, or contact the E2PDAO team directly.",
   alternates: { canonical: "/contact/" },
-  openGraph: {
-    title: "Contact E2PDAO",
-    description: "Apply for cooperation or reach the team directly.",
-    url: "/contact/",
-  },
 };
 
 const CHANNELS = [
-  {
-    icon: MessageCircle,
-    label: "Community Telegram",
-    value: "Join the E2P Club chat",
-    href: E2P_LINKS.telegram,
-    accent: "text-web3-accent",
-  },
-  {
-    icon: Send,
-    label: "Business Telegram",
-    value: "@BitEsq",
-    href: E2P_LINKS.businessTelegram,
-    accent: "text-web3-purple",
-  },
-  {
-    icon: Mail,
-    label: "Email",
-    value: "aliarlan1028@gmail.com",
-    href: "mailto:aliarlan1028@gmail.com",
-    accent: "text-web3-accent",
-  },
-  {
-    icon: Twitter,
-    label: "Twitter / X",
-    value: "Follow updates",
-    href: "https://x.com/SinperX_250728",
-    accent: "text-web3-purple",
-  },
+  { icon: MessageCircle, label: "Community Telegram", value: "Join E2P Club", href: E2P_LINKS.telegram },
+  { icon: Send, label: "Business Telegram", value: "@BitEsq", href: E2P_LINKS.businessTelegram },
+  { icon: Mail, label: "Email", value: "aliarlan1028@gmail.com", href: "mailto:aliarlan1028@gmail.com" },
+  { icon: Twitter, label: "Twitter / X", value: "Follow E2P updates", href: "https://x.com/SinperX_250728" },
 ];
 
 const FAQ = [
-  {
-    q: "What happens after I apply?",
-    a: "Your application is reviewed privately for readiness and fit. If there's a match, the team follows up to discuss next steps. Nothing is published as a public profile.",
-  },
-  {
-    q: "Do you guarantee a listing or campaign results?",
-    a: "No. Exchanges, launchpads, creators and market makers make their own decisions. We coordinate and prepare — we can't guarantee acceptance, terms or performance.",
-  },
-  {
-    q: "What should I prepare?",
-    a: "Your project stage, goals, target exchanges, timeline and any existing materials. Never share private keys, seed phrases or exchange passwords — we never need them.",
-  },
+  ["What happens after I apply?", "Your information is routed privately for evaluation and follow-up. Applying does not automatically create a public profile or guarantee cooperation."],
+  ["Do you guarantee listing or campaign results?", "No. Exchanges, creators and other partners keep their own criteria and final decisions. E2P prepares and coordinates; it cannot promise acceptance or performance."],
+  ["What should a project prepare?", "Share the project stage, product, token, growth priorities, target exchanges, timeline and existing materials. Never send private keys, seed phrases or withdrawal credentials."],
 ];
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-web3-dark">
-      <section className="border-b border-white/5 py-20 grid-bg">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-accent">
-              Contact
-            </div>
-            <h1 className="mt-4 text-4xl font-bold leading-tight text-white md:text-6xl">
-              Talk to <span className="text-web3-accent glow-text">E2PDAO</span>
-            </h1>
-            <p className="mt-6 text-base leading-relaxed text-gray-300 md:text-lg">
-              Applying for cooperation is the fastest way in — pick your path
-              below and we&apos;ll route you to the right process. Prefer to
-              reach out directly? Use one of the channels on the right.
-            </p>
-          </div>
+    <>
+      <section className="e2p-simple-hero e2p-grid-wash">
+        <div className="e2p-container">
+          <span className="e2p-eyebrow">Contact E2P DAO</span>
+          <h1>Start the right<br /><span className="e2p-highlight">conversation.</span></h1>
+          <p>Choose the path that matches you, or use a direct channel to reach the team.</p>
         </div>
       </section>
 
-      <section className="border-b border-white/5 py-20">
-        <div className="container mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.3fr_0.7fr] lg:px-8">
-          {/* Apply */}
+      <section className="e2p-section e2p-section-white">
+        <div className="e2p-container e2p-contact-grid">
           <div>
-            <h2 className="text-2xl font-bold text-white">
-              Apply for cooperation
-            </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-400">
-              Choose the option that matches you. Applications are handled
-              privately for evaluation and follow-up.
-            </p>
-            <div className="mt-8">
-              <PartnershipCards source="contact_page" />
-            </div>
+            <header style={{ marginBottom: 28 }}>
+              <span className="e2p-section-index">01 / Apply</span>
+              <h2 style={{ fontSize: 38, letterSpacing: "-.05em", margin: "14px 0" }}>Enter the right workflow.</h2>
+              <p className="e2p-note">Applications are handled privately for evaluation and follow-up.</p>
+            </header>
+            <PartnershipCards source="contact" />
           </div>
-
-          {/* Direct channels */}
-          <div>
-            <h2 className="text-2xl font-bold text-white">Direct channels</h2>
-            <div className="mt-8 space-y-3">
-              {CHANNELS.map((c) => (
-                <a
-                  key={c.label}
-                  href={c.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 rounded-xl border border-white/10 bg-web3-card p-5 transition-colors hover:border-web3-accent/40"
-                >
-                  <c.icon className={`h-6 w-6 shrink-0 ${c.accent}`} />
-                  <div>
-                    <div className="font-mono text-[9px] font-bold uppercase tracking-widest text-gray-500">
-                      {c.label}
-                    </div>
-                    <div className="mt-1 text-sm font-medium text-white">
-                      {c.value}
-                    </div>
-                  </div>
+          <aside>
+            <header style={{ marginBottom: 28 }}>
+              <span className="e2p-section-index">02 / Direct</span>
+              <h2 style={{ fontSize: 38, letterSpacing: "-.05em", margin: "14px 0" }}>Reach the team.</h2>
+            </header>
+            <div className="e2p-channel-list">
+              {CHANNELS.map((channel) => (
+                <a className="e2p-channel-card" href={channel.href} target="_blank" rel="noreferrer" key={channel.label}>
+                  <i><channel.icon size={18} /></i>
+                  <span><small>{channel.label}</small><b>{channel.value}</b></span>
+                  <ArrowUpRight size={14} />
                 </a>
               ))}
             </div>
-          </div>
+          </aside>
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-20">
-        <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-purple">
-            Before you reach out
-          </span>
-          <h2 className="mt-3 text-3xl font-bold text-white">
-            Common questions
-          </h2>
-          <div className="mt-9 space-y-4">
-            {FAQ.map((item) => (
-              <div
-                key={item.q}
-                className="rounded-xl border border-white/10 bg-web3-card p-6"
-              >
-                <h3 className="text-lg font-bold text-white">{item.q}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-400">
-                  {item.a}
-                </p>
-              </div>
-            ))}
+      <section className="e2p-section">
+        <div className="e2p-container">
+          <header className="e2p-section-head">
+            <span className="e2p-section-index">03 / Before you reach out</span>
+            <h2>Common<br />questions.</h2>
+            <p>Clear expectations make the first conversation more useful for everyone.</p>
+          </header>
+          <div className="e2p-faq">
+            {FAQ.map(([question, answer]) => <article key={question}><h3>{question}</h3><p>{answer}</p></article>)}
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

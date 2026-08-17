@@ -1,412 +1,269 @@
 import type { Metadata } from "next";
 import {
-  ArrowRight,
+  ArrowUpRight,
   BarChart3,
-  Building2,
   CheckCircle2,
   ExternalLink,
-  FlaskConical,
+  FileCheck2,
   LineChart,
-  Megaphone,
+  MessagesSquare,
+  PackageCheck,
+  Radar,
   Rocket,
-  ShieldCheck,
-  Users,
+  Route,
+  SearchCheck,
+  Send,
 } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
-import { RingChart, Sparkline } from "@/components/EcosystemVisuals";
 
 export const metadata: Metadata = {
-  title: "Web3 Project Incubator | E2PDAO",
+  title: "Project Incubator & Listing BD | E2PDAO",
   description:
-    "Explore the E2PDAO incubation pipeline, readiness model and market resource network.",
+    "E2PDAO helps Web3 projects design the right path, improve project quality, prepare listing materials and move exchange BD conversations forward.",
   alternates: { canonical: "/services/" },
   openGraph: {
-    title: "E2PDAO Project Incubator",
-    description: "From project diagnosis to KOL growth and listing readiness.",
+    title: "E2PDAO Project Incubator & Listing BD",
+    description: "Project path design, quality optimization, listing advisory and exchange coordination.",
     url: "/services/",
   },
 };
 
-const PIPELINE = [
-  {
-    step: "01",
-    title: "Diagnose",
-    icon: BarChart3,
-    text: "Product, narrative, token, market and material readiness.",
-  },
-  {
-    step: "02",
-    title: "Architect",
-    icon: LineChart,
-    text: "Positioning, growth path, tokenomics and launch plan.",
-  },
-  {
-    step: "03",
-    title: "Activate",
-    icon: Megaphone,
-    text: "KOL matrix, content brief and community activation.",
-  },
-  {
-    step: "04",
-    title: "Launch",
-    icon: Rocket,
-    text: "Campaign, TGE, launchpad and market coordination.",
-  },
-  {
-    step: "05",
-    title: "List & Scale",
-    icon: Building2,
-    text: "Exchange readiness, liquidity planning and review.",
-  },
+const SERVICES = [
+  ["01", "Project Path Design", "Turn the project stage, product, token, market and timeline into a prioritized route from now to launch and listing."],
+  ["02", "Project Quality Upgrade", "Sharpen positioning, narrative, token logic, materials and public proof so the project is easier to understand and evaluate."],
+  ["03", "Listing Advisory", "Map exchange standards, surface material gaps, plan liquidity and market support, and prepare the listing package."],
+  ["04", "Listing BD & Coordination", "Prioritize exchange targets, prepare outreach, activate relevant relationships and maintain the follow-up timeline."],
 ];
 
-const READINESS = [
-  { value: 82, label: "Growth", color: "#00FF66" },
-  { value: 74, label: "Listing", color: "#8A2BE2" },
-  { value: 68, label: "Community", color: "#00FF66" },
-  { value: 79, label: "Narrative", color: "#8A2BE2" },
+const PATH = [
+  { icon: SearchCheck, title: "Diagnose", text: "Review product, token, narrative, community and market context." },
+  { icon: Route, title: "Design", text: "Set the project path, milestones, priorities and decision gates." },
+  { icon: PackageCheck, title: "Upgrade", text: "Improve the story, materials, proof and market-facing package." },
+  { icon: Radar, title: "Map", text: "Match exchanges and launch resources against the project profile." },
+  { icon: Send, title: "Move BD", text: "Prepare outreach, introductions, follow-up and stakeholder actions." },
+  { icon: LineChart, title: "Launch & Learn", text: "Coordinate market entry and feed results into the next growth cycle." },
 ];
 
 const PARTNERS = [
   {
-    label: "Exchange Network",
-    logos: [
-      ["OKX", "/OKX.png"],
-      ["Bybit", "/Bybit.png"],
-      ["Gate.io", "/Gate.io.png"],
-      ["Bitget", "/Bitget Logo.png"],
-      ["MEXC", "/MEXC.png"],
-    ],
+    label: "Exchange network",
+    logos: [["OKX", "/OKX.png"], ["Bybit", "/Bybit.png"], ["Gate.io", "/Gate.io.png"], ["Bitget", "/Bitget Logo.png"], ["MEXC", "/MEXC.png"]],
   },
   {
-    label: "Launchpad Network",
-    logos: [
-      ["DAO Maker", "/DAO Maker.png"],
-      ["Seedify", "/seedify.svg"],
-      ["Poolz", "/Poolz Finance.png"],
-      ["BullPerks", "/BullPerks.png"],
-      ["Kommunitas", "/kommunitas.png"],
-    ],
+    label: "Launch network",
+    logos: [["DAO Maker", "/DAO Maker.png"], ["Seedify", "/seedify.svg"], ["Poolz", "/Poolz Finance.png"], ["BullPerks", "/BullPerks.png"], ["Kommunitas", "/kommunitas.png"]],
   },
   {
-    label: "Capital Network",
-    logos: [
-      ["Coresky", "/Coresky.jpeg"],
-      ["MT Capital", "/MT Capital.avif"],
-      ["Mirana", "/Mirana Ventures.png"],
-      ["Snova", "/Snova Capital.png"],
-      ["Unicorne", "/Unicorne-Verse.jpg"],
-    ],
+    label: "Capital network",
+    logos: [["Coresky", "/Coresky.jpeg"], ["MT Capital", "/MT Capital.avif"], ["Mirana", "/Mirana Ventures.png"], ["Snova", "/Snova Capital.png"], ["Unicorne", "/Unicorne-Verse.jpg"]],
   },
 ];
 
 const CASES = [
-  {
-    project: "CHAX",
-    context: "Token preparing for centralized-exchange entry.",
-    work: "We coordinated the CEX listing process.",
-    result: "Live and tracked on CoinGecko",
-    proof: "CoinGecko",
-    href: "https://www.coingecko.com/en/coins/chax",
-  },
-  {
-    project: "HIRO",
-    context: "Project working toward exchange listing readiness.",
-    work: "We supported readiness and listing coordination.",
-    result: "Listed with active markets on CoinMarketCap",
-    proof: "CoinMarketCap",
-    href: "https://coinmarketcap.com/currencies/hiro/#Markets",
-  },
-  {
-    project: "Virtuals Protocol",
-    context: "Token requiring public supply verification.",
-    work: "We supported the supply-verification process.",
-    result: "Tracked on CoinMarketCap",
-    proof: "CoinMarketCap",
-    href: "https://coinmarketcap.com/currencies/virtual-protocol/",
-  },
-  {
-    project: "USBT",
-    context: "Token targeting a tier-1 exchange listing.",
-    work: "We provided listing advisory and coordination.",
-    result: "Listing announced on Gate.io",
-    proof: "Gate.io",
-    href: "https://www.gate.io/zh/announcements/article/39267",
-  },
+  ["CHAX", "CEX listing coordination", "Live and tracked on CoinGecko", "CoinGecko", "https://www.coingecko.com/en/coins/chax"],
+  ["HIRO", "Listing preparation and coordination", "Listed with active markets", "CoinMarketCap", "https://coinmarketcap.com/currencies/hiro/#Markets"],
+  ["Virtuals", "Public supply verification support", "Tracked on CoinMarketCap", "CoinMarketCap", "https://coinmarketcap.com/currencies/virtual-protocol/"],
+  ["USBT", "Listing advisory and coordination", "Listing announced by Gate.io", "Gate.io", "https://www.gate.io/zh/announcements/article/39267"],
 ];
+
+function ListingBoard() {
+  return (
+    <div className="e2p-visual-card" aria-label="Listing business development workflow preview">
+      <header className="e2p-visual-header">
+        <span>LISTING BD / TARGET MAP</span>
+        <span className="e2p-live">ACTIVE PIPELINE</span>
+      </header>
+      <div className="e2p-listing-summary">
+        <div>
+          <small>Current focus</small>
+          <strong>04 tracks</strong>
+          <small>Standards → material → target → follow-up</small>
+        </div>
+        <div className="e2p-listing-bars">
+          <span>Core project materials</span><i><b style={{ width: "92%" }} /></i>
+          <span>Market proof package</span><i><b style={{ width: "78%" }} /></i>
+          <span>Exchange-specific mapping</span><i><b style={{ width: "84%" }} /></i>
+          <span>BD follow-up actions</span><i><b style={{ width: "66%" }} /></i>
+        </div>
+      </div>
+      <div className="e2p-target-list">
+        <article><i>01</i><b>Target A</b><span>GLOBAL · PRIORITY</span><em>2 material actions</em><b>HIGH FIT</b></article>
+        <article><i>02</i><b>Target B</b><span>APAC · PRIORITY</span><em>Window mapped</em><b>PREPARED</b></article>
+        <article><i>03</i><b>Target C</b><span>GLOBAL · GROWTH</span><em>Contact route set</em><b>IN MOTION</b></article>
+        <article><i>04</i><b>Target D</b><span>REGIONAL · FIT</span><em>Follow-up queued</em><b>TRACKING</b></article>
+      </div>
+    </div>
+  );
+}
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-web3-dark">
-      <section className="relative overflow-hidden border-b border-white/5 py-20 grid-bg">
-        <div className="absolute right-0 top-0 h-96 w-96 rounded-full bg-web3-accent/10 blur-[130px]" />
-        <div className="container relative z-10 mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:items-center lg:px-8">
-          <div>
-            <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-accent">
-              E2P Incubator
-            </div>
-            <h1 className="mt-4 text-4xl font-bold text-white md:text-6xl">
-              Build the project.{" "}
-              <span className="text-web3-accent glow-text">
-                Engineer the market.
-              </span>
-            </h1>
-            <p className="mt-6 max-w-3xl text-base leading-relaxed text-gray-300">
-              One team for the whole journey — project diagnosis, token
-              strategy, KOL campaigns, community feedback and listing
-              readiness — in five clear stages.
-            </p>
-            <a
-              href={E2P_LINKS.project("incubator_hero")}
-              className="mt-8 inline-flex items-center gap-2 rounded bg-web3-accent px-7 py-4 text-xs font-bold uppercase tracking-widest text-black"
-            >
-              Apply for incubation <ArrowRight className="h-4 w-4" />
+    <>
+      <section className="e2p-container e2p-page-hero e2p-grid-wash">
+        <div className="e2p-page-hero-copy">
+          <span className="e2p-eyebrow">E2P Project Incubator</span>
+          <h1>
+            Build the project.<br />
+            <span className="e2p-highlight">Move the listing.</span>
+          </h1>
+          <p>
+            E2P turns project strategy into an operating path: improve the
+            project, assemble the market-facing package, match the right
+            exchanges and move every BD action forward.
+          </p>
+          <div className="e2p-actions">
+            <a href={E2P_LINKS.project("incubator_hero")} className="e2p-btn e2p-btn-dark">
+              Start project evaluation <ArrowUpRight size={15} />
             </a>
-          </div>
-          <div className="rounded-2xl border border-white/10 bg-[#07090c] p-6">
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <div className="flex items-center gap-3">
-                <FlaskConical className="h-5 w-5 text-web3-accent" />
-                <span className="font-mono text-[9px] font-bold uppercase tracking-widest text-gray-400">
-                  Sample Readiness Console
-                </span>
-              </div>
-              <span className="font-mono text-[8px] text-web3-accent">
-                DEMO MODEL
-              </span>
-            </div>
-            <div className="mt-6 grid grid-cols-2 gap-4">
-              {READINESS.map((item) => (
-                <RingChart
-                  key={item.label}
-                  value={item.value}
-                  label={item.label}
-                  color={item.color}
-                  size="sm"
-                />
-              ))}
-            </div>
-            <div className="mt-5 rounded-lg border border-white/5 bg-white/[.02] p-4">
-              <div className="flex justify-between font-mono text-[8px] uppercase tracking-widest">
-                <span className="text-gray-600">Readiness trend</span>
-                <span className="text-web3-accent">+12 model points</span>
-              </div>
-              <Sparkline values={[22, 27, 25, 38, 42, 39, 54, 61, 68, 74]} />
-            </div>
+            <a href="#operating-path" className="e2p-btn">See the operating path</a>
           </div>
         </div>
+        <ListingBoard />
       </section>
 
-      <section className="border-b border-white/5 py-20">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between">
-            <div>
-              <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-purple">
-                Incubation Pipeline
-              </div>
-              <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-                Five stages, one operating track
-              </h2>
-            </div>
-            <span className="hidden font-mono text-[9px] text-gray-600 md:block">
-              APPLICATION → MARKET
-            </span>
-          </div>
-          <div className="relative mt-12 grid gap-4 lg:grid-cols-5">
-            <div className="absolute left-[10%] right-[10%] top-8 hidden h-px bg-gradient-to-r from-web3-accent via-web3-purple to-web3-accent lg:block" />
-            {PIPELINE.map((item) => (
-              <div
-                key={item.step}
-                className="relative rounded-xl border border-white/10 bg-web3-card p-6"
-              >
-                <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border border-web3-accent/30 bg-web3-dark shadow-[0_0_20px_rgba(0,255,102,.12)]">
-                  <item.icon className="h-6 w-6 text-web3-accent" />
-                </div>
-                <span className="mt-5 block font-mono text-[9px] font-bold text-web3-purple">
-                  {item.step}
-                </span>
-                <h3 className="mt-2 text-lg font-bold text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-400">
-                  {item.text}
-                </p>
-              </div>
+      <section className="e2p-section e2p-section-white">
+        <div className="e2p-container">
+          <header className="e2p-section-head">
+            <span className="e2p-section-index">01 / What we deliver</span>
+            <h2>Advice is useful.<br />Movement is better.</h2>
+            <p>
+              The incubator combines strategic work with the execution tools
+              needed to prepare and advance real listing conversations.
+            </p>
+          </header>
+          <div className="e2p-operating-grid">
+            {SERVICES.map(([index, title, text]) => (
+              <article key={title}>
+                <span>{index}</span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-b border-white/5 bg-web3-card/30 py-20">
-        <div className="container mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
-          <div>
-            <ShieldCheck className="h-7 w-7 text-web3-purple" />
-            <h2 className="mt-5 text-3xl font-bold text-white">
-              What readiness means
-            </h2>
-            <p className="mt-4 text-base leading-relaxed text-gray-400">
-              The score console is a visual model — not a public promise. A real
-              evaluation uses your project materials, public evidence and an
-              internal review.
+      <section id="operating-path" className="e2p-section e2p-section-ink">
+        <div className="e2p-container">
+          <header className="e2p-section-head">
+            <span className="e2p-section-index">02 / Project path</span>
+            <h2>Six stages from<br />project to market.</h2>
+            <p>
+              Every engagement leaves behind priorities, owners, materials and
+              concrete next actions—not a generic strategy deck.
             </p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {[
-              [
-                "Growth Ready",
-                "Positioning, audience, channels and measurable acquisition plan.",
-              ],
-              [
-                "Token Ready",
-                "Utility, allocation, emissions and value-accrual review.",
-              ],
-              [
-                "Community Ready",
-                "Narrative clarity, onboarding and feedback mechanisms.",
-              ],
-              [
-                "Listing Ready",
-                "Materials, market context, liquidity and exchange requirement mapping.",
-              ],
-            ].map(([title, text]) => (
-              <div
-                key={title}
-                className="rounded-xl border border-white/10 bg-web3-dark p-6"
-              >
-                <CheckCircle2 className="h-5 w-5 text-web3-accent" />
-                <h3 className="mt-4 text-lg font-bold text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-gray-400">
-                  {text}
-                </p>
-              </div>
+          </header>
+          <div className="e2p-path">
+            {PATH.map((item, index) => (
+              <article key={item.title}>
+                <span>0{index + 1}</span>
+                <item.icon size={25} />
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="border-b border-white/5 py-20">
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
-            <div className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-accent">
-              Resource Network
-            </div>
-            <h2 className="mt-3 text-3xl font-bold text-white md:text-4xl">
-              Exchanges, launchpads and capital partners
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-400">
-              20+ partners across the E2P resource network — the relationships
-              we draw on to help projects grow and get listing-ready.
+      <section className="e2p-section">
+        <div className="e2p-container">
+          <header className="e2p-section-head">
+            <span className="e2p-section-index">03 / Listing BD system</span>
+            <h2>A visible pipeline.<br />A clear next move.</h2>
+            <p>
+              The Growth-Ops listing workflow is translated into four operating
+              lanes that keep strategy, materials and outreach in sync.
             </p>
+          </header>
+          <div className="e2p-loop">
+            <div className="e2p-loop-board" style={{ background: "#111311", color: "#fff" }}>
+              <header><span>LISTING OPERATING LANES</span><b>4 / 4 ACTIVE</b></header>
+              <div className="e2p-loop-track">
+                {[
+                  ["01", "Standards & fit", "Map exchange criteria against the real project profile", "EVIDENCE"],
+                  ["02", "Materials & gaps", "Build the listing package and close missing items", "PACKAGE"],
+                  ["03", "Target & outreach", "Prioritize targets, routes, timing and message", "BD"],
+                  ["04", "Follow-up timeline", "Track owners, status, feedback and next actions", "RUNNING"],
+                ].map(([index, title, text, state], i) => (
+                  <article key={title} className={i === 3 ? "active" : ""}>
+                    <i>{index}</i><span><b>{title}</b><small>{text}</small></span><em>{state}</em>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <div className="e2p-loop-copy" style={{ background: "#caff3d", color: "#111311", borderColor: "#111311" }}>
+              <span className="e2p-eyebrow">From gap to action</span>
+              <h3 style={{ color: "#111311" }}>Know the gap.<br />Own the next step.</h3>
+              <p style={{ color: "#4f5633" }}>
+                Standards research is only useful when it changes the plan. Each
+                finding is converted into a material task, BD decision, owner or
+                follow-up checkpoint.
+              </p>
+              <a href={E2P_LINKS.project("listing_system")} className="e2p-btn e2p-btn-dark">
+                Open a project track <ArrowUpRight size={15} />
+              </a>
+            </div>
           </div>
-          <div className="space-y-8">
+        </div>
+      </section>
+
+      <section className="e2p-section e2p-section-white">
+        <div className="e2p-container">
+          <header className="e2p-section-head">
+            <span className="e2p-section-index">04 / Resource network</span>
+            <h2>Exchange, launch<br />and capital routes.</h2>
+            <p>
+              Relationships support project conversations, but every third
+              party keeps its own evaluation criteria and final decision.
+            </p>
+          </header>
+          <div className="e2p-logo-groups">
             {PARTNERS.map((group) => (
-              <div key={group.label}>
-                <div className="mb-3 font-mono text-[9px] font-bold uppercase tracking-widest text-gray-500">
-                  {group.label}
-                </div>
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+              <div className="e2p-logo-group" key={group.label}>
+                <header><span>{group.label}</span><span>{group.logos.length} nodes shown</span></header>
+                <div className="e2p-logo-row">
                   {group.logos.map(([name, logo]) => (
-                    <div
-                      key={name}
-                      className="flex h-20 items-center justify-center rounded-xl border border-white/10 bg-white p-4 transition-transform hover:-translate-y-1"
-                    >
-                      <img
-                        src={logo}
-                        alt={name}
-                        className="h-9 w-28 object-contain"
-                      />
-                    </div>
+                    <div key={name}><img src={logo} alt={name} /></div>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-          <p className="mt-7 text-xs leading-relaxed text-gray-500">
-            Partners in the E2PDAO resource network. Each keeps its own
-            listing criteria — working with us does not guarantee acceptance or
-            specific terms from any third party.
+          <p className="e2p-note">
+            Network logos identify known ecosystem relationships and resources;
+            they do not represent a guarantee of acceptance, terms or endorsement.
           </p>
         </div>
       </section>
 
-      <section
-        id="portfolio"
-        className="scroll-mt-24 border-b border-white/5 bg-web3-card/30 py-20"
-      >
-        <div className="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between">
-            <div>
-              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-web3-purple">
-                Portfolio & Proof
-              </span>
-              <h2 className="mt-3 text-3xl font-bold text-white">
-                Four public references
-              </h2>
-            </div>
-            <span className="hidden font-mono text-[8px] text-gray-600 md:block">
-              PAST SUPPORT ≠ FUTURE GUARANTEE
-            </span>
-          </div>
-          <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {CASES.map((item) => (
-              <a
-                key={item.project}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex flex-col rounded-xl border border-white/10 bg-web3-dark p-6 hover:border-web3-accent/40"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[8px] uppercase tracking-widest text-web3-accent">
-                    Verified link
-                  </span>
-                  <ExternalLink className="h-4 w-4 text-gray-600 group-hover:text-web3-accent" />
-                </div>
-                <h3 className="mt-6 text-xl font-bold text-white">
-                  {item.project}
-                </h3>
-                <p className="mt-3 text-xs leading-relaxed text-gray-500">
-                  {item.context}
-                </p>
-                <p className="mt-3 flex-1 text-sm leading-relaxed text-gray-300">
-                  {item.work}
-                </p>
-                <div className="mt-5 border-t border-white/5 pt-4">
-                  <div className="flex items-center gap-2 text-sm font-bold text-web3-accent">
-                    <CheckCircle2 className="h-4 w-4 shrink-0" />
-                    {item.result}
-                  </div>
-                  <span className="mt-2 block font-mono text-[8px] uppercase tracking-widest text-gray-600">
-                    Source: {item.proof}
-                  </span>
-                </div>
+      <section id="portfolio" className="e2p-section">
+        <div className="e2p-container">
+          <header className="e2p-section-head">
+            <span className="e2p-section-index">05 / Public references</span>
+            <h2>Selected work.<br />Verifiable outcomes.</h2>
+            <p>Past support is evidence of activity, not a promise of future results.</p>
+          </header>
+          <div className="e2p-case-grid">
+            {CASES.map(([project, work, result, source, href], index) => (
+              <a className="e2p-case-card" href={href} target="_blank" rel="noreferrer" key={project}>
+                <header><span>0{index + 1} / {source}</span><ExternalLink size={13} /></header>
+                <h3>{project}</h3>
+                <p>{work}</p>
+                <footer><span><CheckCircle2 size={12} /> {result}</span><ArrowUpRight size={13} /></footer>
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="py-20">
-        <div className="container mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
-          <div>
-            <Users className="h-7 w-7 text-web3-purple" />
-            <h2 className="mt-5 text-3xl font-bold text-white">
-              A project should leave with an operating plan
-            </h2>
-            <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-400">
-              The output is not a generic introduction. It is a prioritized plan
-              connecting your readiness gaps, the right growth resources,
-              campaign design and concrete market-entry actions.
-            </p>
-          </div>
-          <a
-            href={E2P_LINKS.project("incubator_bottom")}
-            className="inline-flex items-center justify-center gap-2 rounded bg-web3-accent px-7 py-4 text-xs font-bold uppercase tracking-widest text-black"
-          >
-            Start project evaluation <ArrowRight className="h-4 w-4" />
-          </a>
-        </div>
+      <section className="e2p-final">
+        <span>Project path · Quality upgrade · Listing BD</span>
+        <h2>Make the next move<br />an informed one.</h2>
+        <a href={E2P_LINKS.project("incubator_final")} className="e2p-btn e2p-btn-dark">
+          Start your project track <ArrowUpRight size={15} />
+        </a>
       </section>
-    </div>
+    </>
   );
 }
