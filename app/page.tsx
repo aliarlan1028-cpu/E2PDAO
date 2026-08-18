@@ -1,262 +1,97 @@
 import Link from "next/link";
-import {
-  ArrowUpRight,
-  Bot,
-  ExternalLink,
-  Megaphone,
-  Rocket,
-  ShieldCheck,
-  Users,
-} from "lucide-react";
-import Hero from "@/components/Hero";
-import Reveal from "@/components/Reveal";
+import { ArrowRight, ArrowUpRight, BrainCircuit, ExternalLink, Megaphone, Radar, Sprout, Users } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
-
-const TICKER = [
-  "Project Incubation",
-  "Listing Advisory",
-  "Listing BD",
-  "KOL Marketplace",
-  "Campaign Growth",
-  "E2P Club",
-  "AI Trading Agent",
-  "$E2P Token",
-];
-
-const CHIPS = [
-  "Project strategy",
-  "Quality upgrade",
-  "Listing BD",
-  "KOL growth",
-  "Token access",
-  "AI trading",
-];
-
-const LOOP = [
-  {
-    index: "01",
-    label: "INCUBATE",
-    title: "Build a project the market can understand.",
-    text: "Define the path, strengthen the product and market narrative, prepare listing materials and coordinate the right exchange conversations.",
-    detail: "STRATEGY → QUALITY → LISTING",
-  },
-  {
-    index: "02",
-    label: "INFLUENCE",
-    title: "Put the right story in front of the right audience.",
-    text: "Translate project goals into creator briefs, market-specific KOL matches and campaign packages built for measurable distribution.",
-    detail: "BRIEF → MATCH → AMPLIFY",
-  },
-  {
-    index: "03",
-    label: "TRADE",
-    title: "Turn attention into a real user and feedback layer.",
-    text: "Token-based access, community research and a hard-risk-gated AI Trading Agent create deeper participation beyond short-lived hype.",
-    detail: "ACCESS → SIGNAL → EXECUTE",
-  },
-  {
-    index: "04",
-    label: "COMPOUND",
-    title: "Feed market intelligence back into the next move.",
-    text: "Community behavior and campaign feedback return to the project track, improving positioning, distribution and future decisions.",
-    detail: "LEARN → REFINE → REPEAT",
-  },
-];
 
 const CASES = [
   ["CHAX", "CEX listing coordination", "CoinGecko", "https://www.coingecko.com/en/coins/chax"],
   ["HIRO", "Listing preparation and coordination", "CoinMarketCap", "https://coinmarketcap.com/currencies/hiro/#Markets"],
   ["Virtuals", "Public supply verification support", "CoinMarketCap", "https://coinmarketcap.com/currencies/virtual-protocol/"],
-  ["USBT", "Listing advisory and coordination", "Gate.io", "https://www.gate.io/zh/announcements/article/39267"],
 ];
+
+function NetworkTriad() {
+  return (
+    <div className="v4-network-triad" aria-label="E2P operating network">
+      <i className="orbit orbit-a" /><i className="orbit orbit-b" /><i className="orbit orbit-c" />
+      <span className="wire wire-a" /><span className="wire wire-b" /><span className="wire wire-c" />
+      <Link href="/services" className="node node-inc"><Sprout size={24} /><b>Incubator</b></Link>
+      <Link href="/influence" className="node node-kol"><Users size={24} /><b>KOL<br />Marketplace</b></Link>
+      <Link href="/club" className="node node-agent"><Radar size={24} /><b>Trading<br />Agent</b></Link>
+      <div className="v4-network-core"><img src="/e2p-icon-transparent.svg" alt="" /><b>E2P</b><span>DAO</span></div>
+    </div>
+  );
+}
+
+function CreatorCollage() {
+  return <div className="v4-home-collage"><img src="/people/creator-01.jpg" alt="" /><img src="/people/creator-02.jpg" alt="" /><img src="/people/creator-03.jpg" alt="" /><i /></div>;
+}
 
 export default function HomePage() {
   return (
     <>
-      <Hero />
-
-      <div className="e2p-ticker" aria-label="E2P ecosystem capabilities">
-        <div>
-          {[...TICKER, ...TICKER].map((item, index) => (
-            <span key={`${item}-${index}`}>{item}<i>✦</i></span>
-          ))}
+      <section className="v4-home-hero">
+        <div className="v4-wrap v4-home-hero-grid">
+          <div className="v4-home-hero-copy">
+            <span className="v4-kicker">E2P DAO / WEB3 OPERATING NETWORK</span>
+            <h1>Build<span>.</span><br />Influence<span>.</span><br />Trade with<br />intelligence<span>.</span></h1>
+            <p>One operating network for Web3 execution.</p>
+            <div className="v4-hero-actions"><a href={E2P_LINKS.project("home_v4")} className="v4-button v4-button-dark">Start a project <ArrowUpRight size={15} /></a><a href="#what-we-do" className="v4-text-link">See what we do <ArrowRight size={14} /></a></div>
+          </div>
+          <NetworkTriad />
         </div>
-      </div>
+      </section>
 
-      <section className="e2p-home-systems">
-        <div className="e2p-container">
-          <Reveal className="e2p-home-intro">
-            <div>
-              <span className="e2p-section-index">01 / THE OPERATING SYSTEM</span>
-              <h2>Three engines.<br /><em>Designed as one.</em></h2>
-            </div>
-            <div>
-              <p>
-                Not three disconnected services. E2P links project execution,
-                creator distribution and intelligent trading into one operating
-                loop—so every stage creates value for the next.
-              </p>
-              <div className="e2p-home-chips">
-                {CHIPS.map((chip) => <span key={chip}>{chip}</span>)}
-              </div>
-            </div>
-          </Reveal>
+      <section id="what-we-do" className="v4-home-engines">
+        <div className="v4-wrap v4-home-engine-grid">
+          <Link href="/services" className="v4-home-engine">
+            <header><span>01</span><h2>Incubator</h2></header>
+            <p>We help projects improve quality, design the route and move listing conversations forward.</p>
+            <div className="v4-engine-art v4-engine-plant"><i /><Sprout size={112} /></div>
+            <ul><li>Project diagnosis</li><li>Quality optimization</li><li>Listing advisory</li><li>Owned BD follow-up</li></ul>
+          </Link>
+          <Link href="/influence" className="v4-home-engine">
+            <header><span>02</span><h2>KOL Marketplace</h2></header>
+            <p>We connect projects with verified creator resources and run the campaign through review.</p>
+            <div className="v4-engine-art"><CreatorCollage /></div>
+            <ul><li>Creator verification</li><li>Goal-based matching</li><li>Campaign packaging</li><li>Measured operations</li></ul>
+          </Link>
+          <Link href="/club" className="v4-home-engine">
+            <header><span>03</span><h2>Trading Agent</h2></header>
+            <p>We turn market context into structured decisions inside explicit risk boundaries.</p>
+            <div className="v4-engine-art v4-engine-brain"><BrainCircuit size={128} /><i /><i /><i /></div>
+            <ul><li>AI market context</li><li>Structured planning</li><li>Hard risk gates</li><li>Auditable review</li></ul>
+          </Link>
+        </div>
+      </section>
 
-          <div className="e2p-engine-bento">
-            <Reveal className="e2p-engine-slot e2p-engine-slot-main">
-              <Link href="/services" className="e2p-engine-card e2p-engine-incubator">
-                <header>
-                  <span>01 / INCUBATOR</span>
-                  <ArrowUpRight size={17} />
-                </header>
-                <div className="e2p-engine-copy">
-                  <Rocket size={24} />
-                  <h3>Build the path.<br />Raise the quality.</h3>
-                  <p>
-                    Project architecture, listing advisory, quality optimization
-                    and exchange-facing BD—organized around a path your team can execute.
-                  </p>
-                </div>
-                <div className="e2p-route-board" aria-label="Project listing route">
-                  <header><span>PROJECT ROUTE / ACTIVE</span><b>04 STAGES</b></header>
-                  <div className="e2p-route-line">
-                    {["PATH", "QUALITY", "MATERIALS", "LISTING BD"].map((item, index) => (
-                      <span key={item} className={index === 3 ? "active" : "done"}>
-                        <i>{index === 3 ? "04" : "✓"}</i><b>{item}</b>
-                      </span>
-                    ))}
-                  </div>
-                  <footer><span>Target conversations</span><b>Exchange · launch · capital</b></footer>
-                </div>
-                <footer><span>Explore the incubator</span><ArrowUpRight size={15} /></footer>
-              </Link>
-            </Reveal>
+      <section className="v4-home-proof-strip">
+        <div className="v4-wrap">
+          <div><strong>A network of builders, creators and market operators.</strong></div>
+          <span><b>04</b> Public references</span><span><b>400+</b> KOL resources</span><span><b>20+</b> Operating nodes</span><span><b>03</b> Connected engines</span>
+        </div>
+      </section>
 
-            <Reveal className="e2p-engine-slot" delay={.08}>
-              <Link href="/influence" className="e2p-engine-card e2p-engine-kol">
-                <header>
-                  <span>02 / KOL MARKETPLACE</span>
-                  <ArrowUpRight size={17} />
-                </header>
-                <div className="e2p-kol-visual" aria-hidden="true">
-                  <div className="e2p-kol-core"><Megaphone size={20} /><b>MATCH</b></div>
-                  {["AK", "L2", "WW", "S9", "0X"].map((name, index) => (
-                    <i key={name} className={`kol-${index + 1}`}>{name}</i>
-                  ))}
-                  <span>96%<small>FIT SCORE</small></span>
-                </div>
-                <div className="e2p-engine-copy">
-                  <h3>Creators meet<br />qualified opportunity.</h3>
-                  <p>Projects get distribution. KOLs get project resources, brand collaborations and event invitations.</p>
-                </div>
-                <footer><span>Enter the marketplace</span><ArrowUpRight size={15} /></footer>
-              </Link>
-            </Reveal>
-
-            <Reveal className="e2p-engine-slot" delay={.14}>
-              <Link href="/club" className="e2p-engine-card e2p-engine-trading">
-                <header>
-                  <span>03 / TRADING COMMUNITY</span>
-                  <ArrowUpRight size={17} />
-                </header>
-                <div className="e2p-trading-visual" aria-hidden="true">
-                  <header><span><i /> AGENT ONLINE</span><b>RISK / HARD</b></header>
-                  <div className="e2p-signal-bars">
-                    {[36, 54, 44, 68, 61, 78, 73, 91, 82, 96].map((height, index) => (
-                      <i key={`${height}-${index}`} style={{ height: `${height}%` }} />
-                    ))}
-                  </div>
-                  <footer><span>OBSERVE</span><span>VALIDATE</span><span>EXECUTE</span></footer>
-                </div>
-                <div className="e2p-engine-copy">
-                  <Bot size={23} />
-                  <h3>Token access.<br />AI discipline.</h3>
-                  <p>A community layer built around $E2P access, market intelligence and a trading system with hard risk gates.</p>
-                </div>
-                <footer><span>Enter E2P Club</span><ArrowUpRight size={15} /></footer>
-              </Link>
-            </Reveal>
+      <section className="v4-home-flow">
+        <div className="v4-wrap v4-home-flow-grid">
+          <header><span className="v4-label">How E2P works</span><h2>From idea to<br />market intelligence<span>.</span></h2></header>
+          <div className="v4-flow-steps">
+            <article><div><Sprout size={38} /></div><span>01</span><h3>Project</h3><p>Diagnose, prioritize and build a project the market can evaluate.</p></article><ArrowRight />
+            <article><div><Megaphone size={38} /></div><span>02</span><h3>Distribution</h3><p>Activate the right creators and communities around a clear goal.</p></article><ArrowRight />
+            <article><div><Radar size={38} /></div><span>03</span><h3>Market intelligence</h3><p>Observe, decide and feed what the market teaches back into the next move.</p></article>
           </div>
         </div>
       </section>
 
-      <section className="e2p-home-loop">
-        <div className="e2p-container e2p-home-loop-grid">
-          <aside className="e2p-home-loop-sticky">
-            <span className="e2p-section-index">02 / THE COMPOUNDING LOOP</span>
-            <h2>Every move<br />feeds the next.</h2>
-            <p>
-              A project does not stop at strategy. Distribution does not stop
-              at impressions. Community does not stop at chat. E2P turns each
-              stage into operating input for the next one.
-            </p>
-            <Link href="/about" className="e2p-btn e2p-btn-light">See how E2P works</Link>
-          </aside>
-
-          <div className="e2p-loop-stack">
-            {LOOP.map((step, index) => (
-              <Reveal key={step.index} delay={index * .04}>
-                <article className="e2p-loop-scene">
-                  <header><span>{step.index}</span><b>{step.label}</b><em>{step.detail}</em></header>
-                  <h3>{step.title}</h3>
-                  <p>{step.text}</p>
-                  <div className="e2p-loop-progress"><i style={{ width: `${(index + 1) * 25}%` }} /></div>
-                </article>
-              </Reveal>
-            ))}
+      <section className="v4-home-outcomes">
+        <div className="v4-wrap">
+          <header><span className="v4-label">Selected public work</span><h2>Evidence you can verify.</h2><p>Public references describe support scope and source. They are not promises of future results.</p></header>
+          <div className="v4-outcome-grid">
+            {CASES.map(([project, scope, source, href], index) => <a key={project} href={href} target="_blank" rel="noreferrer"><span>0{index + 1} / PUBLIC REFERENCE</span><h3>{project}</h3><p>{scope}</p><footer>{source}<ExternalLink size={14} /></footer></a>)}
           </div>
         </div>
       </section>
 
-      <section className="e2p-home-proof">
-        <div className="e2p-container">
-          <Reveal className="e2p-proof-heading">
-            <span className="e2p-section-index">03 / PUBLIC PROOF</span>
-            <h2>Work you can<br /><em>verify yourself.</em></h2>
-            <p>
-              Selected public references to support work. Evidence, not empty
-              claims—and never a promise of guaranteed listing or future results.
-            </p>
-          </Reveal>
-
-          <Reveal className="e2p-proof-metrics">
-            <span><strong>04</strong>Public references</span>
-            <span><strong>400+</strong>KOL resources</span>
-            <span><strong>20+</strong>Operating nodes</span>
-            <span><strong>03</strong>Connected engines</span>
-          </Reveal>
-
-          <div className="e2p-proof-list">
-            {CASES.map(([project, work, source, href], index) => (
-              <Reveal key={project} delay={index * .035}>
-                <a href={href} target="_blank" rel="noreferrer" className="e2p-proof-row">
-                  <span>0{index + 1}</span>
-                  <h3>{project}</h3>
-                  <p>{work}</p>
-                  <b>{source}</b>
-                  <ExternalLink size={15} />
-                </a>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="e2p-final e2p-final-cinematic">
-        <div className="e2p-final-orbit" aria-hidden="true"><i /><i /><b>E2P</b></div>
-        <Reveal className="e2p-final-content">
-          <span><ShieldCheck size={15} /> YOUR NEXT OPERATING TRACK STARTS HERE</span>
-          <h2>Build the project.<br /><em>Move the market.</em></h2>
-          <p>Choose your entry point. E2P connects the rest of the operating loop.</p>
-          <div className="e2p-actions">
-            <a href={E2P_LINKS.project("home_final")} className="e2p-btn e2p-btn-dark">
-              Start with E2P <ArrowUpRight size={15} />
-            </a>
-            <a href={E2P_LINKS.telegram} target="_blank" rel="noreferrer" className="e2p-btn">
-              Join the community <Users size={14} />
-            </a>
-          </div>
-        </Reveal>
+      <section className="v4-home-cta">
+        <div className="v4-wrap"><h2>Build the future<span>.</span><br /><em>Together.</em></h2><div><p>Choose the first problem. E2P connects the rest of the operating loop.</p><a href={E2P_LINKS.project("home_cta_v4")} className="v4-button v4-button-acid">Start a project <ArrowRight size={15} /></a></div></div>
       </section>
     </>
   );

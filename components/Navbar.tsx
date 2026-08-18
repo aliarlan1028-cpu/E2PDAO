@@ -1,87 +1,45 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
-const NAV_LINKS = [
+const LINKS = [
   { name: "Incubator", href: "/services" },
   { name: "KOL Marketplace", href: "/influence" },
-  { name: "Trading Community", href: "/club" },
+  { name: "Trading Agent", href: "/club" },
   { name: "About", href: "/about" },
 ];
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 24);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => setIsMobileMenuOpen(false), [pathname]);
-
-  const isActive = (href: string) =>
-    pathname === href || pathname === `${href}/`;
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header
-      className={`e2p-nav-shell${isScrolled ? " is-scrolled" : ""}${isMobileMenuOpen ? " is-menu-open" : ""}`}
-    >
-      <div className="e2p-container e2p-nav">
-        <Link href="/" className="e2p-brand" aria-label="E2P DAO home">
+    <header className={`v4-nav-shell${open ? " is-open" : ""}`}>
+      <div className="v4-wrap v4-nav">
+        <Link href="/" className="v4-brand" aria-label="E2P DAO home">
           <img src="/e2p-icon-transparent.svg" alt="" />
-          <span className="e2p-brand-copy">
-            <strong>E2P DAO</strong>
-            <small>Incubate · Influence · Trade</small>
-          </span>
+          <strong>E2P DAO</strong>
         </Link>
-
-        <nav className="e2p-nav-links" aria-label="Primary navigation">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.name}
-              href={link.href}
-              className={isActive(link.href) ? "active" : ""}
-            >
-              {link.name}
-            </Link>
-          ))}
+        <nav className="v4-nav-links" aria-label="Primary navigation">
+          {LINKS.map((link) => {
+            const active = pathname === link.href || pathname === `${link.href}/`;
+            return <Link key={link.name} href={link.href} className={active ? "active" : ""}>{link.name}</Link>;
+          })}
         </nav>
-
-        <div className="e2p-nav-actions">
-          <a href={E2P_LINKS.project("navbar")} className="e2p-nav-cta">
-            <span>Start a project</span>
-            <ArrowUpRight size={14} />
-          </a>
-          <button
-            type="button"
-            className="e2p-menu-button"
-            onClick={() => setIsMobileMenuOpen((open) => !open)}
-            aria-label="Toggle navigation"
-            aria-expanded={isMobileMenuOpen}
-          >
-            {isMobileMenuOpen ? <X size={19} /> : <Menu size={19} />}
+        <div className="v4-nav-actions">
+          <a href={E2P_LINKS.project("navbar_v4")} className="v4-nav-cta"><span>Start a project</span> <ArrowUpRight size={13} /></a>
+          <button type="button" className="v4-menu-toggle" onClick={() => setOpen((value) => !value)} aria-label="Toggle navigation" aria-expanded={open}>
+            {open ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </div>
-
-      {isMobileMenuOpen && (
-        <nav className="e2p-mobile-menu" aria-label="Mobile navigation">
-          <Link href="/">Home <span>00</span></Link>
-          {NAV_LINKS.map((link, index) => (
-            <Link key={link.name} href={link.href}>
-              {link.name} <span>0{index + 1}</span>
-            </Link>
-          ))}
-        </nav>
-      )}
+      {open && <nav className="v4-mobile-nav" aria-label="Mobile navigation"><Link href="/">Home</Link>{LINKS.map((link) => <Link key={link.name} href={link.href}>{link.name}</Link>)}</nav>}
     </header>
   );
 }

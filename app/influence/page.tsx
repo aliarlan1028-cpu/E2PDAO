@@ -1,313 +1,44 @@
 import type { Metadata } from "next";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  BadgeCheck,
-  CalendarDays,
-  ChartNoAxesCombined,
-  CircleDollarSign,
-  Globe2,
-  Handshake,
-  Megaphone,
-  Network,
-  ScanSearch,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeCheck, CalendarDays, ChartNoAxesCombined, Handshake, Megaphone, ScanSearch, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
-export const metadata: Metadata = {
-  title: "KOL Intelligence, Campaign Operations & Marketplace | E2PDAO",
-  description:
-    "E2P turns private KOL resources into evidence-backed matches, client-ready packages, live campaign operations and repeat creator partnerships.",
-  alternates: { canonical: "/influence/" },
-  openGraph: {
-    title: "E2PDAO KOL Marketplace & Growth Operations",
-    description:
-      "Creator intelligence, package building, campaign execution and partnership growth in one operating system.",
-    url: "/influence/",
-  },
-};
+export const metadata: Metadata = { title:"KOL Marketplace & Campaign Operations | E2PDAO", description:"E2P matches Web3 projects with verified creator resources and runs campaigns from brief to review.", alternates:{canonical:"/influence/"} };
 
 const CREATORS = [
-  {
-    initials: "AC",
-    style: "acid",
-    role: "APAC DeFi Educator",
-    channels: "X · TELEGRAM",
-    language: "EN / ZH",
-    signal: "Audience fit",
-    evidence: "DeFi education · launch context · APAC distribution",
-  },
-  {
-    initials: "GT",
-    style: "mint",
-    role: "Global Trading Channel",
-    channels: "YOUTUBE · X",
-    language: "ENGLISH",
-    signal: "Format fit",
-    evidence: "Long-form analysis · trading audience · video integration",
-  },
-  {
-    initials: "LE",
-    style: "paper",
-    role: "LATAM Web3 Host",
-    channels: "VIDEO · AMA",
-    language: "SPANISH",
-    signal: "Market fit",
-    evidence: "Regional community · live format · event activation",
-  },
+  {image:"/people/creator-02.jpg",name:"APAC DeFi Educator",market:"ASIA",language:"EN / ZH",channel:"X / YOUTUBE",fit:"Deep education · launch context"},
+  {image:"/people/creator-01.jpg",name:"Global Web3 Host",market:"GLOBAL",language:"EN",channel:"VIDEO / X",fit:"Interview · brand storytelling"},
+  {image:"/people/creator-04.jpg",name:"Trading Community Builder",market:"AFRICA",language:"EN",channel:"X / TELEGRAM",fit:"Community growth · activation"},
+  {image:"/people/creator-03.jpg",name:"LATAM Product Storyteller",market:"LATAM",language:"ES / EN",channel:"YOUTUBE / X",fit:"Product education · regional reach"},
+  {image:"/people/creator-05.jpg",name:"Asian Developer Educator",market:"ASIA",language:"KO / EN",channel:"X / VIDEO",fit:"Dev audience · technical adoption"},
+];
+const PACKAGES = [
+  ["Launch & Mindshare","Build awareness and make the market understand the story.","/people/creator-02.jpg"],
+  ["Community Growth","Turn relevant attention into an active qualified community.","/people/team-collaboration.jpg"],
+  ["User Acquisition","Connect creator content to a measurable user action.","/people/creator-01.jpg"],
+  ["Regional Expansion","Enter a market with native language and local context.","/people/creator-03.jpg"],
+];
+const WORKFLOW = [
+  ["01","Brief","Goal, audience, market and formats"],["02","Verify","Creator evidence, fit and risk"],["03","Match","The right voices for the objective"],["04","Package","Deliverables, timing and offer"],["05","Launch","Publishing, pages and tracking"],["06","Review","Results and relationship memory"],
 ];
 
-const CAMPAIGN_PACKAGES = [
-  {
-    index: "01",
-    label: "LAUNCH & MINDSHARE",
-    title: "Make the market understand the story.",
-    formats: ["Narrative education", "Launch content", "AMA / Space", "Mindshare review"],
-  },
-  {
-    index: "02",
-    label: "COMMUNITY GROWTH",
-    title: "Turn attention into a qualified community.",
-    formats: ["Regional creators", "Community entry", "Event activation", "Retention loop"],
-  },
-  {
-    index: "03",
-    label: "USER ACQUISITION",
-    title: "Connect content to measurable action.",
-    formats: ["Tracking links", "Creator pages", "Conversion events", "ROI review"],
-  },
-  {
-    index: "04",
-    label: "REGIONAL EXPANSION",
-    title: "Enter a market with native voices.",
-    formats: ["Language matching", "Local formats", "Regional events", "Long-term partners"],
-  },
-];
-
-const CREATOR_BENEFITS = [
-  { icon: Network, title: "Qualified projects", text: "Opportunities matched by market, audience, language, format and collaboration history." },
-  { icon: Handshake, title: "Brand partnerships", text: "Clearer commercial terms, deliverables, assets, approvals and accountable coordination." },
-  { icon: CalendarDays, title: "Events & access", text: "Selected AMAs, spaces, conferences, community events and ecosystem activations." },
-  { icon: BadgeCheck, title: "A record that compounds", text: "Verified delivery becomes repeat work, ambassador roles and stronger creator reputation." },
-];
-
-function CreatorPortrait({ initials, style }: { initials: string; style: string }) {
-  return (
-    <div className={`e2p-creator-portrait ${style}`} aria-hidden="true">
-      <i /><i /><strong>{initials}</strong><span />
-    </div>
-  );
+function HeroCollage() {
+  return <div className="v4-kol-hero-collage"><img src="/people/creator-01.jpg" alt="Representative creator"/><img src="/people/creator-04.jpg" alt="Representative creator"/><img src="/people/creator-03.jpg" alt="Representative creator"/><img src="/people/creator-02.jpg" alt="Representative creator"/><div className="v4-kol-brief"><small>MATCHED PROJECT BRIEF</small><h3>APAC DeFi launch</h3><span>Education · recognition · qualified community</span><p><b>Verified fit</b><b>Clear deliverables</b><b>Campaign-ready</b></p><em>Matched by E2P <Sparkles size={12}/></em></div><i/><b>Right project.<br/>Right voice.</b></div>;
 }
 
-function MarketplaceScene() {
-  return (
-    <div className="e2p-kol-market-scene" aria-label="Illustrative E2P creator marketplace matching scene">
-      <header><span><i /> CREATOR MARKET / BRIEF OPEN</span><b>REPRESENTATIVE VIEW</b></header>
-      <div className="e2p-kol-market-canvas">
-        <article className="e2p-kol-scene-creator creator-one">
-          <CreatorPortrait initials="AC" style="acid" />
-          <div><small>APAC · DEFI</small><b>Education that builds trust.</b><span>X · TELEGRAM</span></div>
-        </article>
-        <article className="e2p-kol-scene-creator creator-two">
-          <CreatorPortrait initials="GT" style="mint" />
-          <div><small>GLOBAL · TRADING</small><b>Long-form market context.</b><span>YOUTUBE · X</span></div>
-        </article>
-        <article className="e2p-kol-scene-creator creator-three">
-          <CreatorPortrait initials="LE" style="paper" />
-          <div><small>LATAM · WEB3</small><b>Regional conversation.</b><span>VIDEO · AMA</span></div>
-        </article>
-        <div className="e2p-kol-match-ticket">
-          <small>PROJECT BRIEF</small>
-          <strong>APAC<br />DeFi launch</strong>
-          <p>Education · recognition · qualified community</p>
-          <div><span>05 creators</span><span>12 deliverables</span></div>
-          <b><Sparkles size={12} /> MATCHED BY E2P</b>
-        </div>
-      </div>
-      <footer><span>BRIEF</span><ArrowRight size={11} /><span>VERIFY</span><ArrowRight size={11} /><span>MATCH</span><ArrowRight size={11} /><b>CAMPAIGN</b></footer>
-    </div>
-  );
-}
+export default function InfluencePage(){return <>
+  <section className="v4-kol-hero"><div className="v4-wrap v4-kol-hero-grid"><div><span className="v4-label">E2P KOL Marketplace</span><h1>The right<br/>project. The<br/>right voice<span>.</span></h1><p>E2P connects Web3 projects with evidence-backed creators—then turns the match into a clear package, coordinated campaign and repeat partnership.</p><div className="v4-hero-actions"><a href={E2P_LINKS.project("kol_v4")} className="v4-button v4-button-dark">Build a campaign <ArrowRight size={15}/></a><a href={E2P_LINKS.kol("kol_v4")} className="v4-text-link">Join as a creator <ArrowUpRight size={14}/></a></div></div><HeroCollage/></div></section>
 
-export default function InfluencePage() {
-  return (
-    <>
-      <section className="e2p-kol-market-hero e2p-grid-wash">
-        <div className="e2p-container e2p-kol-market-hero-grid">
-          <div className="e2p-kol-market-copy">
-            <span className="e2p-eyebrow">E2P KOL Marketplace</span>
-            <h1>The right project.<br /><span className="e2p-highlight">The right voice.</span></h1>
-            <p>
-              E2P connects Web3 projects with evidence-backed creators—then
-              turns the match into a clear package, coordinated campaign and
-              partnership that can grow beyond one post.
-            </p>
-            <div className="e2p-actions">
-              <a href={E2P_LINKS.project("marketplace_hero")} className="e2p-btn e2p-btn-dark">Build a campaign <ArrowUpRight size={15} /></a>
-              <a href={E2P_LINKS.kol("marketplace_hero")} className="e2p-btn">Join as a creator</a>
-            </div>
-            <div className="e2p-kol-market-proof">
-              <span><b>01</b> VERIFIED RESOURCES</span><span><b>02</b> GOAL-BASED MATCHING</span><span><b>03</b> SHARED EXECUTION</span>
-            </div>
-          </div>
-          <MarketplaceScene />
-        </div>
-      </section>
+  <section className="v4-kol-doors"><article><div><span>FOR PROJECTS</span><h2>Find trusted creators. Plan clearly. Move together.</h2><p>Tell us the market, audience, objective and budget. E2P returns verified matches and one owned campaign track.</p><a href={E2P_LINKS.project("kol_project_door_v4")} className="v4-button v4-button-acid">Build a campaign <ArrowRight size={15}/></a></div><img src="/people/creator-02.jpg" alt="Representative project advisor"/></article><article><div><span>FOR CREATORS</span><h2>Qualified projects. Better partnerships. More access.</h2><p>Receive relevant projects, brand collaboration routes, event invitations and long-term opportunities.</p><a href={E2P_LINKS.kol("kol_creator_door_v4")} className="v4-button v4-button-acid">Join as a creator <ArrowRight size={15}/></a></div><img src="/people/creator-03.jpg" alt="Representative creator"/></article></section>
 
-      <section className="e2p-kol-two-sided">
-        <div className="e2p-container e2p-kol-two-sided-grid">
-          <article>
-            <span>01 / FOR PROJECTS</span>
-            <h2>I need the<br /><em>right KOLs.</em></h2>
-            <p>Tell us the market, audience, objective and budget. E2P returns verified matches, a commercial package and an execution track.</p>
-            <a href={E2P_LINKS.project("marketplace_project_door")} className="e2p-btn e2p-btn-dark">Open a project brief <ArrowUpRight size={15} /></a>
-          </article>
-          <article>
-            <span>02 / FOR CREATORS</span>
-            <h2>I need better<br /><em>opportunities.</em></h2>
-            <p>Build a verified profile and receive relevant projects, paid brand work, event access and long-term collaboration routes.</p>
-            <a href={E2P_LINKS.kol("marketplace_kol_door")} className="e2p-btn e2p-btn-acid">Join the creator network <ArrowUpRight size={15} /></a>
-          </article>
-        </div>
-      </section>
+  <section className="v4-kol-network"><div className="v4-wrap"><header><span className="v4-label">Creator network</span><h2>Diverse voices. Aligned impact.</h2><p>Every recommendation combines public evidence with protected relationship knowledge.</p></header><div className="v4-creator-grid">{CREATORS.map((creator)=><article key={creator.name}><div><img src={creator.image} alt="Representative creator profile"/><span>Representative</span></div><h3>{creator.name}</h3><dl><dt>Market</dt><dd>{creator.market}</dd><dt>Language</dt><dd>{creator.language}</dd><dt>Channel</dt><dd>{creator.channel}</dd><dt>Best for</dt><dd>{creator.fit}</dd></dl><ArrowUpRight size={16}/></article>)}</div><p className="v4-kol-private-note">Private contacts, internal pricing and relationship notes stay protected. Profiles above illustrate the matching structure.</p></div></section>
 
-      <section id="creator-network" className="e2p-section e2p-section-white">
-        <div className="e2p-container">
-          <header className="e2p-kol-editorial-head">
-            <div><span className="e2p-section-index">01 / Creator network</span><h2>See the person.<br /><em>Understand the fit.</em></h2></div>
-            <p>Follower count is only one signal. E2P combines public evidence with private relationship knowledge before recommending a creator.</p>
-          </header>
-          <div className="e2p-creator-showcase">
-            {CREATORS.map((creator, index) => (
-              <article key={creator.role} className={index === 0 ? "featured" : ""}>
-                <header><span>0{index + 1} / REPRESENTATIVE CREATOR</span><BadgeCheck size={16} /></header>
-                <CreatorPortrait initials={creator.initials} style={creator.style} />
-                <small>{creator.channels} · {creator.language}</small>
-                <h3>{creator.role}</h3>
-                <p>{creator.evidence}</p>
-                <footer><span>{creator.signal}</span><b>EXPLAINED MATCH</b></footer>
-              </article>
-            ))}
-          </div>
-          <p className="e2p-creator-disclaimer">Profiles above illustrate the information structure of a matched creator. Private contacts, internal pricing and relationship notes stay protected.</p>
-        </div>
-      </section>
+  <section className="v4-kol-workflow"><div className="v4-wrap"><header><span className="v4-label">How it works</span><h2>Built for clarity.<br/>Designed for results.</h2></header><div>{WORKFLOW.map(([index,title,text],itemIndex)=><article key={title}><i>{index}</i><div>{itemIndex===0?<ScanSearch/>:itemIndex===1?<ShieldCheck/>:itemIndex===2?<Users/>:itemIndex===3?<Sparkles/>:itemIndex===4?<Megaphone/>:<ChartNoAxesCombined/>}</div><h3>{title}</h3><p>{text}</p>{itemIndex<WORKFLOW.length-1&&<ArrowRight/>}</article>)}</div></div></section>
 
-      <section className="e2p-section e2p-kol-project-system">
-        <div className="e2p-container">
-          <header className="e2p-kol-editorial-head dark">
-            <div><span className="e2p-section-index">02 / For projects</span><h2>From one brief<br />to a <em>live campaign.</em></h2></div>
-            <p>Growth-Ops powers the workflow behind the page: resource verification, AI evaluation, package building, client-safe sharing, campaign pages and conversion review.</p>
-          </header>
-          <div className="e2p-kol-project-flow">
-            {[
-              { icon: ScanSearch, index: "01", title: "Submit the brief", text: "Objective, market, audience, formats, timing and budget become one campaign truth." },
-              { icon: ShieldCheck, index: "02", title: "Verify & match", text: "Channels, audience quality, content fit, risk and relationship history are checked." },
-              { icon: Sparkles, index: "03", title: "Build the package", text: "Creator mix, deliverables and client-facing offer are assembled without exposing private data." },
-              { icon: ChartNoAxesCombined, index: "04", title: "Launch & measure", text: "Assets, publishing, links, traffic, conversions and review stay on one shared track." },
-            ].map((item, index) => (
-              <article key={item.title} className={index === 2 ? "active" : ""}>
-                <header><span>{item.index}</span><item.icon size={19} /></header>
-                <h3>{item.title}</h3><p>{item.text}</p>
-                <footer>{index === 0 ? "BRIEF" : index === 1 ? "EVIDENCE" : index === 2 ? "CLIENT READY" : "RESULTS"}</footer>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
+  <section className="v4-kol-packages"><div className="v4-wrap v4-kol-packages-grid"><header><span className="v4-label">Campaign packages</span><h2>Goal-based.<br/>Creator-powered.</h2><p>Start with what the project needs. Then choose the voices, formats and operating rhythm.</p><a href={E2P_LINKS.project("kol_package_v4")} className="v4-button v4-button-dark">Build a campaign <ArrowRight size={15}/></a></header><div>{PACKAGES.map(([title,text,image],index)=><article key={title}><img src={image} alt=""/><span>0{index+1}</span><h3>{title}</h3><p>{text}</p><ul>{index===0?<><li>Narrative education</li><li>Launch content</li><li>Mindshare review</li></>:index===1?<><li>Regional creators</li><li>Community entry</li><li>Retention loop</li></>:index===2?<><li>Creator pages</li><li>Tracking links</li><li>Conversion review</li></>:<><li>Native language</li><li>Local formats</li><li>Long-term partners</li></>}</ul></article>)}</div></div></section>
 
-      <section id="campaign-packages" className="e2p-section e2p-kol-package-market">
-        <div className="e2p-container">
-          <header className="e2p-section-head">
-            <span className="e2p-section-index">03 / Campaign packages</span>
-            <h2>Start with the goal.<br />Then choose the voices.</h2>
-            <p>E2P packages are built around the outcome a project needs, not an arbitrary number of posts.</p>
-          </header>
-          <div className="e2p-kol-goal-list">
-            {CAMPAIGN_PACKAGES.map((item, index) => (
-              <article key={item.label} className={index === 0 ? "active" : ""}>
-                <span>{item.index}</span>
-                <div><small>{item.label}</small><h3>{item.title}</h3></div>
-                <p>{item.formats.map((format) => <b key={format}>{format}</b>)}</p>
-                <ArrowUpRight size={20} />
-              </article>
-            ))}
-          </div>
-          <a href={E2P_LINKS.project("marketplace_ai_package")} className="e2p-kol-package-link">BUILD A GOAL-BASED PACKAGE <ArrowUpRight size={14} /></a>
-        </div>
-      </section>
+  <section className="v4-kol-opportunities"><div className="v4-wrap v4-kol-opportunity-grid"><header><span className="v4-label">Creator opportunities</span><h2>Your next chapter starts here.</h2><p>Access qualified work without reducing your value to a rate card.</p><a href={E2P_LINKS.kol("kol_opportunity_v4")} className="v4-button v4-button-acid">Join as a creator <ArrowRight size={15}/></a></header><div><article><Users/><h3>Qualified projects</h3><p>Work with vetted opportunities aligned to your audience and format.</p></article><article><Handshake/><h3>Paid partnerships</h3><p>Clear scope, timing, assets, approvals and accountable coordination.</p></article><article><CalendarDays/><h3>Events & invitations</h3><p>Selected AMAs, spaces, conferences and ecosystem activations.</p></article><article><BadgeCheck/><h3>Ambassador roles</h3><p>Turn verified delivery into repeat work and long-term representation.</p></article></div></div></section>
 
-      <section className="e2p-section e2p-kol-creator-section">
-        <div className="e2p-container e2p-kol-creator-layout">
-          <div className="e2p-kol-creator-copy">
-            <span className="e2p-section-index">04 / For creators</span>
-            <h2>Build more than<br /><em>a rate card.</em></h2>
-            <p>Your profile should show where you create value, how you work and what kind of partnership deserves your attention.</p>
-            <a href={E2P_LINKS.kol("marketplace_creator_layer")} className="e2p-btn e2p-btn-acid">Join the creator network <ArrowUpRight size={15} /></a>
-          </div>
-          <div className="e2p-kol-opportunity-board">
-            <header><span>CREATOR OPPORTUNITIES</span><b>BETTER FIT · CLEARER WORK</b></header>
-            {CREATOR_BENEFITS.map((item, index) => (
-              <article key={item.title}>
-                <i>0{index + 1}</i><item.icon size={20} />
-                <div><h3>{item.title}</h3><p>{item.text}</p></div>
-                <ArrowRight size={16} />
-              </article>
-            ))}
-            <footer><Globe2 size={14} /> MARKET · LANGUAGE · FORMAT · RELATIONSHIP</footer>
-          </div>
-        </div>
-      </section>
+  <section className="v4-kol-operations"><div className="v4-wrap"><header><span className="v4-label">Campaign operations</span><h2>From content to impact.<br/>Measured together.</h2><p>One shared source of truth connects the brief, assets, publishing and review.</p></header><div>{[["01","Content","Right story, format and language"],["02","Traffic","Relevant visits and audience context"],["03","Action","Engagement, submissions and conversion"],["04","Value","Outcome review and repeat fit"]].map(([index,title,text])=><article key={title}><i>{index}</i><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 
-      <section className="e2p-section e2p-section-white">
-        <div className="e2p-container">
-          <header className="e2p-kol-editorial-head">
-            <div><span className="e2p-section-index">05 / Campaign operations</span><h2>One campaign.<br /><em>One source of truth.</em></h2></div>
-            <p>Briefs, creator pages, assets, approvals, publishing, traffic and review remain connected to the relationship.</p>
-          </header>
-          <div className="e2p-kol-campaign-track">
-            {[
-              ["01", "Brief", "Goal and deliverables agreed", "READY"],
-              ["02", "Match", "Creators selected with evidence", "VERIFIED"],
-              ["03", "Create", "Assets, pages and approvals", "IN PROGRESS"],
-              ["04", "Publish", "Content and tracking go live", "LIVE"],
-              ["05", "Review", "Results become relationship memory", "REPEAT"],
-            ].map(([index, title, text, state], itemIndex) => (
-              <article key={title} className={itemIndex === 3 ? "active" : itemIndex < 3 ? "done" : ""}>
-                <i>{index}</i><div><h3>{title}</h3><p>{text}</p></div><b>{state}</b>
-              </article>
-            ))}
-          </div>
-          <div className="e2p-kol-measure-strip">
-            <span><small>CONTENT</small><b>Published correctly</b></span>
-            <span><small>TRAFFIC</small><b>Visitors & clicks</b></span>
-            <span><small>ACTION</small><b>Submissions & conversion</b></span>
-            <span><small>VALUE</small><b>Cost, ROI & repeat fit</b></span>
-          </div>
-        </div>
-      </section>
-
-      <section className="e2p-section e2p-kol-rules-section">
-        <div className="e2p-container">
-          <header className="e2p-kol-rules-head"><span className="e2p-section-index">06 / Marketplace rules</span><h2>Trust makes<br />the market work.</h2></header>
-          <div className="e2p-kol-rules">
-            <article><ShieldCheck size={22} /><h3>Verify before matching</h3><p>Channel identity, public signals and material risks are reviewed before a recommendation.</p></article>
-            <article><CircleDollarSign size={22} /><h3>Make terms clear</h3><p>Deliverables, timing, commercial terms and approval expectations are recorded before launch.</p></article>
-            <article><Handshake size={22} /><h3>Protect the relationship</h3><p>Private contacts, internal costs and collaboration notes are kept out of client-facing views.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section className="e2p-final">
-        <span>Verified creators · Goal-based packages · Shared campaign track</span>
-        <h2>Turn the right match<br />into real growth.</h2>
-        <div className="e2p-actions">
-          <a href={E2P_LINKS.project("marketplace_final")} className="e2p-btn e2p-btn-dark">Build a campaign <Megaphone size={14} /></a>
-          <a href={E2P_LINKS.kol("marketplace_final")} className="e2p-btn">Join as a creator <ArrowUpRight size={15} /></a>
-        </div>
-      </section>
-    </>
-  );
-}
+  <section className="v4-kol-cta"><img src="/people/creator-02.jpg" alt=""/><div><h2>The right project. The right voice.</h2><p>Make the match clear, then operate it properly.</p><span><a href={E2P_LINKS.project("kol_final_v4")} className="v4-button v4-button-dark">Build a campaign <ArrowRight size={15}/></a><a href={E2P_LINKS.kol("kol_final_v4")} className="v4-button">Join as a creator <ArrowRight size={15}/></a></span></div><img src="/people/creator-03.jpg" alt=""/></section>
+</>}
