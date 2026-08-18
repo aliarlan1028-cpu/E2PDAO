@@ -11,14 +11,21 @@ const PRINCIPLES=[
   {index:"04",title:"Learning after every cycle.",text:"We review outcomes honestly, capture lessons and improve the operating system. Each cycle makes the next one stronger.",visual:"learning"},
 ];
 
-function AboutTriad(){return <div className="v4-about-triad v4-about-triad-concept"><img src="/concept-art/about/hero-network.png" alt="E2P DAO connects its Incubator, KOL Marketplace and Trading Agent"/></div>}
+function AboutTriad(){return <div className="v4-about-triad"><i/><i/><i/><section><img src="/e2p-icon-transparent.svg" alt=""/><b>E2P</b><small>OPERATING NETWORK</small></section><article className="one"><Sprout/><b>Incubator</b><p>Build quality and create the path.</p></article><article className="two"><Users/><b>KOL Marketplace</b><p>Match trusted voices to real opportunities.</p></article><article className="three"><Radar/><b>Trading Agent</b><p>Turn context into risk-gated decisions.</p></article></div>}
+
+function PrincipleVisual({type}:{type:string}){
+  if(type==="evidence") return <div className="v4-principle-visual evidence"><div className="v4-proof-sheet"><b>01</b><i/><i/><i/><i/></div><Search/><span>LOOK CLOSER · VERIFY FIRST</span></div>;
+  if(type==="ownership") return <div className="v4-principle-visual ownership"><img src="/people/team-collaboration.jpg" alt="Team collaborating"/><ArrowRight/><span>STAY CLOSE TO THE WORK</span></div>;
+  if(type==="risk") return <div className="v4-principle-visual risk"><i/><i/><ShieldCheck/><span>DEFINE THE DOWNSIDE FIRST</span></div>;
+  return <div className="v4-principle-visual learning"><RefreshCw/><b>REVIEW<br/>LEARN<br/>IMPROVE</b><span>EVERY CYCLE COMPOUNDS</span></div>;
+}
 
 export default function AboutPage(){return <>
   <section className="v4-about-hero"><div className="v4-wrap v4-about-hero-grid"><div><span className="v4-label">About E2P DAO</span><h1>Built for the<br/>hard part between<br/>ambition and <span>execution.</span></h1><p>E2P exists to turn real ideas into measurable outcomes. We combine capital, attention and execution infrastructure in one operating network—so builders, creators and partners can ship, grow and compound together.</p></div><AboutTriad/></div></section>
 
   <section className="v4-about-engines"><div className="v4-wrap"><header><h2>One network. Three operating engines.</h2><p>Each engine solves a clear job. Together they create a closed loop from opportunity to outcome—and back again.</p></header><div><article><i><Sprout/></i><span><b>Incubator</b><p>We help early-stage teams find problem–market fit, build what matters and prepare to scale.</p></span></article><ArrowRight/><article><i><Users/></i><span><b>KOL Marketplace</b><p>We match credible creators with the right opportunities and enable performance that compounds.</p></span></article><ArrowRight/><article><i><Radar/></i><span><b>Trading Agent</b><p>We deploy capital with systematic strategies, strict risk rules and continuous oversight.</p></span></article></div><footer>Insights and returns feed the next cycle.</footer></div></section>
 
-  <section id="principles" className="v4-about-principles"><div className="v4-wrap"><span className="v4-label">Operating principles</span><div>{PRINCIPLES.map((item)=><article key={item.title}><i>{item.index}</i><section><h2>{item.title}</h2><p>{item.text}</p></section><div className={`v4-principle-visual ${item.visual}`}><img src={`/concept-art/about-${item.visual}.png`} alt=""/></div></article>)}</div></div></section>
+  <section id="principles" className="v4-about-principles"><div className="v4-wrap"><span className="v4-label">Operating principles</span><div>{PRINCIPLES.map((item)=><article key={item.title}><i>{item.index}</i><section><h2>{item.title}</h2><p>{item.text}</p></section><PrincipleVisual type={item.visual}/></article>)}</div></div></section>
 
   <section id="cycle" className="v4-about-cycle"><div className="v4-wrap"><header><span className="v4-label">Our operating cycle</span><h2>A simple loop we run constantly.</h2><p>It keeps the work clear, decisions grounded and improvement compounding.</p></header><div><article><Search/><h3>Evidence</h3><p>Gather signals. Validate what is real.</p></article><ArrowRight/><article><Target/><h3>Decision</h3><p>Choose the path. Define constraints.</p></article><ArrowRight/><article><ArrowRight/><h3>Action</h3><p>Execute with focus. Respect the plan.</p></article><ArrowRight/><article><RefreshCw/><h3>Review</h3><p>Measure outcomes. Capture lessons.</p></article></div></div></section>
 

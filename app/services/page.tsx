@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, BadgeDollarSign, Box, ChartNoAxesCombined, Crosshair, Droplets, FileCheck2, Globe2, ListChecks, Search, Send, ShieldCheck, SquareArrowOutUpRight, Target, UsersRound, Wrench } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeDollarSign, Box, ChartNoAxesCombined, Check, Crosshair, Droplets, FileCheck2, Globe2, ListChecks, QrCode, Search, Send, ShieldCheck, SquareArrowOutUpRight, Target, UsersRound, Wrench } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
 export const metadata: Metadata = { title:"Project Incubator & Listing BD | E2PDAO", description:"E2P diagnoses project gaps, improves quality, designs the route and owns listing BD follow-up.", alternates:{canonical:"/services/"} };
@@ -28,7 +28,28 @@ const CASES = [
 ];
 
 function Diagnosis() {
-  return <div className="v4-inc-diagnosis v4-inc-diagnosis-concept"><img src="/concept-art/incubator/diagnosis.png" alt="Illustrative Orion Protocol project diagnosis showing gaps, next actions and exchange expectations" /></div>;
+  const gaps=["Unclear exchange narrative","Token utility needs proof","Thin liquidity plan","Incomplete disclosures"];
+  const actions=["Reframe positioning","Stress-test token model","Design liquidity lanes","Close data-room gaps"];
+  return <div className="v4-inc-diagnosis">
+    <header><span>PROJECT DIAGNOSIS · ILLUSTRATIVE</span><b>8 GAPS FOUND</b></header>
+    <div className="v4-inc-diagnosis-body">
+      <section><small>PROJECT / CURRENT STATE</small><h3>Orion Protocol <em>DeFi · L1/L2 Infrastructure</em></h3><div className="v4-gap-columns"><div><b>PRIORITY GAPS</b>{gaps.map(item=><span key={item}>{item}</span>)}</div><div><b>NEXT ACTIONS</b>{actions.map(item=><span key={item}>{item}</span>)}</div></div></section>
+      <aside><small>EXCHANGE-FIT SIGNAL</small><div className="v4-radar v4-radar-native"><i/><i/><i/><b/><span>PRODUCT</span><span>TOKEN</span><span>MARKET</span><span>TRUST</span><span>OPS</span></div><strong>58 / 100</strong><p>Promising fundamentals.<br/>Not ready for BD yet.</p></aside>
+    </div>
+    <footer><Check size={13}/><span>E2P turns every gap into an owned action.</span></footer>
+  </div>;
+}
+
+function BDMap(){
+  return <div className="v4-bd-map">
+    <div className="v4-bd-input"><small>PROJECT EVIDENCE</small>{["Product & traction","Token & economics","Trust & compliance","Liquidity plan"].map(item=><span key={item}>{item}<Check size={11}/></span>)}</div>
+    <ArrowRight className="v4-bd-arrow"/>
+    <section><i>E2P</i><b>BD<br/>Intelligence</b><small>FIT · TIMING · LANE</small></section>
+    <ArrowRight className="v4-bd-arrow"/>
+    <div className="v4-bd-lanes"><small>EXCHANGE LANES</small><span>Top-tier CEX <b>Strategic</b></span><span>Growth CEX <b>Priority</b></span><span>Regional CEX <b>Expansion</b></span><span>DEX launch <b>Liquidity</b></span></div>
+    <ArrowRight className="v4-bd-arrow"/>
+    <aside><small>OWNED FOLLOW-UP</small><span>Warm intro</span><span>Materials</span><span>Due diligence</span><span>Live listing</span><ArrowUpRight size={16}/></aside>
+  </div>;
 }
 
 export default function ServicesPage() {
@@ -41,11 +62,11 @@ export default function ServicesPage() {
 
     <section id="project-path" className="v4-inc-path"><div className="v4-wrap"><header><span className="v4-label">Project path</span><h2>A clear six-stage route from gaps to continuous improvement.</h2></header><div className="v4-inc-path-grid">{PATH.map((item,index)=><article key={item.title}><span>0{index+1}</span><div><item.icon size={27}/></div><h3>{item.title}</h3><p>{item.text}</p>{index<PATH.length-1&&<ArrowRight className="v4-path-arrow" size={17}/>}</article>)}</div></div></section>
 
-    <section id="listing-bd" className="v4-inc-bd"><div className="v4-wrap v4-inc-bd-layout"><header><span className="v4-label">Listing BD Intelligence</span><h2>We connect project evidence to the right exchange lanes and own the BD follow-up.</h2><aside><b>We own the follow-up</b><p>We run the conversations, answer due diligence, provide updates and remove roadblocks until the listing is live.</p></aside></header><img className="v4-bd-concept" src="/concept-art/incubator/bd-map.png" alt="Listing BD intelligence flow from project evidence through E2P intelligence to exchange lanes and owned follow-up"/></div></section>
+    <section id="listing-bd" className="v4-inc-bd"><div className="v4-wrap v4-inc-bd-layout"><header><span className="v4-label">Listing BD Intelligence</span><h2>We connect project evidence to the right exchange lanes and own the BD follow-up.</h2><aside><b>We own the follow-up</b><p>We run the conversations, answer due diligence, provide updates and remove roadblocks until the listing is live.</p></aside></header><BDMap/></div></section>
 
     <section id="network" className="v4-inc-network"><div className="v4-wrap"><header><h2>Exchange & resource network</h2><p>Long-term relationships. Cross-functional support.</p></header><div className="v4-logo-grid">{EXCHANGES.map(([name,src])=><div key={name}><img src={src} alt={name}/></div>)}</div><div className="v4-network-tags"><span>Liquidity partners</span><span>Market makers</span><span>KOL & media</span><span>Audit & security</span><span>Legal & compliance</span><span>Advisors & BD</span></div></div></section>
 
-    <section className="v4-inc-cases"><div className="v4-wrap"><header><h2>Case outcomes</h2><p>Real projects we&apos;ve supported to listing.<br/><br/>No performance claims.<br/>Results vary by project.</p></header><div>{CASES.map(([project,scope,result,href])=><a key={project} href={href}><span>PUBLIC REFERENCE</span><h3>{project}</h3><p>{scope}</p><b>{result}</b></a>)}<a className="v4-case-more" href="/success-cases"><img src="/concept-art/incubator/more-cases.png" alt="See more cases"/></a></div></div></section>
+    <section className="v4-inc-cases"><div className="v4-wrap"><header><h2>Case outcomes</h2><p>Real projects we&apos;ve supported to listing.<br/><br/>No performance claims.<br/>Results vary by project.</p></header><div>{CASES.map(([project,scope,result,href])=><a key={project} href={href}><span>PUBLIC REFERENCE</span><h3>{project}</h3><p>{scope}</p><b>{result}</b></a>)}<a className="v4-case-more" href="/success-cases"><QrCode/><b>See more cases</b><ArrowRight size={14}/></a></div></div></section>
 
     <section className="v4-inc-cta"><div className="v4-wrap"><h2>Start project evaluation</h2><p>Let&apos;s build your path to the next market decision.</p><a href={E2P_LINKS.project("inc_cta_v4")} className="v4-button v4-button-dark">Get started <ArrowRight size={15}/></a></div></section>
   </>;

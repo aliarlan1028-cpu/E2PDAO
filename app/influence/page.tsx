@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, ArrowUpRight, ChartNoAxesCombined, Megaphone, ScanSearch, ShieldCheck, Sparkles, Users } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CalendarDays, ChartNoAxesCombined, Globe2, Handshake, Megaphone, Rocket, ScanSearch, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
 export const metadata: Metadata = { title:"KOL Marketplace & Campaign Operations | E2PDAO", description:"E2P matches Web3 projects with verified creator resources and runs campaigns from brief to review.", alternates:{canonical:"/influence/"} };
@@ -12,23 +12,26 @@ const CREATORS = [
   {image:"/people/creator-05.jpg",name:"Minseo Park",role:"DevRel Engineer",market:"ASIA",language:"KO / EN",channel:"X / YOUTUBE",fit:"Dev audiences · product adoption"},
 ];
 const PACKAGES = [
-  ["Launch & Mindshare","/concept-art/kol/package-launch.png"],
-  ["Community Growth","/concept-art/kol/package-community.png"],
-  ["User Acquisition","/concept-art/kol/package-acquisition.png"],
-  ["Regional Expansion","/concept-art/kol/package-regional.png"],
+  {title:"Launch & Mindshare",icon:Rocket,text:"Own the launch window with a coordinated narrative and trusted voices.",items:["Narrative design","Creator wave","Launch reporting"]},
+  {title:"Community Growth",icon:Users,text:"Turn attention into an active, informed and durable community.",items:["Education content","Community activations","Retention loop"]},
+  {title:"User Acquisition",icon:ChartNoAxesCombined,text:"Build creator-led acquisition around trackable actions—not vanity reach.",items:["Audience matching","Conversion briefs","Performance review"]},
+  {title:"Regional Expansion",icon:Globe2,text:"Enter new markets with local context, language and credible operators.",items:["Market mapping","Local creators","Regional rollout"]},
 ];
 const OPPORTUNITIES = [
-  ["Qualified Projects","/concept-art/kol/opportunity-projects.png"],
-  ["Paid Partnerships","/concept-art/kol/opportunity-partnerships.png"],
-  ["Events & Invitations","/concept-art/kol/opportunity-events.png"],
-  ["Ambassador Roles","/concept-art/kol/opportunity-ambassador.png"],
+  {title:"Qualified Projects",icon:ShieldCheck,text:"Verified teams, clear scope and genuine product context."},
+  {title:"Paid Partnerships",icon:Handshake,text:"Transparent deliverables, timelines and commercial terms."},
+  {title:"Events & Invitations",icon:CalendarDays,text:"Selected online and offline moments across our ecosystem."},
+  {title:"Ambassador Roles",icon:Sparkles,text:"Longer-term partnerships where creator and project truly fit."},
 ];
 const WORKFLOW = [
   ["01","Brief","Share goals, audiences and campaign needs."],["02","Verify","We verify project credentials and fit."],["03","Match","Our system and experts match the right voices."],["04","Package","Co-create the plan, deliverables and flow."],["05","Launch","Campaign goes live across the right channels."],["06","Review","Measure what matters and learn together."],
 ];
 
 function HeroCollage() {
-  return <div className="v4-kol-hero-collage v4-kol-hero-collage-concept"><img src="/concept-art/kol/hero-collage.png" alt="A diverse creator group matched to the Permissionless Wallet project brief"/></div>;
+  return <div className="v4-kol-hero-collage">
+    <img src="/people/creator-02.jpg" alt="Representative research creator"/><img src="/people/creator-01.jpg" alt="Representative DeFi creator"/><img src="/people/creator-03.jpg" alt="Representative regional creator"/><img src="/people/creator-04.jpg" alt="Representative community creator"/><i/>
+    <div className="v4-kol-brief"><small>MATCHED PROJECT BRIEF</small><h3>Permissionless Wallet</h3><span>Infrastructure · User acquisition</span><p><b>Southeast Asia + LATAM</b><b>Campaign window · Jun—Aug</b><b>Education + product adoption</b></p><em><ShieldCheck size={13}/> VERIFIED &amp; MATCH-READY</em></div><b>RIGHT VOICE →</b>
+  </div>;
 }
 
 export default function InfluencePage(){return <>
@@ -40,9 +43,9 @@ export default function InfluencePage(){return <>
 
   <section id="how-it-works" className="v4-kol-workflow"><div className="v4-wrap"><header><span className="v4-label">How it works</span><h2>Built for clarity.<br/>Designed for results.</h2></header><div>{WORKFLOW.map(([index,title,text],itemIndex)=><article key={title}><i>{index}</i><div>{itemIndex===0?<ScanSearch/>:itemIndex===1?<ShieldCheck/>:itemIndex===2?<Users/>:itemIndex===3?<Sparkles/>:itemIndex===4?<Megaphone/>:<ChartNoAxesCombined/>}</div><h3>{title}</h3><p>{text}</p>{itemIndex<WORKFLOW.length-1&&<ArrowRight/>}</article>)}</div></div></section>
 
-  <section className="v4-kol-packages"><div className="v4-wrap v4-kol-packages-grid"><header><span className="v4-label">Campaign packages</span><h2>Goal-based.<br/>Creator-powered.</h2><p>Flexible packages to meet your goals. Matched with creators who move your audience and your mission.</p><a href={E2P_LINKS.project("kol_package_v4")} className="v4-button v4-button-dark">Build a campaign <ArrowRight size={15}/></a></header><div>{PACKAGES.map(([title,image])=><article className="v4-kol-concept-card" key={title}><img src={image} alt={`${title} campaign package`}/></article>)}</div></div></section>
+  <section className="v4-kol-packages"><div className="v4-wrap v4-kol-packages-grid"><header><span className="v4-label">Campaign packages</span><h2>Goal-based.<br/>Creator-powered.</h2><p>Flexible packages to meet your goals. Matched with creators who move your audience and your mission.</p><a href={E2P_LINKS.project("kol_package_v5")} className="v4-button v4-button-dark">Build a campaign <ArrowRight size={15}/></a></header><div>{PACKAGES.map((item,index)=><article key={item.title}><span>0{index+1}</span><div className="v4-package-icon"><item.icon/></div><h3>{item.title}</h3><p>{item.text}</p><ul>{item.items.map(detail=><li key={detail}>{detail}</li>)}</ul></article>)}</div></div></section>
 
-  <section className="v4-kol-opportunities"><div className="v4-wrap v4-kol-opportunity-grid"><header><span className="v4-label">Creator opportunities</span><h2>Your next chapter starts here.</h2><p>Access qualified projects, paid partnerships, event invitations and ambassador roles.</p><a href={E2P_LINKS.kol("kol_opportunity_v4")} className="v4-button v4-button-acid">Join as a creator <ArrowRight size={15}/></a></header><div>{OPPORTUNITIES.map(([title,image])=><article className="v4-kol-concept-card" key={title}><img src={image} alt={`${title} creator opportunity`}/></article>)}</div></div></section>
+  <section className="v4-kol-opportunities"><div className="v4-wrap v4-kol-opportunity-grid"><header><span className="v4-label">Creator opportunities</span><h2>Your next chapter starts here.</h2><p>Access qualified projects, paid partnerships, event invitations and ambassador roles.</p><a href={E2P_LINKS.kol("kol_opportunity_v5")} className="v4-button v4-button-acid">Join as a creator <ArrowRight size={15}/></a></header><div>{OPPORTUNITIES.map((item,index)=><article key={item.title}><span>0{index+1}</span><item.icon/><h3>{item.title}</h3><p>{item.text}</p><ArrowUpRight className="v4-opportunity-arrow" size={15}/></article>)}</div></div></section>
 
   <section className="v4-kol-operations"><div className="v4-wrap"><header><span className="v4-label">Campaign operations</span><h2>From content to impact.<br/>Measured together.</h2><p>One shared source of truth connects the brief, assets, publishing and review.</p></header><div>{[["01","Content","Right story, format and language"],["02","Traffic","Relevant visits and audience context"],["03","Action","Engagement, submissions and conversion"],["04","Value","Outcome review and repeat fit"]].map(([index,title,text])=><article key={title}><i>{index}</i><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
 

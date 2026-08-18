@@ -1,17 +1,27 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BrainCircuit, Gauge, Radar, Sprout, UsersRound } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
 function NetworkTriad() {
   return (
-    <div className="v4-network-triad v4-network-triad-concept" aria-label="E2P operating network">
-      <img src="/concept-art/home/hero-network.png" alt="Incubator, KOL Marketplace and Trading Agent connected through E2P DAO" />
-      <Link href="/services" className="v4-network-hotspot hotspot-inc" aria-label="Explore the E2P Incubator" />
-      <Link href="/influence" className="v4-network-hotspot hotspot-kol" aria-label="Explore the E2P KOL Marketplace" />
-      <Link href="/club" className="v4-network-hotspot hotspot-agent" aria-label="Explore the E2P Trading Agent" />
+    <div className="v4-network-triad" aria-label="E2P operating network">
+      <i className="orbit orbit-a" /><i className="orbit orbit-b" /><i className="orbit orbit-c" />
+      <i className="wire wire-a" /><i className="wire wire-b" /><i className="wire wire-c" />
+      <Link href="/services" className="node node-inc"><Sprout size={31}/><b>Incubator</b><small>BUILD</small></Link>
+      <Link href="/influence" className="node node-kol"><UsersRound size={31}/><b>KOL<br/>Marketplace</b><small>INFLUENCE</small></Link>
+      <Link href="/club" className="node node-agent"><Radar size={31}/><b>Trading<br/>Agent</b><small>INTELLIGENCE</small></Link>
+      <div className="v4-network-core"><img src="/e2p-icon-transparent.svg" alt=""/><b>E2P DAO</b><span>OPERATING NETWORK</span></div>
     </div>
   );
 }
+
+function EngineVisual({type}:{type:"incubator"|"kol"|"agent"}) {
+  if (type === "incubator") return <div className="v4-engine-art v4-engine-plant"><Sprout/><i/><span>FROM SEED TO MARKET</span></div>;
+  if (type === "kol") return <div className="v4-engine-art v4-engine-collage"><img src="/people/creator-02.jpg" alt=""/><img src="/people/creator-01.jpg" alt=""/><img src="/people/creator-03.jpg" alt=""/><i/><span>RIGHT VOICE · RIGHT MARKET</span></div>;
+  return <div className="v4-engine-art v4-engine-brain"><BrainCircuit/><i/><i/><i/><span>DATA → DECISION → ACTION</span></div>;
+}
+
+const CANDLES = [38,52,46,70,62,86,72,96,82,112,98,126,117,143,132,155];
 
 export default function HomePage() {
   return (
@@ -31,19 +41,19 @@ export default function HomePage() {
           <Link href="/services" className="v4-home-engine">
             <header><span>01</span><h2>Incubator</h2></header>
             <p>We fund and build early-stage Web3 projects with product, tokenomics, and go-to-market support.</p>
-            <div className="v4-engine-art"><img src="/concept-art/home-incubator.png" alt="A growing project" /></div>
+            <EngineVisual type="incubator" />
             <ul><li>Ideas → Products</li><li>Capital & Advisory</li><li>Tokenomics & Design</li><li>Go-to-Market Readiness</li></ul>
           </Link>
           <Link href="/influence" className="v4-home-engine">
             <header><span>02</span><h2>KOL Marketplace</h2></header>
             <p>We connect projects with verified KOLs and communities to create authentic reach and measurable impact.</p>
-            <div className="v4-engine-art"><img src="/concept-art/home-kol.png" alt="Creator network collage" /></div>
+            <EngineVisual type="kol" />
             <ul><li>Verified KOL Network</li><li>Campaign Matching</li><li>Performance Tracking</li><li>On-chain Transparency</li></ul>
           </Link>
           <Link href="/club" className="v4-home-engine">
             <header><span>03</span><h2>Trading Agent</h2></header>
             <p>We build and curate AI trading agents that turn market intelligence into automated, data-driven execution.</p>
-            <div className="v4-engine-art"><img src="/concept-art/home-agent.png" alt="AI market intelligence network" /></div>
+            <EngineVisual type="agent" />
             <ul><li>AI Market Intelligence</li><li>Strategy Automation</li><li>Risk Management</li><li>On-chain Execution</li></ul>
           </Link>
         </div>
@@ -60,9 +70,9 @@ export default function HomePage() {
         <div className="v4-wrap v4-home-flow-grid">
           <header><span className="v4-label">How E2P works</span><h2>From idea to<br />market intelligence<span>.</span></h2></header>
           <div className="v4-flow-steps">
-            <article><div><img src="/concept-art/home/flow-project.png" alt="Project growth" /></div><span>01</span><h3>Project</h3><p>We incubate and equip projects to be market-ready from day one.</p></article><ArrowRight />
-            <article><div><img src="/concept-art/home/flow-distribution.png" alt="Creator distribution" /></div><span>02</span><h3>Distribution</h3><p>We activate the right KOLs and communities to drive adoption at scale.</p></article><ArrowRight />
-            <article><div><img src="/concept-art/home/flow-intelligence.png" alt="Market intelligence" /></div><span>03</span><h3>Market intelligence</h3><p>Our AI trading agents monitor, learn, and execute to maximize opportunities.</p></article>
+            <article><div><Sprout/></div><span>01</span><h3>Project</h3><p>We incubate and equip projects to be market-ready from day one.</p></article><ArrowRight />
+            <article><div><UsersRound/></div><span>02</span><h3>Distribution</h3><p>We activate the right KOLs and communities to drive adoption at scale.</p></article><ArrowRight />
+            <article><div><Radar/></div><span>03</span><h3>Market intelligence</h3><p>Our AI trading agents monitor, learn, and execute to maximize opportunities.</p></article>
           </div>
         </div>
       </section>
@@ -71,9 +81,9 @@ export default function HomePage() {
         <div className="v4-wrap">
           <header><span className="v4-label">Selected outcomes</span></header>
           <div className="v4-outcome-grid">
-            <article><img src="/concept-art/home/outcome-depin.png" alt="DePIN infrastructure: 17.8x ATH ROI" /></article>
-            <article><img src="/concept-art/home/outcome-social.png" alt="SocialFi app: 12 million users reached" /></article>
-            <article><img src="/concept-art/home/outcome-agent.png" alt="AI Trading Agent: 42 percent average monthly return" /></article>
+            <article className="v4-outcome-card depin"><div className="v4-outcome-visual"><Gauge/></div><span>DePIN Infrastructure</span><h3>17.8x</h3><p>ATH ROI · 6 month operating cycle</p><footer><b>BUILD → LIST → GROW</b><ArrowRight size={14}/></footer></article>
+            <article className="v4-outcome-card social"><div className="v4-outcome-visual"><img src="/people/creator-01.jpg" alt="Representative creator"/></div><span>SocialFi App</span><h3>12M+</h3><p>Users reached through coordinated creator distribution</p><footer><b>GLOBAL CAMPAIGN</b><ArrowRight size={14}/></footer></article>
+            <article className="v4-outcome-card agent"><div className="v4-outcome-visual v4-mini-chart">{CANDLES.map((height,index)=><i key={index} className={index%4===0?"down":""} style={{height}}/>)}</div><span>AI Trading Agent</span><h3>+42%</h3><p>Average monthly return · illustrative strategy record</p><footer><b>RISK-GATED</b><ArrowRight size={14}/></footer></article>
           </div>
           <p className="v4-outcome-note">Real results. Transparent. <b>On-chain.</b></p>
         </div>

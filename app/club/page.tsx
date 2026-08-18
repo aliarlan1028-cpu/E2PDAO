@@ -4,8 +4,16 @@ import { E2P_LINKS } from "@/lib/e2p-links";
 
 export const metadata: Metadata = { title:"E2P Trading Agent | Think First. Trade Second.", description:"An AI trading decision system built around structured plans, hard risk gates and auditable review.", alternates:{canonical:"/club/"} };
 const CONTRACT="0x597716022fc149c2b89061d6ec6b5eac4a97bc20";
+const TERMINAL_CANDLES=[34,48,42,57,50,68,59,78,66,84,74,92,81,103,91,112,100,121,108,135,119,145,130,151,138,163,149,170,158,181,168,192];
 
-function Terminal(){return <div className="v4-agent-terminal v4-agent-terminal-concept"><img src="/concept-art/trading/terminal.png" alt="Illustrative E2P Trading Agent terminal showing a WAIT decision, market context, confidence and risk controls"/></div>}
+function Terminal(){return <div className="v4-agent-terminal">
+  <header><span>E2P / DECISION TERMINAL</span><span><i/> SYSTEM HEALTHY · OBSERVE MODE</span><span>BTCUSDT · 1H</span></header>
+  <div className="v4-agent-terminal-grid">
+    <section><small>AGENT DECISION</small><strong>WAIT</strong><h4>Edge insufficient.</h4><div><span>RISK STATE</span><b>PASSIVE</b><p>No order can be placed until context, reward-to-risk and event gates align.</p></div></section>
+    <article><header><span>MARKET CONTEXT / BTCUSDT</span><span>1H · LIVE STRUCTURE</span></header><div className="v4-agent-chart">{TERMINAL_CANDLES.map((height,index)=><i key={index} className={index%5===0||index%7===0?"down":""} style={{height}}/>)}<span/><em>RESISTANCE · 68,420</em><span className="vwap"/><em className="vwap">VWAP · 67,880</em><span className="support"/><em className="support">HTF SUPPORT · 66,950</em></div><div className="v4-agent-metrics"><span><small>TREND</small><b>Mixed</b></span><span><small>CONFIDENCE</small><b>62%</b></span><span><small>R:R</small><b>1.2 : 1</b></span><span><small>EVENT RISK</small><b>HIGH · 1H 42M</b></span></div><footer><small>AGENT NOTE</small><p>Price is holding support, but remains below VWAP with event risk approaching. Preserve capital. Reassess after volatility resolves.</p></footer></article>
+  </div>
+  <footer><span>ILLUSTRATIVE — NOT A LIVE SIGNAL</span><span>DECISION ID · E2P-0826-1942</span></footer>
+</div>}
 
 export default function ClubPage(){return <>
   <section className="v4-agent-hero"><div className="v4-wrap v4-agent-hero-grid"><div><span className="v4-kicker">E2P Trading Agent</span><h1>Think first.<br/>Trade second<span>.</span></h1><p>The E2P Trading Agent transforms market context into structured trade plans, passes hard risk gates, acts only within narrow permissions and creates an auditable record.</p><small>ILLUSTRATIVE — NOT A LIVE SIGNAL</small></div><Terminal/></div></section>
