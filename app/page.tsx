@@ -16,9 +16,9 @@ function NetworkTriad() {
 }
 
 function EngineVisual({type}:{type:"incubator"|"kol"|"agent"}) {
-  if (type === "incubator") return <div className="v4-engine-art v4-engine-plant"><Sprout/><i/><span>FROM SEED TO MARKET</span></div>;
+  if (type === "incubator") return <div className="v4-engine-art v4-engine-plant"><Sprout/><i/><span>FROM GAP TO EXCHANGE DECISION</span></div>;
   if (type === "kol") return <div className="v4-engine-art v4-engine-collage v5-home-kol-signal"><UsersRound/><i/><i/><i/><b>4 PUBLIC PROFILES</b><span>RIGHT VOICE · RIGHT MARKET</span></div>;
-  return <div className="v4-engine-art v4-engine-brain"><BrainCircuit/><i/><i/><i/><span>DATA → DECISION → ACTION</span></div>;
+  return <div className="v4-engine-art v4-engine-brain"><BrainCircuit/><i/><i/><i/><span>CONTEXT → PLAN → GUARD → ACTION</span></div>;
 }
 
 export default function HomePage() {
@@ -38,28 +38,28 @@ export default function HomePage() {
         <div className="v4-wrap v4-home-engine-grid">
           <Link href="/services" className="v4-home-engine">
             <header><span>01</span><h2>Incubator</h2></header>
-            <p>We fund and build early-stage Web3 projects with product, tokenomics, and go-to-market support.</p>
+            <p>We diagnose listing gaps, strengthen project quality, design the route and coordinate exchange BD through the decision process.</p>
             <EngineVisual type="incubator" />
-            <ul><li>Ideas → Products</li><li>Capital & Advisory</li><li>Tokenomics & Design</li><li>Go-to-Market Readiness</li></ul>
+            <ul><li>Listing Advisory</li><li>Project Quality Upgrade</li><li>Project Path Design</li><li>Exchange BD Coordination</li></ul>
           </Link>
           <Link href="/influence" className="v4-home-engine">
             <header><span>02</span><h2>KOL Marketplace</h2></header>
-            <p>We connect projects with verified KOLs and communities to create authentic reach and measurable impact.</p>
+            <p>We match project needs with public creator data, then operate campaigns from brief and scope through delivery and review.</p>
             <EngineVisual type="kol" />
-            <ul><li>Verified KOL Network</li><li>Campaign Matching</li><li>Performance Tracking</li><li>On-chain Transparency</li></ul>
+            <ul><li>Public Creator Profiles</li><li>Campaign Matching</li><li>Scope & Commercial Terms</li><li>Delivery & Outcome Review</li></ul>
           </Link>
           <Link href="/club" className="v4-home-engine">
             <header><span>03</span><h2>Trading Agent</h2></header>
-            <p>We build and curate AI trading agents that turn market intelligence into automated, data-driven execution.</p>
+            <p>Our AI trading system turns market and account context into structured plans, hard risk checks and controlled CEX execution.</p>
             <EngineVisual type="agent" />
-            <ul><li>AI Market Intelligence</li><li>Strategy Automation</li><li>Risk Management</li><li>On-chain Execution</li></ul>
+            <ul><li>Market & Account Context</li><li>Evidence-backed Plans</li><li>Deterministic Risk Gates</li><li>Controlled CEX Execution</li></ul>
           </Link>
         </div>
       </section>
 
       <section id="network" className="v4-home-proof-strip">
         <div className="v4-wrap">
-          <div><strong>A network of builders, influencers and intelligent capital.</strong></div>
+          <div><strong>Project readiness, creator campaigns and bounded AI trading.</strong></div>
           <span><b>04</b> Public project cases</span><span><b>04</b> Creator profiles</span><span><b>1.9M+</b> Displayed followers</span><span><b>07</b> Agent decision stages</span>
         </div>
       </section>
@@ -68,9 +68,9 @@ export default function HomePage() {
         <div className="v4-wrap v4-home-flow-grid">
           <header><span className="v4-label">How E2P works</span><h2>From idea to<br />market intelligence<span>.</span></h2></header>
           <div className="v4-flow-steps">
-            <article><div><Sprout/></div><span>01</span><h3>Project</h3><p>We incubate and equip projects to be market-ready from day one.</p></article><ArrowRight />
-            <article><div><UsersRound/></div><span>02</span><h3>Distribution</h3><p>We activate the right KOLs and communities to drive adoption at scale.</p></article><ArrowRight />
-            <article><div><Radar/></div><span>03</span><h3>Market intelligence</h3><p>Our AI trading agents monitor, learn, and execute to maximize opportunities.</p></article>
+            <article><div><Sprout/></div><span>01</span><h3>Project readiness</h3><p>Diagnose gaps, improve project quality and coordinate the route through exchange review.</p></article><ArrowRight />
+            <article><div><UsersRound/></div><span>02</span><h3>Creator campaigns</h3><p>Match project requirements with public creator signals, then operate delivery and review.</p></article><ArrowRight />
+            <article><div><Radar/></div><span>03</span><h3>Bounded trading</h3><p>Sense context, structure a plan, pass hard risk gates and act only within approved permissions.</p></article>
           </div>
         </div>
       </section>

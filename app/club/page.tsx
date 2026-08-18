@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 };
 
 const CONTRACT="0x597716022fc149c2b89061d6ec6b5eac4a97bc20";
+const CMC_URL="https://coinmarketcap.com/currencies/e2p-token/";
 
 const STAGES=[
   {code:"SENSE",icon:Radar,title:"Sense market facts",text:"Normalize market, account, order and event data before analysis."},
@@ -36,12 +37,12 @@ const BOUNDARIES=[
   {icon:CircleStop,title:"Emergency control",text:"Pause, revoke, cancel and recovery paths remain available."},
 ];
 
-const COMPARISON=[
-  ["Understand live market context","Attention-limited","Fixed conditions","Context without account truth","Source-bound facts"],
-  ["Use approved knowledge","Relies on memory","Must be hard-coded","Generic retrieval","Versioned evidence"],
-  ["Hard risk outside the model","Self-discipline","Basic thresholds","Often prompt-based","Deterministic gates"],
-  ["Recover uncertain execution","Manual checking","Implementation varies","Usually no order state","Intent + reconciliation"],
-  ["Explain net outcomes","Manual review","Trade logs","Text summary","Costs + evidence chain"],
+const SYSTEM_CHECKLIST=[
+  ["Source-bound context","Market, account, order and event inputs retain source and time context.","Stale or conflicting facts force observe-only mode."],
+  ["Approved knowledge","Research and strategy inputs are versioned before they enter a decision.","Unapproved material cannot become an execution instruction."],
+  ["Deterministic risk","Capital, instrument and loss limits are checked outside the model.","A failed gate cannot be overridden by model language."],
+  ["Execution recovery","Order intent, submission and reconciliation remain separate states.","Uncertain remote state blocks new risk until reconciled."],
+  ["Outcome review","Recorded inputs, decisions, actions and costs form a review trail.","This is a system capability, not a performance claim."],
 ];
 
 function MissionControl(){
@@ -78,12 +79,12 @@ export default function ClubPage(){return <>
 
   <section id="risk" className="v5-trade-boundaries"><div className="v4-wrap"><header><span className="v4-label">05 / Safety boundaries</span><h2>Risk before action.</h2><p>The model proposes. Deterministic controls decide whether the proposal is allowed to become an action.</p></header><div>{BOUNDARIES.map((item,index)=><article key={item.title}><span>0{index+1}</span><item.icon/><h3>{item.title}</h3><p>{item.text}</p></article>)}</div><footer><LockKeyhole/><b>The Agent cannot expand its own permissions.</b><span>You can pause, revoke or narrow authority at any time.</span></footer></div></section>
 
-  <section className="v5-trade-comparison"><div className="v4-wrap"><header><span className="v4-label">06 / Difference</span><h2>AI agents are common.<br/>Closed trading loops are not.</h2></header><div className="v5-comparison-table"><div className="head"><b>KEY CAPABILITY</b><b>HUMAN TRADING</b><b>FIXED BOT</b><b>GENERAL AI AGENT</b><b>E2P SYSTEM</b></div>{COMPARISON.map(row=><div key={row[0]}>{row.map((cell,index)=><span className={index===4?"e2p":""} key={cell}>{index===4&&<Check size={12}/>} {cell}</span>)}</div>)}</div><p>Comparison describes system design, not performance or return superiority. Trading risk always remains.</p></div></section>
+  <section className="v5-trade-comparison"><div className="v4-wrap"><header><span className="v4-label">06 / System checklist</span><h2>Capabilities are useful only when their boundaries are explicit.</h2><p>A neutral checklist of the controls E2P is designed around. It does not claim performance superiority over other trading approaches.</p></header><div className="v5-comparison-table v5-system-checklist"><div className="head"><b>CAPABILITY</b><b>E2P IMPLEMENTATION</b><b>BOUNDARY / EVIDENCE</b></div>{SYSTEM_CHECKLIST.map(row=><div key={row[0]}><span>{row[0]}</span><span className="e2p"><Check size={13}/>{row[1]}</span><span>{row[2]}</span></div>)}</div><p>Representative product architecture. Availability may vary by operating mode and integration; trading risk always remains.</p></div></section>
 
   <section id="community" className="v5-trade-community"><div className="v4-wrap"><header><span className="v4-label">07 / Community intelligence</span><h2>Better evidence.<br/>Better review.<br/>Together.</h2><p>The E2P community contributes structured research and review. The Agent remains the execution center.</p></header><div>{[{icon:Radar,title:"Research",text:"Market observations and sourced research enter a reviewable evidence pool."},{icon:BookOpen,title:"Playbooks",text:"Approved frameworks become versioned inputs—not free-form trading commands."},{icon:Users,title:"Peer review",text:"Plans and outcomes are challenged for bias, risk and execution quality."},{icon:MessageSquare,title:"Feedback",text:"Useful feedback improves the operating system and the next decision cycle."}].map(item=><article key={item.title}><item.icon/><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
 
-  <section id="points" className="v5-trade-points"><div className="v4-wrap"><header><span className="v4-label">$E2P coordination points</span><h2>Contribution, access and community coordination.</h2><p>$E2P supports participation inside the community. It is not presented as a share, yield product or promise of return.</p></header><div>{[{icon:Bot,title:"Contribute",text:"Add useful research, tools and review."},{icon:ChartCandlestick,title:"Reputation",text:"Build a record of high-signal participation."},{icon:KeyRound,title:"Access",text:"Coordinate access to community tools and features."},{icon:Users,title:"Voice",text:"Participate in community priorities and improvement."}].map((item,index)=><article key={item.title}><span>0{index+1}</span><item.icon/><h3>{item.title}</h3><p>{item.text}</p></article>)}</div><aside><b>$E2P is a coordination layer.</b><span>Not a security</span><span>Not a share</span><span>Not guaranteed access</span><span>Not a return promise</span></aside></div></section>
+  <section id="points" className="v5-trade-points"><div className="v4-wrap"><header><span className="v4-label">$E2P token-based community</span><h2>Token-based coordination, access and community participation.</h2><p>$E2P is used as a community coordination layer for participation, contribution recognition and access. Nothing on this page promises yield or investment returns.</p></header><div>{[{icon:Bot,title:"Contribution",text:"Recognize useful research, tools and review."},{icon:ChartCandlestick,title:"Reputation",text:"Record high-signal community participation."},{icon:KeyRound,title:"Access",text:"Coordinate access to community tools and features."},{icon:Users,title:"Voice",text:"Participate in community priorities and improvement."}].map((item,index)=><article key={item.title}><span>0{index+1}</span><item.icon/><h3>{item.title}</h3><p>{item.text}</p></article>)}</div><aside><b>$E2P is presented here as a token-based coordination and access layer.</b><span>Community participation</span><span>Contribution recognition</span><span>Access follows community rules</span><span>No guaranteed returns</span><a href={CMC_URL} target="_blank" rel="noreferrer">View $E2P on CoinMarketCap <ArrowUpRight size={13}/></a></aside></div></section>
 
-  <section className="v5-trade-disclosure"><div className="v4-wrap"><ShieldCheck/><div><span>RISK DISCLOSURE</span><p>Trading and investing involve substantial risk of loss. Agent outputs are analysis and decision support, not guaranteed profits or financial advice. Historical or illustrative outcomes do not predict future results.</p></div><strong>Never risk more than you can afford to lose.</strong></div></section>
+  <section className="v5-trade-disclosure"><div className="v4-wrap"><ShieldCheck/><div><span>RISK DISCLOSURE</span><p>Trading and investing involve substantial risk of loss. Agent outputs and token information are provided for product and community context, not guaranteed profits or financial advice. Historical or illustrative outcomes do not predict future results.</p></div><strong>Never risk more than you can afford to lose.</strong></div></section>
   <section className="v5-trade-launch"><div className="v4-wrap"><div><span>E2P AI TRADING SYSTEM</span><h2>Evidence before execution.</h2></div><a href={E2P_LINKS.tradingAgent} target="_blank" rel="noreferrer" className="v4-button v4-button-acid">Open Trading Agent <ArrowUpRight size={15}/></a><a href={`https://bscscan.com/token/${CONTRACT}`} target="_blank" rel="noreferrer" className="v4-text-link">View $E2P contract</a></div></section>
 </>}
