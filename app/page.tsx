@@ -4,20 +4,24 @@ import { E2P_LINKS } from "@/lib/e2p-links";
 
 function NetworkTriad() {
   return (
-    <div className="v4-network-triad" aria-label="E2P operating network">
-      <i className="orbit orbit-a" /><i className="orbit orbit-b" /><i className="orbit orbit-c" />
-      <i className="wire wire-a" /><i className="wire wire-b" /><i className="wire wire-c" />
-      <Link href="/services" className="node node-inc"><Sprout size={31}/><b>Incubator</b><small>BUILD</small></Link>
-      <Link href="/influence" className="node node-kol"><UsersRound size={31}/><b>KOL<br/>Marketplace</b><small>INFLUENCE</small></Link>
-      <Link href="/club" className="node node-agent"><Radar size={31}/><b>Trading<br/>Agent</b><small>INTELLIGENCE</small></Link>
-      <div className="v4-network-core"><img src="/e2p-icon-transparent.svg" alt=""/><b>E2P DAO</b><span>OPERATING NETWORK</span></div>
+    <div className="v6-network-triad" aria-label="E2P operating network">
+      <i className="v6-triad-orbit v6-triad-orbit-top" />
+      <i className="v6-triad-orbit v6-triad-orbit-left" />
+      <i className="v6-triad-orbit v6-triad-orbit-right" />
+      <i className="v6-triad-wire v6-triad-wire-left" />
+      <i className="v6-triad-wire v6-triad-wire-right" />
+      <i className="v6-triad-wire v6-triad-wire-base" />
+      <Link href="/services" className="v6-triad-node v6-triad-inc"><Sprout size={31}/><b>Incubator</b><small>BUILD</small></Link>
+      <Link href="/influence" className="v6-triad-node v6-triad-kol"><UsersRound size={31}/><b>KOL<br/>Marketplace</b><small>INFLUENCE</small></Link>
+      <Link href="/club" className="v6-triad-node v6-triad-agent"><Radar size={31}/><b>Trading<br/>Agent</b><small>INTELLIGENCE</small></Link>
+      <div className="v6-network-core"><img src="/e2p-icon-transparent.svg" alt=""/><b>E2P DAO</b><span>OPERATING NETWORK</span></div>
     </div>
   );
 }
 
 function EngineVisual({type}:{type:"incubator"|"kol"|"agent"}) {
   if (type === "incubator") return <div className="v4-engine-art v4-engine-plant"><Sprout/><i/><span>FROM GAP TO EXCHANGE DECISION</span></div>;
-  if (type === "kol") return <div className="v4-engine-art v4-engine-collage v5-home-kol-signal"><UsersRound/><i/><i/><i/><b>4 PUBLIC PROFILES</b><span>RIGHT VOICE · RIGHT MARKET</span></div>;
+  if (type === "kol") return <div className="v4-engine-art v6-home-kol-radar"><header><b>114</b><span>CREATOR RECORDS</span></header><div className="v6-kol-radar-core"><UsersRound/><i/><i/><i/></div><div className="v6-kol-radar-bars"><span>YT <b>86</b></span><span>TG <b>58</b></span><span>X <b>44</b></span></div><footer>MARKET · CHANNEL · FIT</footer></div>;
   return <div className="v4-engine-art v4-engine-brain"><BrainCircuit/><i/><i/><i/><span>CONTEXT → PLAN → GUARD → ACTION</span></div>;
 }
 
@@ -60,7 +64,7 @@ export default function HomePage() {
       <section id="network" className="v4-home-proof-strip">
         <div className="v4-wrap">
           <div><strong>Project readiness, creator campaigns and bounded AI trading.</strong></div>
-          <span><b>04</b> Public project cases</span><span><b>04</b> Creator profiles</span><span><b>1.9M+</b> Displayed followers</span><span><b>07</b> Agent decision stages</span>
+          <span><b>04</b> Public project cases</span><span><b>114</b> KOL resource records</span><span><b>194</b> Channel profiles</span><span><b>07</b> Agent decision stages</span>
         </div>
       </section>
 
@@ -80,7 +84,7 @@ export default function HomePage() {
           <header><span className="v4-label">Public evidence</span></header>
           <div className="v4-outcome-grid">
             <Link href="/services#cases" className="v4-outcome-card depin v5-evidence-card"><div className="v4-outcome-visual"><FileCheck2/></div><span>Incubator</span><h3>04 cases</h3><p>CHAX · HIRO · Virtuals · USBT. Engagement scopes confirmed by E2P, with public outcome links.</p><footer><b>VIEW PUBLIC CASES</b><ArrowRight size={14}/></footer></Link>
-            <Link href="/influence#creator-network" className="v4-outcome-card social v5-evidence-card"><div className="v4-outcome-visual"><UsersRound/></div><span>KOL Marketplace</span><h3>1.9M+</h3><p>Displayed followers across four creator-maintained public profiles. Figures are not deduplicated.</p><footer><b>OPEN CREATOR DATA</b><ArrowRight size={14}/></footer></Link>
+            <Link href="/influence#creator-network" className="v4-outcome-card social v5-evidence-card"><div className="v4-outcome-visual"><UsersRound/></div><span>KOL Marketplace</span><h3>114 records</h3><p>A growing multi-market resource library, with four creator-maintained public profiles shown as source-linked examples.</p><footer><b>EXPLORE THE NETWORK</b><ArrowRight size={14}/></footer></Link>
             <Link href="/club#system" className="v4-outcome-card agent v5-evidence-card"><div className="v4-outcome-visual"><BrainCircuit/></div><span>AI Trading System</span><h3>07 stages</h3><p>Sense → recall → plan → guard → execute → monitor → review. Architecture, not a performance claim.</p><footer><b>EXPLORE THE SYSTEM</b><ArrowRight size={14}/></footer></Link>
           </div>
           <p className="v4-outcome-note">No invented ROI. No synthetic reach. <b>Sources are linked where public.</b></p>

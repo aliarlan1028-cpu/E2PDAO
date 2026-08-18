@@ -42,14 +42,14 @@ function Diagnosis() {
 }
 
 function BDMap(){
-  return <div className="v4-bd-map">
-    <div className="v4-bd-input"><small>PROJECT EVIDENCE</small>{["Product & traction","Token & economics","Trust & compliance","Liquidity plan"].map(item=><span key={item}>{item}<Check size={11}/></span>)}</div>
-    <ArrowRight className="v4-bd-arrow"/>
-    <section><i>E2P</i><b>BD<br/>Intelligence</b><small>FIT · TIMING · LANE</small></section>
-    <ArrowRight className="v4-bd-arrow"/>
-    <div className="v4-bd-lanes"><small>EXCHANGE LANES</small><span>Top-tier CEX <b>Strategic</b></span><span>Growth CEX <b>Priority</b></span><span>Regional CEX <b>Expansion</b></span><span>DEX launch <b>Liquidity</b></span></div>
-    <ArrowRight className="v4-bd-arrow"/>
-    <aside><small>OWNED FOLLOW-UP</small><span>Introduction</span><span>Materials</span><span>Due diligence</span><span>Decision / launch</span><ArrowUpRight size={16}/></aside>
+  return <div className="v6-bd-map">
+    <header><span>01 · EVIDENCE</span><span>02 · ROUTE DESIGN</span><span>03 · MANAGED PROCESS</span></header>
+    <div className="v6-bd-flow">
+      <section className="v6-bd-evidence"><small>PROJECT SIGNALS</small>{["Product & traction","Token & economics","Trust & compliance","Liquidity plan"].map(item=><span key={item}>{item}<Check size={13}/></span>)}</section>
+      <section className="v6-bd-router"><div><img src="/e2p-icon-transparent.svg" alt=""/><small>E2P</small><b>BD<br/>Intelligence</b><em>FIT · TIMING · LANE</em></div><aside><span>Top-tier CEX <b>STRATEGIC</b></span><span>Growth CEX <b>PRIORITY</b></span><span>Regional CEX <b>EXPANSION</b></span><span>DEX route <b>LIQUIDITY</b></span></aside></section>
+      <section className="v6-bd-process"><small>OWNED FOLLOW-UP</small><ol><li><i>01</i><span><b>Introduction</b><em>Right contact and context</em></span></li><li><i>02</i><span><b>Materials</b><em>Decision-ready evidence</em></span></li><li><i>03</i><span><b>Due diligence</b><em>Questions and updates</em></span></li><li><i>04</i><span><b>Exchange decision</b><em>Launch handoff if accepted</em></span></li></ol></section>
+    </div>
+    <footer><span>PROJECT EVIDENCE</span><i/><b>E2P ROUTING</b><i/><span>EXCHANGE DECISION</span></footer>
   </div>;
 }
 

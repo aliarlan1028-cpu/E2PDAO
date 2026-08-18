@@ -15,6 +15,21 @@ const CREATORS = [
   {name:"Selcoin",handle:"Selcoin",market:"Türkiye",followers:"554,000",engagement:"0.11%",topics:"Trading · Technical analysis",channels:["YouTube","X","Telegram"],href:"https://w3claw.xyz/card/selcoin-links"},
 ];
 
+const CHANNEL_MIX = [
+  ["YouTube",86],
+  ["Telegram",58],
+  ["X",44],
+  ["TikTok + other",6],
+] as const;
+
+const MARKET_COVERAGE = [
+  ["Türkiye",22],
+  ["United States",19],
+  ["Korea",15],
+  ["India",14],
+  ["Vietnam",14],
+] as const;
+
 const PACKAGES = [
   {title:"Launch & Mindshare",icon:Rocket,text:"Own the launch window with a coordinated narrative and trusted voices.",items:["Narrative design","Creator wave","Launch reporting"]},
   {title:"Community Growth",icon:Users,text:"Turn attention into an active, informed and durable community.",items:["Education content","Community activations","Retention loop"]},
@@ -38,21 +53,29 @@ const WORKFLOW = [
   ["06","Review","Measure delivery, actions and repeat potential."],
 ];
 
-function CreatorSignalBoard(){
-  return <div className="v5-kol-signal-board">
-    <header><span>PUBLIC CREATOR SIGNAL</span><b><i/> W3CLAW SOURCES CHECKED</b></header>
-    <div className="v5-kol-signal-summary"><section><small>PUBLIC PROFILES</small><strong>04</strong></section><section><small>DISPLAYED FOLLOWERS</small><strong>1.9M+</strong></section><section><small>MARKETS</small><strong>04</strong></section></div>
-    <div className="v5-kol-signal-list">{CREATORS.map((creator,index)=><a href={creator.href} target="_blank" rel="noreferrer" key={creator.name}><i>0{index+1}</i><span><b>{creator.name}</b><small>{creator.market} · {creator.channels.join(" / ")}</small></span><em>{creator.followers}<small>FOLLOWERS</small></em><strong>{creator.engagement}<small>ENG.</small></strong><ArrowUpRight size={14}/></a>)}</div>
-    <footer><span>Creator-maintained public profiles</span><span>Checked 18 Aug 2026 · counts are not audience-deduplicated</span></footer>
+function ResourceSignalBoard(){
+  return <div className="v6-kol-resource-board">
+    <header><span>KOL RESOURCE INTELLIGENCE</span><b><i/> GROWING LIBRARY</b></header>
+    <div className="v6-kol-resource-summary">
+      <section><small>KOL RECORDS</small><strong>114</strong><em>1 partnered</em></section>
+      <section><small>EST. MAX-CHANNEL REACH</small><strong>23.0M</strong><em>not audience-deduplicated</em></section>
+      <section><small>CHANNEL PROFILES</small><strong>194</strong><em>across 114 KOLs</em></section>
+      <section><small>AVG. ENGAGEMENT</small><strong>2.5%</strong><em>110 valid records</em></section>
+    </div>
+    <div className="v6-kol-resource-body">
+      <section><header><span>CHANNEL COVERAGE</span><b>194 PROFILES</b></header>{CHANNEL_MIX.map(([name,value])=><div key={name}><span>{name}</span><i><b style={{width:`${value}%`}}/></i><strong>{value}</strong></div>)}</section>
+      <section><header><span>LEADING MARKETS</span><b>RESOURCE COUNT</b></header>{MARKET_COVERAGE.map(([name,value])=><div key={name}><span>{name}</span><i><b style={{width:`${Math.round(value/22*100)}%`}}/></i><strong>{value}</strong></div>)}</section>
+    </div>
+    <footer><span>E2P resource snapshot · 18 Aug 2026</span><a href="#creator-network">See 4 public profile examples <ArrowRight size={13}/></a></footer>
   </div>;
 }
 
 export default function InfluencePage(){return <>
-  <section className="v4-kol-hero v5-kol-hero"><div className="v4-wrap v4-kol-hero-grid"><div><span className="v4-label">E2P KOL Marketplace</span><h1>The right<br/>project. The<br/>right voice<span>.</span></h1><p>E2P turns creator discovery into an operated growth channel—using public data, verified project context and accountable campaign delivery.</p><div className="v4-hero-actions"><a href={E2P_LINKS.project("kol_hero_v6")} className="v4-button v4-button-dark">Build a campaign <ArrowRight size={15}/></a><a href="#creator-network" className="v4-text-link">View creator data <ArrowRight size={14}/></a></div></div><CreatorSignalBoard/></div></section>
+  <section className="v4-kol-hero v5-kol-hero v6-kol-hero"><div className="v4-wrap v4-kol-hero-grid"><div><span className="v4-label">E2P KOL Marketplace</span><h1>The right<br/>project. The<br/>right voice<span>.</span></h1><p>E2P turns a growing KOL resource library into an operated growth channel—matching market, topic, channel and campaign fit from brief through review.</p><div className="v4-hero-actions"><a href={E2P_LINKS.project("kol_hero_v6")} className="v4-button v4-button-dark">Build a campaign <ArrowRight size={15}/></a><a href="#creator-network" className="v4-text-link">View public examples <ArrowRight size={14}/></a></div></div><ResourceSignalBoard/></div></section>
 
   <section className="v4-kol-doors v5-kol-doors"><article id="for-projects"><div><span>FOR PROJECTS</span><h2>Find creators by evidence—not profile photos.</h2><p>Define the market, audience, channel and action. E2P turns that brief into a qualified creator shortlist and an operated campaign.</p><a href={E2P_LINKS.project("kol_project_door_v6")} className="v4-button v4-button-acid">Build a campaign <ArrowRight size={15}/></a></div><aside><ScanSearch/><b>MARKET</b><b>TOPIC</b><b>CHANNEL</b><b>ENGAGEMENT</b></aside></article><article id="for-creators"><div><span>FOR CREATORS</span><h2>Access qualified projects and clearer commercial terms.</h2><p>Show what your audience is good for, receive aligned opportunities and keep scope, timing and value visible.</p><a href={E2P_LINKS.kol("kol_creator_door_v6")} className="v4-button v4-button-acid">Join as a creator <ArrowRight size={15}/></a></div><aside><BadgeCheck/><b>VERIFIED BRIEF</b><b>PAID PARTNERSHIP</b><b>EVENT ACCESS</b><b>AMBASSADOR FIT</b></aside></article></section>
 
-  <section id="creator-network" className="v4-kol-network v5-kol-network"><div className="v4-wrap"><header><span className="v4-label">Public creator data</span><h2>Real profiles.<br/>Comparable signals.</h2><p>These figures are shown exactly as displayed on the linked creator-maintained W3Claw profiles. Open any card to inspect the public source.</p></header><div className="v5-creator-grid">{CREATORS.map((creator,index)=><a href={creator.href} target="_blank" rel="noreferrer" key={creator.name}><header><span>0{index+1} · PUBLIC PROFILE</span><ExternalLink size={13}/></header><div className="v5-creator-name"><i>{creator.name.slice(0,2)}</i><span><h3>{creator.name}</h3><small>@{creator.handle}</small></span></div><div className="v5-creator-metrics"><span><small>FOLLOWERS</small><strong>{creator.followers}</strong></span><span><small>ENGAGEMENT</small><strong>{creator.engagement}</strong></span></div><dl><dt>Market</dt><dd>{creator.market}</dd><dt>Topics</dt><dd>{creator.topics}</dd><dt>Channels</dt><dd>{creator.channels.join(" · ")}</dd></dl><footer>View source on W3Claw <ArrowUpRight size={14}/></footer></a>)}</div><p className="v4-kol-private-note">Public snapshot checked 18 Aug 2026. Follower and engagement figures can change; final campaign fit and commercial terms require confirmation.</p></div></section>
+  <section id="creator-network" className="v4-kol-network v5-kol-network"><div className="v4-wrap"><header><span className="v4-label">Featured public examples</span><h2>Four profiles.<br/>One larger network.</h2><p>These four source-linked profiles demonstrate the data used in matching; they are not the full E2P KOL resource library. Open any card to inspect the creator-maintained W3Claw source.</p></header><div className="v5-creator-grid">{CREATORS.map((creator,index)=><a href={creator.href} target="_blank" rel="noreferrer" key={creator.name}><header><span>0{index+1} · FEATURED PUBLIC PROFILE</span><ExternalLink size={13}/></header><div className="v5-creator-name"><i>{creator.name.slice(0,2)}</i><span><h3>{creator.name}</h3><small>@{creator.handle}</small></span></div><div className="v5-creator-metrics"><span><small>FOLLOWERS</small><strong>{creator.followers}</strong></span><span><small>ENGAGEMENT</small><strong>{creator.engagement}</strong></span></div><dl><dt>Market</dt><dd>{creator.market}</dd><dt>Topics</dt><dd>{creator.topics}</dd><dt>Channels</dt><dd>{creator.channels.join(" · ")}</dd></dl><footer>View source on W3Claw <ArrowUpRight size={14}/></footer></a>)}</div><p className="v4-kol-private-note">Four featured public examples checked 18 Aug 2026. The broader resource snapshot contains 114 KOL records. Follower and engagement figures can change; final campaign fit and commercial terms require confirmation.</p></div></section>
 
   <section id="how-it-works" className="v4-kol-workflow"><div className="v4-wrap"><header><span className="v4-label">How it works</span><h2>Built for clarity.<br/>Designed for results.</h2></header><div>{WORKFLOW.map(([index,title,text],itemIndex)=><article key={title}><i>{index}</i><div>{itemIndex===0?<ScanSearch/>:itemIndex===1?<ShieldCheck/>:itemIndex===2?<Users/>:itemIndex===3?<Sparkles/>:itemIndex===4?<Megaphone/>:<ChartNoAxesCombined/>}</div><h3>{title}</h3><p>{text}</p>{itemIndex<WORKFLOW.length-1&&<ArrowRight/>}</article>)}</div></div></section>
 
