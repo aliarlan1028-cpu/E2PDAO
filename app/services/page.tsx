@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ArrowRight, ArrowUpRight, BadgeDollarSign, Box, ChartNoAxesCombined, Check, Crosshair, Droplets, FileCheck2, Globe2, ListChecks, QrCode, Search, Send, ShieldCheck, SquareArrowOutUpRight, Target, UsersRound, Wrench } from "lucide-react";
+import { ArrowRight, ArrowUpRight, BadgeDollarSign, Box, ChartNoAxesCombined, Check, Crosshair, Droplets, FileCheck2, Globe2, ListChecks, Search, Send, ShieldCheck, SquareArrowOutUpRight, Target, UsersRound, Wrench } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
 export const metadata: Metadata = { title:"Project Incubator & Listing BD | E2PDAO", description:"E2P diagnoses project gaps, improves quality, designs the route and owns listing BD follow-up.", alternates:{canonical:"/services/"} };
@@ -22,18 +22,19 @@ const PATH = [
 ];
 const EXCHANGES = [["OKX","/OKX.png"],["Bybit","/Bybit.png"],["Gate.io","/Gate.io.png"],["Bitget","/Bitget Logo.png"],["MEXC","/MEXC.png"],["KuCoin","/Kucoin.png"],["HTX","/HTX.png"],["BingX","/Bingx.png"]];
 const CASES = [
-  ["NEXORA","Upgraded tokenomics, transparency and market readiness. Matched with appropriate exchanges and supported to successful listing.","Outcome: Listed on top-tier CEX","/success-cases"],
-  ["LUMINA","Strengthened go-to-market, community and liquidity design. Ran BD and due diligence through to listing.","Outcome: Listed on global CEX","/success-cases"],
-  ["SOLVEX","Enhanced compliance, disclosures and market fit. Executed BD and materials until listing.","Outcome: Listed on international CEX","/success-cases"],
+  {project:"CHAX",scope:"CEX listing coordination",result:"CHAX reached a centralized-exchange market and remains publicly traceable.",source:"Public market reference",href:"https://www.coinlore.com/coin/chax/exchanges"},
+  {project:"HIRO",scope:"Listing preparation & coordination",result:"HIRO is publicly tracked with market information on CoinMarketCap.",source:"CoinMarketCap",href:"https://coinmarketcap.com/currencies/hiro/"},
+  {project:"Virtuals",scope:"Public supply verification support",result:"VIRTUAL supply and market information is publicly tracked on CoinMarketCap.",source:"CoinMarketCap",href:"https://coinmarketcap.com/currencies/virtual-protocol/"},
+  {project:"USBT",scope:"Listing advisory & coordination",result:"Gate announced the USBT Startup offering and trading launch in September 2024.",source:"Gate announcement",href:"https://www.gate.com/zh/announcements/article/39267/gate.io-startup-free-offering-universal-blockchain-token-usbt-and-announcement-of-free-distribution-rules-17-046-usbt-free-of-charge"},
 ];
 
 function Diagnosis() {
   const gaps=["Unclear exchange narrative","Token utility needs proof","Thin liquidity plan","Incomplete disclosures"];
   const actions=["Reframe positioning","Stress-test token model","Design liquidity lanes","Close data-room gaps"];
   return <div className="v4-inc-diagnosis">
-    <header><span>PROJECT DIAGNOSIS · ILLUSTRATIVE</span><b>8 GAPS FOUND</b></header>
+    <header><span>PROJECT DIAGNOSIS · ILLUSTRATIVE</span><b>SAMPLE REVIEW</b></header>
     <div className="v4-inc-diagnosis-body">
-      <section><small>PROJECT / CURRENT STATE</small><h3>Orion Protocol <em>DeFi · L1/L2 Infrastructure</em></h3><div className="v4-gap-columns"><div><b>PRIORITY GAPS</b>{gaps.map(item=><span key={item}>{item}</span>)}</div><div><b>NEXT ACTIONS</b>{actions.map(item=><span key={item}>{item}</span>)}</div></div></section>
+      <section><small>PROJECT / CURRENT STATE</small><h3>Illustrative project <em>Pre-listing review</em></h3><div className="v4-gap-columns"><div><b>PRIORITY GAPS</b>{gaps.map(item=><span key={item}>{item}</span>)}</div><div><b>NEXT ACTIONS</b>{actions.map(item=><span key={item}>{item}</span>)}</div></div></section>
       <aside><small>EXCHANGE-FIT SIGNAL</small><div className="v4-radar v4-radar-native"><i/><i/><i/><b/><span>PRODUCT</span><span>TOKEN</span><span>MARKET</span><span>TRUST</span><span>OPS</span></div><strong>58 / 100</strong><p>Promising fundamentals.<br/>Not ready for BD yet.</p></aside>
     </div>
     <footer><Check size={13}/><span>E2P turns every gap into an owned action.</span></footer>
@@ -66,7 +67,7 @@ export default function ServicesPage() {
 
     <section id="network" className="v4-inc-network"><div className="v4-wrap"><header><h2>Exchange & resource network</h2><p>Long-term relationships. Cross-functional support.</p></header><div className="v4-logo-grid">{EXCHANGES.map(([name,src])=><div key={name}><img src={src} alt={name}/></div>)}</div><div className="v4-network-tags"><span>Liquidity partners</span><span>Market makers</span><span>KOL & media</span><span>Audit & security</span><span>Legal & compliance</span><span>Advisors & BD</span></div></div></section>
 
-    <section className="v4-inc-cases"><div className="v4-wrap"><header><h2>Case outcomes</h2><p>Real projects we&apos;ve supported to listing.<br/><br/>No performance claims.<br/>Results vary by project.</p></header><div>{CASES.map(([project,scope,result,href])=><a key={project} href={href}><span>PUBLIC REFERENCE</span><h3>{project}</h3><p>{scope}</p><b>{result}</b></a>)}<a className="v4-case-more" href="/success-cases"><QrCode/><b>See more cases</b><ArrowRight size={14}/></a></div></div></section>
+    <section id="cases" className="v4-inc-cases"><div className="v4-wrap"><header><span className="v4-label">04 / Proven work</span><h2>Case outcomes</h2><p>Four E2P engagements with public outcome references. The linked sources verify the public project result; engagement scope is confirmed by E2P.</p></header><div>{CASES.map((item,index)=><a className="v5-case-card" key={item.project} href={item.href} target="_blank" rel="noreferrer"><span>0{index+1} · E2P ENGAGEMENT</span><h3>{item.project}</h3><small>SCOPE</small><p>{item.scope}</p><small>PUBLIC OUTCOME</small><b>{item.result}</b><footer>{item.source}<ArrowUpRight size={13}/></footer></a>)}</div></div></section>
 
     <section className="v4-inc-cta"><div className="v4-wrap"><h2>Start project evaluation</h2><p>Let&apos;s build your path to the next market decision.</p><a href={E2P_LINKS.project("inc_cta_v4")} className="v4-button v4-button-dark">Get started <ArrowRight size={15}/></a></div></section>
   </>;

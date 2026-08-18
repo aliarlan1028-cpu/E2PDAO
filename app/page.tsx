@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, BrainCircuit, Gauge, Radar, Sprout, UsersRound } from "lucide-react";
+import { ArrowRight, BrainCircuit, FileCheck2, Radar, Sprout, UsersRound } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
 function NetworkTriad() {
@@ -17,11 +17,9 @@ function NetworkTriad() {
 
 function EngineVisual({type}:{type:"incubator"|"kol"|"agent"}) {
   if (type === "incubator") return <div className="v4-engine-art v4-engine-plant"><Sprout/><i/><span>FROM SEED TO MARKET</span></div>;
-  if (type === "kol") return <div className="v4-engine-art v4-engine-collage"><img src="/people/creator-02.jpg" alt=""/><img src="/people/creator-01.jpg" alt=""/><img src="/people/creator-03.jpg" alt=""/><i/><span>RIGHT VOICE · RIGHT MARKET</span></div>;
+  if (type === "kol") return <div className="v4-engine-art v4-engine-collage v5-home-kol-signal"><UsersRound/><i/><i/><i/><b>4 PUBLIC PROFILES</b><span>RIGHT VOICE · RIGHT MARKET</span></div>;
   return <div className="v4-engine-art v4-engine-brain"><BrainCircuit/><i/><i/><i/><span>DATA → DECISION → ACTION</span></div>;
 }
-
-const CANDLES = [38,52,46,70,62,86,72,96,82,112,98,126,117,143,132,155];
 
 export default function HomePage() {
   return (
@@ -62,7 +60,7 @@ export default function HomePage() {
       <section id="network" className="v4-home-proof-strip">
         <div className="v4-wrap">
           <div><strong>A network of builders, influencers and intelligent capital.</strong></div>
-          <span><b>250+</b> Projects incubated</span><span><b>1,200+</b> Verified KOLs</span><span><b>$750M+</b> Trading volume via AI agents</span><span><b>60+</b> Countries</span>
+          <span><b>04</b> Public project cases</span><span><b>04</b> Creator profiles</span><span><b>1.9M+</b> Displayed followers</span><span><b>07</b> Agent decision stages</span>
         </div>
       </section>
 
@@ -79,13 +77,13 @@ export default function HomePage() {
 
       <section id="results" className="v4-home-outcomes">
         <div className="v4-wrap">
-          <header><span className="v4-label">Selected outcomes</span></header>
+          <header><span className="v4-label">Public evidence</span></header>
           <div className="v4-outcome-grid">
-            <article className="v4-outcome-card depin"><div className="v4-outcome-visual"><Gauge/></div><span>DePIN Infrastructure</span><h3>17.8x</h3><p>ATH ROI · 6 month operating cycle</p><footer><b>BUILD → LIST → GROW</b><ArrowRight size={14}/></footer></article>
-            <article className="v4-outcome-card social"><div className="v4-outcome-visual"><img src="/people/creator-01.jpg" alt="Representative creator"/></div><span>SocialFi App</span><h3>12M+</h3><p>Users reached through coordinated creator distribution</p><footer><b>GLOBAL CAMPAIGN</b><ArrowRight size={14}/></footer></article>
-            <article className="v4-outcome-card agent"><div className="v4-outcome-visual v4-mini-chart">{CANDLES.map((height,index)=><i key={index} className={index%4===0?"down":""} style={{height}}/>)}</div><span>AI Trading Agent</span><h3>+42%</h3><p>Average monthly return · illustrative strategy record</p><footer><b>RISK-GATED</b><ArrowRight size={14}/></footer></article>
+            <Link href="/services#cases" className="v4-outcome-card depin v5-evidence-card"><div className="v4-outcome-visual"><FileCheck2/></div><span>Incubator</span><h3>04 cases</h3><p>CHAX · HIRO · Virtuals · USBT. Engagement scopes confirmed by E2P, with public outcome links.</p><footer><b>VIEW PUBLIC CASES</b><ArrowRight size={14}/></footer></Link>
+            <Link href="/influence#creator-network" className="v4-outcome-card social v5-evidence-card"><div className="v4-outcome-visual"><UsersRound/></div><span>KOL Marketplace</span><h3>1.9M+</h3><p>Displayed followers across four creator-maintained public profiles. Figures are not deduplicated.</p><footer><b>OPEN CREATOR DATA</b><ArrowRight size={14}/></footer></Link>
+            <Link href="/club#system" className="v4-outcome-card agent v5-evidence-card"><div className="v4-outcome-visual"><BrainCircuit/></div><span>AI Trading System</span><h3>07 stages</h3><p>Sense → recall → plan → guard → execute → monitor → review. Architecture, not a performance claim.</p><footer><b>EXPLORE THE SYSTEM</b><ArrowRight size={14}/></footer></Link>
           </div>
-          <p className="v4-outcome-note">Real results. Transparent. <b>On-chain.</b></p>
+          <p className="v4-outcome-note">No invented ROI. No synthetic reach. <b>Sources are linked where public.</b></p>
         </div>
       </section>
 
