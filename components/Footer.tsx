@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
 const GROUPS = [
@@ -10,6 +13,10 @@ const GROUPS = [
 const external = (href: string) => href.startsWith("http") || href.startsWith("mailto:");
 
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/club")) return null;
+  if (pathname.startsWith("/influence")) return <footer className="v4-footer v4-footer-compact"><div className="v4-wrap"><Link href="/" className="v4-brand v4-brand-light"><img src="/e2p-icon-transparent.svg" alt=""/><strong>E2P DAO</strong></Link><nav><Link href="/influence#for-projects">For Projects</Link><Link href="/influence#for-creators">For Creators</Link><Link href="/influence#how-it-works">How It Works</Link><Link href="/influence#creator-network">Trust</Link><Link href="/about">About</Link></nav><span>© 2026 E2P DAO. All rights reserved.</span></div></footer>;
+  if (pathname.startsWith("/about")) return <footer className="v4-footer v4-footer-compact v4-footer-about"><div className="v4-wrap"><Link href="/" className="v4-brand v4-brand-light"><img src="/e2p-icon-transparent.svg" alt=""/><strong>E2P DAO</strong></Link><span>© 2026 E2P DAO</span><nav><Link href="/about#principles">Principles</Link><Link href="/about#cycle">How it works</Link><Link href="/about#participate">Participate</Link><Link href="/contact">Contact</Link></nav><span>Built to connect evidence to execution.</span></div></footer>;
   return (
     <footer className="v4-footer">
       <div className="v4-wrap v4-footer-grid">

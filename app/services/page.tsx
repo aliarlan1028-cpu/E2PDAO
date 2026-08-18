@@ -1,59 +1,51 @@
 import type { Metadata } from "next";
-import { ArrowRight, ArrowUpRight, ChartNoAxesCombined, Check, ExternalLink, ListChecks, Search, Send, Target, Wrench } from "lucide-react";
+import { ArrowRight, BadgeDollarSign, Box, ChartNoAxesCombined, Crosshair, Droplets, FileCheck2, Globe2, ListChecks, Search, Send, ShieldCheck, SquareArrowOutUpRight, Target, UsersRound, Wrench } from "lucide-react";
 import { E2P_LINKS } from "@/lib/e2p-links";
 
 export const metadata: Metadata = { title:"Project Incubator & Listing BD | E2PDAO", description:"E2P diagnoses project gaps, improves quality, designs the route and owns listing BD follow-up.", alternates:{canonical:"/services/"} };
 
 const IMPROVEMENTS = [
-  ["Strategic positioning","Clear value proposition and exchange-fit narrative."],
-  ["Token & economics","Coherent utility, emissions and market logic."],
-  ["Transparency & trust","Public materials, disclosures and verifiable evidence."],
-  ["Market proof","Traction, community quality and source-backed signals."],
-  ["Liquidity & market quality","Venue-specific liquidity and market support planning."],
-  ["Operations & follow-up","Owners, timelines, decisions and the next conversation."],
+  {icon:Crosshair,title:"Strategic Positioning",text:"Clear value proposition and exchange-fit narrative."},
+  {icon:BadgeDollarSign,title:"Token & Economics",text:"Sustainable token design, utilities and emissions."},
+  {icon:ShieldCheck,title:"Transparency & Trust",text:"Docs, disclosures, governance and audit readiness."},
+  {icon:UsersRound,title:"Market Readiness",text:"Narrative, go-to-market plan and community strength."},
+  {icon:Droplets,title:"Liquidity & Market Quality",text:"Liquidity architecture and market-making readiness."},
+  {icon:FileCheck2,title:"Operations & Compliance",text:"Entity, legal, KYC/AML readiness and policies."},
 ];
 const PATH = [
-  {icon:Search,title:"Diagnose",text:"Project, token, traction and exchange expectation gaps."},
-  {icon:ListChecks,title:"Prioritize",text:"Rank gaps by impact and build one decision path."},
-  {icon:Wrench,title:"Upgrade",text:"Strengthen narrative, proof, assets and operations."},
-  {icon:Target,title:"Match",text:"Map standards, fit, timing and the right exchange lanes."},
-  {icon:Send,title:"Move",text:"Open routes and own the follow-up until the decision moves."},
-  {icon:ChartNoAxesCombined,title:"Learn",text:"Turn feedback and outcomes into the next project cycle."},
+  {icon:Search,title:"Diagnose",text:"Deep-dive review of project quality, gaps and exchange expectations."},
+  {icon:ListChecks,title:"Prioritize",text:"Rank gaps by impact and build a focused upgrade roadmap."},
+  {icon:Wrench,title:"Upgrade",text:"Execute improvements across product, tokenomics, docs and operations."},
+  {icon:Target,title:"Match",text:"Match with the right exchanges and lanes based on fit and readiness."},
+  {icon:Send,title:"Move",text:"Run BD, materials and due diligence until the listing is live."},
+  {icon:ChartNoAxesCombined,title:"Learn",text:"Post-listing review and optimization for liquidity and growth."},
 ];
 const EXCHANGES = [["OKX","/OKX.png"],["Bybit","/Bybit.png"],["Gate.io","/Gate.io.png"],["Bitget","/Bitget Logo.png"],["MEXC","/MEXC.png"],["KuCoin","/Kucoin.png"],["HTX","/HTX.png"],["BingX","/Bingx.png"]];
 const CASES = [
-  ["CHAX","CEX listing coordination","Live and publicly tracked","CoinGecko","https://www.coingecko.com/en/coins/chax"],
-  ["HIRO","Listing preparation and coordination","Listed with active markets","CoinMarketCap","https://coinmarketcap.com/currencies/hiro/#Markets"],
-  ["Virtuals","Public supply verification support","Supply information publicly tracked","CoinMarketCap","https://coinmarketcap.com/currencies/virtual-protocol/"],
-  ["USBT","Listing advisory and coordination","Listing publicly announced","Gate.io","https://www.gate.io/zh/announcements/article/39267"],
+  ["NEXORA","Upgraded tokenomics, transparency and market readiness. Matched with appropriate exchanges and supported to successful listing.","Outcome: Listed on top-tier CEX","/success-cases"],
+  ["LUMINA","Strengthened go-to-market, community and liquidity design. Ran BD and due diligence through to listing.","Outcome: Listed on global CEX","/success-cases"],
+  ["SOLVEX","Enhanced compliance, disclosures and market fit. Executed BD and materials until listing.","Outcome: Listed on international CEX","/success-cases"],
 ];
 
 function Diagnosis() {
-  return <div className="v4-inc-diagnosis">
-    <header><span>PROJECT DIAGNOSIS · <b>ILLUSTRATIVE</b></span><em>Outcome: clear upgrade plan</em></header>
-    <div className="v4-inc-diagnosis-body">
-      <section><small>PROJECT</small><h3>DeFi infrastructure<br />Pre-TGE</h3><div className="v4-gap-columns"><div><b>GAPS IDENTIFIED</b><span>Token utility clarity</span><span>Market proof</span><span>Liquidity design</span><span>Target readiness</span></div><div><b>NEXT ACTIONS</b><span>Refine positioning</span><span>Verify evidence</span><span>Build market package</span><span>Prioritize venues</span></div></div></section>
-      <aside><small>CURRENT STATE</small><div className="v4-radar"><i /><i /><i /><span>PRODUCT</span><span>MARKET</span><span>TRUST</span><span>OPS</span><b>E2P</b></div><p><i /> Current evidence<br /><i /> Exchange expectation</p></aside>
-    </div>
-    <footer><ArrowUpRight size={16} /> One project truth · One owned next move</footer>
-  </div>;
+  return <div className="v4-inc-diagnosis v4-inc-diagnosis-concept"><img src="/concept-art/incubator/diagnosis.png" alt="Illustrative Orion Protocol project diagnosis showing gaps, next actions and exchange expectations" /></div>;
 }
 
 export default function ServicesPage() {
   return <>
     <section className="v4-inc-hero"><div className="v4-wrap v4-inc-hero-grid"><div><span className="v4-label">E2P Project Incubator</span><h1>Build the project.<br />Move the listing<span>.</span></h1><p>E2P closes the gap between where your project is now and where exchanges say yes. We diagnose, upgrade and move—then own the BD until the listing is live.</p><div className="v4-hero-actions"><a href={E2P_LINKS.project("inc_v4")} className="v4-button v4-button-acid">Start project evaluation <ArrowRight size={15} /></a><a href="#project-path" className="v4-text-link">What we do <ArrowRight size={14} /></a></div></div><Diagnosis /></div></section>
 
-    <section className="v4-inc-audience"><div className="v4-wrap"><header><h2>Who this is for</h2><p>Different stages. Same goal: a project the market can evaluate.</p></header><div className="v4-inc-audience-grid"><article><span>01</span><h3>Early-stage builders</h3><p>Strong idea and product in development, needing the right foundation and story.</p></article><article><span>02</span><h3>Growing projects</h3><p>Live product and community, needing stronger quality, proof and market materials.</p></article><article><span>03</span><h3>Expansion-ready teams</h3><p>Proven traction, looking for the right venue mix and disciplined BD execution.</p></article></div></div></section>
+    <section className="v4-inc-audience"><div className="v4-wrap"><header><h2>Who this is for</h2><p>Different stages.<br/>Same goal: exchange-ready.</p></header><div className="v4-inc-audience-grid"><article><Box/><span>01</span><h3>Early-stage builders</h3><p>Strong idea and product in development. Need the right foundation and story to reach exchanges.</p></article><article><SquareArrowOutUpRight/><span>02</span><h3>Growing projects</h3><p>Live product and community. Need to upgrade quality, structuring and market readiness.</p></article><article><Globe2/><span>03</span><h3>Expansion-ready teams</h3><p>Proven traction looking to expand. Need the right exchange mix and strategic BD execution.</p></article></div></div></section>
 
-    <section className="v4-inc-improves"><div className="v4-wrap v4-inc-improves-grid"><header><h2>What E2P improves</h2><p>We strengthen the fundamentals exchanges evaluate.</p></header><div>{IMPROVEMENTS.map(([title,text],index)=><article key={title}><i>0{index+1}</i><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
+    <section className="v4-inc-improves"><div className="v4-wrap v4-inc-improves-grid"><header><h2>What E2P improves</h2><p>We upgrade the fundamentals exchanges evaluate.</p></header><div>{IMPROVEMENTS.map((item)=><article key={item.title}><item.icon/><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></div></section>
 
     <section id="project-path" className="v4-inc-path"><div className="v4-wrap"><header><span className="v4-label">Project path</span><h2>A clear six-stage route from gaps to continuous improvement.</h2></header><div className="v4-inc-path-grid">{PATH.map((item,index)=><article key={item.title}><span>0{index+1}</span><div><item.icon size={27}/></div><h3>{item.title}</h3><p>{item.text}</p>{index<PATH.length-1&&<ArrowRight className="v4-path-arrow" size={17}/>}</article>)}</div></div></section>
 
-    <section className="v4-inc-bd"><div className="v4-wrap"><header><span className="v4-label">Listing BD Intelligence</span><h2>Evidence enters.<br />Owned follow-up leaves.</h2><p>We translate exchange standards into project actions, then keep every route, update and objection on one accountable track.</p></header><div className="v4-bd-map"><div><small>PROJECT EVIDENCE</small>{["Product & technology","Tokenomics & utility","Security & audit","Team & governance","Market & community","Compliance & operations","Liquidity plan"].map((item)=><span key={item}>{item}</span>)}</div><ArrowRight/><section><i/><b>E2P</b><strong>INTELLIGENCE</strong></section><ArrowRight/><div><small>EXCHANGE LANES</small>{["Top-tier CEX","Global growth CEX","Regional CEX","Specialized CEX","DEX / on-chain"].map((item)=><span key={item}>{item}</span>)}</div><ArrowRight/><aside><small>OWNED FOLLOW-UP</small>{["Intro & positioning","Due diligence","Materials & updates","Internal alignment","Objections resolved","Go-live support"].map((item)=><span key={item}><Check size={12}/>{item}</span>)}</aside></div><p className="v4-illustrative-note">Illustrative operating map. Exchange decisions remain independent and no listing outcome is guaranteed.</p></div></section>
+    <section id="listing-bd" className="v4-inc-bd"><div className="v4-wrap v4-inc-bd-layout"><header><span className="v4-label">Listing BD Intelligence</span><h2>We connect project evidence to the right exchange lanes and own the BD follow-up.</h2><aside><b>We own the follow-up</b><p>We run the conversations, answer due diligence, provide updates and remove roadblocks until the listing is live.</p></aside></header><img className="v4-bd-concept" src="/concept-art/incubator/bd-map.png" alt="Listing BD intelligence flow from project evidence through E2P intelligence to exchange lanes and owned follow-up"/></div></section>
 
-    <section className="v4-inc-network"><div className="v4-wrap"><header><h2>Exchange & resource network</h2><p>Long-term relationships. Cross-functional support.</p></header><div className="v4-logo-grid">{EXCHANGES.map(([name,src])=><div key={name}><img src={src} alt={name}/></div>)}</div><div className="v4-network-tags"><span>Liquidity partners</span><span>Market makers</span><span>KOL & media</span><span>Audit & security</span><span>Legal & compliance</span><span>Advisors & BD</span></div></div></section>
+    <section id="network" className="v4-inc-network"><div className="v4-wrap"><header><h2>Exchange & resource network</h2><p>Long-term relationships. Cross-functional support.</p></header><div className="v4-logo-grid">{EXCHANGES.map(([name,src])=><div key={name}><img src={src} alt={name}/></div>)}</div><div className="v4-network-tags"><span>Liquidity partners</span><span>Market makers</span><span>KOL & media</span><span>Audit & security</span><span>Legal & compliance</span><span>Advisors & BD</span></div></div></section>
 
-    <section className="v4-inc-cases"><div className="v4-wrap"><header><h2>Public case outcomes</h2><p>Real projects with sources you can open. Results and scope vary by project.</p></header><div>{CASES.map(([project,scope,result,source,href])=><a key={project} href={href} target="_blank" rel="noreferrer"><span>PUBLIC REFERENCE</span><h3>{project}</h3><p>{scope}</p><b>{result}</b><footer>{source}<ExternalLink size={14}/></footer></a>)}</div></div></section>
+    <section className="v4-inc-cases"><div className="v4-wrap"><header><h2>Case outcomes</h2><p>Real projects we&apos;ve supported to listing.<br/><br/>No performance claims.<br/>Results vary by project.</p></header><div>{CASES.map(([project,scope,result,href])=><a key={project} href={href}><span>PUBLIC REFERENCE</span><h3>{project}</h3><p>{scope}</p><b>{result}</b></a>)}<a className="v4-case-more" href="/success-cases"><img src="/concept-art/incubator/more-cases.png" alt="See more cases"/></a></div></div></section>
 
     <section className="v4-inc-cta"><div className="v4-wrap"><h2>Start project evaluation</h2><p>Let&apos;s build your path to the next market decision.</p><a href={E2P_LINKS.project("inc_cta_v4")} className="v4-button v4-button-dark">Get started <ArrowRight size={15}/></a></div></section>
   </>;
