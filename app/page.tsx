@@ -61,13 +61,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="network" className="v4-home-proof-strip">
-        <div className="v4-wrap">
-          <div><strong>Project readiness, creator campaigns and bounded AI trading.</strong></div>
-          <span><b>04</b> Public project cases</span><span><b>114</b> KOL resource records</span><span><b>194</b> Channel profiles</span><span><b>07</b> Agent decision stages</span>
-        </div>
-      </section>
-
       <section id="how-it-works" className="v4-home-flow">
         <div className="v4-wrap v4-home-flow-grid">
           <header><span className="v4-label">How E2P works</span><h2>From idea to<br />market intelligence<span>.</span></h2></header>
